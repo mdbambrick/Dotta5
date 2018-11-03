@@ -1,0 +1,50 @@
+<wm-page data-ng-controller="AllergySet_MetalsPageController" pagetitle="Allergy Set Metals" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow1" padding="unset unset 1em unset">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn1" horizontalalign="center">
+                        <wm-label padding="unset 0.5em" name="label1" caption="Metals" fontsize="3" fontweight="bold" textalign="center" fontunit="em" margin="0.5em unset"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow4" padding="unset unset 1em unset">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn9">
+                        <wm-composite name="composite1" width="90%">
+                            <wm-label class="col-md-6 control-label" caption="Nickel" fontsize="20" on-click="Actions.goToPage_Symptoms.invoke()" name="label2"></wm-label>
+                            <wm-container class="col-md-6" name="container1">
+                                <wm-switch datavalue="no" name="nickel_switch" on-click="nickel_switchClick($event, $scope)"></wm-switch>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn11">
+                        <wm-composite name="composite2" width="90%">
+                            <wm-label class="col-md-6 control-label" caption="Cobalt" fontsize="20" on-click="Actions.goToPage_Symptoms.invoke()" name="label3"></wm-label>
+                            <wm-container class="col-md-6" name="container2">
+                                <wm-switch datavalue="no" name="cobalt_switch" on-click="cobalt_switchClick($event, $scope)"></wm-switch>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow3" padding="unset unset 1em unset">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn6">
+                        <wm-composite name="composite3" width="90%">
+                            <wm-label class="col-md-6 control-label" caption="Chromium" fontsize="20" on-click="Actions.goToPage_Symptoms.invoke()" name="label4"></wm-label>
+                            <wm-container class="col-md-6" name="container3">
+                                <wm-switch datavalue="no" name="chromium_switch" on-click="chromium_switchClick($event, $scope)"></wm-switch>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn8" horizontalalign="center"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow4_1" padding="unset unset 1em unset">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn6_1" horizontalalign="center">
+                        <wm-button class="btn-success btn-lg btn-rounded" caption="done" type="button" margin="0.5em" fontweight="bold" on-click="Actions.goToPage_Allergy_Food.invoke()" name="button1" fontsize="2" fontunit="em" textalign="center"></wm-button>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+</wm-page>

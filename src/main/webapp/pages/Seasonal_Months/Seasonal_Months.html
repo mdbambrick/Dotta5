@@ -1,0 +1,77 @@
+<wm-partial data-ng-controller="Seasonal_MonthsPageController" name="partial1">
+    <wm-layoutgrid name="layoutgrid1">
+        <wm-gridrow name="gridrow1">
+            <wm-gridcolumn columnwidth="12" name="gridcolumn1">
+                <wm-label padding="unset 0.5em" name="label1" width="100%" margin="15px unset" caption="Select months with peak symptoms:" fontweight="bold" textalign="center" fontsize="15"></wm-label>
+            </wm-gridcolumn>
+        </wm-gridrow>
+        <wm-gridrow name="gridrow2">
+            <wm-gridcolumn columnwidth="4" name="gridcolumn3" horizontalalign="center">
+                <wm-composite name="composite1" horizontalalign="left">
+                    <wm-checkbox caption="January" class="col-md-push-3 col-md-9" on-change="checkbox_janChange($event, $scope, newVal, oldVal)" datavalue="false" checkedvalue="true" uncheckedvalue="false" name="checkbox_jan" margin="unset unset unset 25px"></wm-checkbox>
+                </wm-composite>
+            </wm-gridcolumn>
+            <wm-gridcolumn columnwidth="4" name="gridcolumn5" horizontalalign="center">
+                <wm-composite name="composite2" horizontalalign="left">
+                    <wm-checkbox caption="February" class="col-md-push-3 col-md-9" on-change="checkbox_febChange($event, $scope, newVal, oldVal)" datavalue="false" checkedvalue="true" uncheckedvalue="false" name="checkbox_feb" margin="unset unset unset 25px"></wm-checkbox>
+                </wm-composite>
+            </wm-gridcolumn>
+            <wm-gridcolumn columnwidth="4" name="gridcolumn4" horizontalalign="center">
+                <wm-composite name="composite3" horizontalalign="left">
+                    <wm-checkbox caption="March" class="col-md-push-3 col-md-9" on-change="checkbox_marChange($event, $scope, newVal, oldVal)" datavalue="false" checkedvalue="true" uncheckedvalue="false" name="checkbox_mar" margin="unset unset unset 25px"></wm-checkbox>
+                </wm-composite>
+            </wm-gridcolumn>
+        </wm-gridrow>
+        <wm-gridrow name="gridrow7">
+            <wm-gridcolumn columnwidth="4" name="gridcolumn23" horizontalalign="left">
+                <wm-composite name="composite5">
+                    <wm-checkbox caption="April" class="col-md-push-3 col-md-9" on-change="checkbox_aprChange($event, $scope, newVal, oldVal)" datavalue="false" checkedvalue="true" uncheckedvalue="false" name="checkbox_apr" margin="unset unset unset 25px"></wm-checkbox>
+                </wm-composite>
+            </wm-gridcolumn>
+            <wm-gridcolumn columnwidth="4" name="gridcolumn24" horizontalalign="left">
+                <wm-composite name="composite6">
+                    <wm-checkbox caption="May" class="col-md-push-3 col-md-9" on-change="checkbox_mayChange($event, $scope, newVal, oldVal)" datavalue="false" checkedvalue="true" uncheckedvalue="false" name="checkbox_may" margin="unset unset unset 25px"></wm-checkbox>
+                </wm-composite>
+            </wm-gridcolumn>
+            <wm-gridcolumn columnwidth="4" name="gridcolumn25" horizontalalign="center">
+                <wm-composite name="composite7" horizontalalign="left">
+                    <wm-checkbox caption="June" class="col-md-push-3 col-md-9" on-change="checkbox_junChange($event, $scope, newVal, oldVal)" datavalue="false" checkedvalue="true" uncheckedvalue="false" name="checkbox_jun" margin="unset unset unset 25px"></wm-checkbox>
+                </wm-composite>
+            </wm-gridcolumn>
+        </wm-gridrow>
+        <wm-gridrow name="gridrow8">
+            <wm-gridcolumn columnwidth="4" name="gridcolumn27" horizontalalign="left">
+                <wm-composite name="composite8">
+                    <wm-checkbox caption="July" class="col-md-push-3 col-md-9" on-change="checkbox_julChange($event, $scope, newVal, oldVal)" datavalue="false" checkedvalue="true" uncheckedvalue="false" name="checkbox_jul" margin="unset unset unset 25px"></wm-checkbox>
+                </wm-composite>
+            </wm-gridcolumn>
+            <wm-gridcolumn columnwidth="4" name="gridcolumn28" horizontalalign="left">
+                <wm-composite name="composite9">
+                    <wm-checkbox caption="August" class="col-md-push-3 col-md-9" on-change="checkbox_augChange($event, $scope, newVal, oldVal)" datavalue="false" checkedvalue="true" uncheckedvalue="false" name="checkbox_aug" margin="unset unset unset 25px"></wm-checkbox>
+                </wm-composite>
+            </wm-gridcolumn>
+            <wm-gridcolumn columnwidth="4" name="gridcolumn29" horizontalalign="center">
+                <wm-composite name="composite10" horizontalalign="left">
+                    <wm-checkbox caption="September" class="col-md-push-3 col-md-9" on-change="checkbox_sepChange($event, $scope, newVal, oldVal)" datavalue="false" checkedvalue="true" uncheckedvalue="false" name="checkbox_sep" margin="unset unset unset 25px"></wm-checkbox>
+                </wm-composite>
+            </wm-gridcolumn>
+        </wm-gridrow>
+        <wm-gridrow name="gridrow9">
+            <wm-gridcolumn columnwidth="4" name="gridcolumn30" horizontalalign="left">
+                <wm-composite name="composite11">
+                    <wm-checkbox caption="October" class="col-md-push-3 col-md-9" on-change="checkbox_octChange($event, $scope, newVal, oldVal)" datavalue="false" checkedvalue="true" uncheckedvalue="false" name="checkbox_oct" margin="unset unset unset 25px"></wm-checkbox>
+                </wm-composite>
+            </wm-gridcolumn>
+            <wm-gridcolumn columnwidth="4" name="gridcolumn31">
+                <wm-composite name="composite12" horizontalalign="left">
+                    <wm-checkbox caption="November" class="col-md-push-3 col-md-9" on-change="checkbox_novChange($event, $scope, newVal, oldVal)" datavalue="false" checkedvalue="true" uncheckedvalue="false" name="checkbox_nov" margin="unset unset unset 25px"></wm-checkbox>
+                </wm-composite>
+            </wm-gridcolumn>
+            <wm-gridcolumn columnwidth="4" name="gridcolumn32" horizontalalign="left">
+                <wm-composite name="composite13">
+                    <wm-checkbox caption="December" class="col-md-push-3 col-md-9" on-change="checkbox_decChange($event, $scope, newVal, oldVal)" datavalue="false" checkedvalue="true" uncheckedvalue="false" name="checkbox_dec" margin="unset unset unset 25px"></wm-checkbox>
+                </wm-composite>
+            </wm-gridcolumn>
+        </wm-gridrow>
+    </wm-layoutgrid>
+</wm-partial>

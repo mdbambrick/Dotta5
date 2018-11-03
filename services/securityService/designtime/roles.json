@@ -1,0 +1,37 @@
+[ {
+  "name" : "admin",
+  "description" : null,
+  "roleConfig" : {
+    "landingPage" : "Main"
+  }
+}, {
+  "name" : "patient",
+  "description" : null,
+  "roleConfig" : {
+    "landingPage" : "Dash_Patient"
+  }
+}, {
+  "name" : "parent/guardian",
+  "description" : null,
+  "roleConfig" : {
+    "landingPage" : "Main"
+  }
+}, {
+  "name" : "clinician",
+  "description" : null,
+  "roleConfig" : {
+    "landingPage" : "Dash_Clinician"
+  }
+}, {
+  "name" : "other e.g. trusted friend",
+  "description" : null,
+  "roleConfig" : {
+    "landingPage" : "Main"
+  }
+}, {
+  "name" : "specialist",
+  "description" : null,
+  "roleConfig" : {
+    "landingPage" : "Dash_Clinician"
+  }
+} ]

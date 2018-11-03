@@ -1,0 +1,46 @@
+<wm-page data-ng-controller="Dash_ClinicianPageController" pagetitle="Patients" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow1">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn1" horizontalalign="center">
+                        <wm-label padding="unset 0.5em" name="label1" caption="Clinician ID" fontunit="em" fontsize="3"></wm-label>
+                        <wm-label padding="unset 0.5em" name="label2" caption="bind:Variables.loggedInUser.dataSet.name" fontunit="em" fontsize="3" fontweight="bold"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn2" horizontalalign="center">
+                        <wm-label padding="unset 0.5em" caption="Today's Acceptance Code" fontunit="em" fontsize="2" name="label4"></wm-label>
+                        <wm-label padding="unset 0.5em" caption="bind:Variables.sharingCode.firstRecord.sharingCode" fontunit="em" fontsize="3" fontweight="bold" name="label5"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow3">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn5">
+                        <wm-label padding="unset 0.5em" caption="Scheduled Patients" fontunit="em" fontsize="3" name="label6" margin="30px unset unset unset"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn6"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow4">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn7" horizontalalign="center">
+                        <wm-table name="executeMedicsWithPatientsTable1" title="" dataset="bind:Variables.MedicsWithPatients.dataSet" navigation="Basic" on-rowclick="Actions.goToPage_patient_symptoms.invoke()" spacing="normal" showrecordcount="true">
+                            <wm-table-column binding="title" caption="Title" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                            <wm-table-column binding="firstName" caption="First Name" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                            <wm-table-column binding="lastName" caption="Last Name" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                            <wm-table-column binding="dateOfBirth" caption="Date Of Birth" edit-widget-type="text" type="string" datepattern="yyyy-MM-dd" formatpattern="toDate" show="true" readonly="false"></wm-table-column>
+                            <wm-table-column binding="address1" caption="Address1" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                            <wm-table-column binding="address2" caption="Address2" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                            <wm-table-column binding="address3" caption="Address3" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                            <wm-table-column binding="healthNumber" caption="Health Number" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                            <wm-table-column binding="postcode" caption="Postcode" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                        </wm-table>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow2">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn3"></wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn4"></wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+</wm-page>

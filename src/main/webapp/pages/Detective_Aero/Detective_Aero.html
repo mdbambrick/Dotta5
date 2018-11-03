@@ -1,0 +1,37 @@
+<wm-partial data-ng-controller="Detective_AeroPageController" name="partial1">
+    <wm-layoutgrid name="layoutgrid1">
+        <wm-gridrow name="gridrow1">
+            <wm-gridcolumn columnwidth="12" name="gridcolumn1" horizontalalign="center">
+                <wm-label padding="unset 0.5em" name="label1" caption="Sniff out those pesky aero-allergens" fontsize="15" fontweight="bold" textalign="center" width="100%"></wm-label>
+                <wm-label padding="unset 0.5em" name="label10_1" width="100%" caption="&quot;the answer my friend is blowin' in the wind&quot;" fontstyle="italic" fontsize="10"></wm-label>
+            </wm-gridcolumn>
+        </wm-gridrow>
+        <wm-gridrow name="gridrow3">
+            <wm-gridcolumn columnwidth="6" name="gridcolumn5"></wm-gridcolumn>
+        </wm-gridrow>
+        <wm-gridrow name="gridrow2">
+            <wm-gridcolumn columnwidth="6" name="gridcolumn3"></wm-gridcolumn>
+            <wm-gridcolumn columnwidth="6" name="gridcolumn4"></wm-gridcolumn>
+        </wm-gridrow>
+    </wm-layoutgrid>
+    <wm-wizard stepstyle="justified" name="Aero_wizard" horizontalalign="left" class="custom">
+        <wm-wizardstep name="wizardstep1" title="Select Event or Season">
+            <wm-label padding="unset 0.5em" name="label17" caption="If seasonal, the allergy is likely a pollen. Even if continuous, select a peak reaction period to analyse." fontweight="bold"></wm-label>
+            <wm-text width="100%" name="text2" placeholder="Note locations/times of peak symptoms"></wm-text>
+        </wm-wizardstep>
+        <wm-wizardstep name="wizardstep2" title="Identify Suspect Aero-Allergens">
+            <wm-label padding="unset 0.5em" name="label11" caption="Think carefully about peak symptom location/season. Try to figure out the cause. E.g. focused around summer – pollen(s); visited home with pet – dog/cat etc; cold damp room – mould; dusty old house – housedust."
+                fontweight="bold"></wm-label>
+            <wm-text width="100%" name="text3" placeholder="Enter suspect aero-allergen(s)"></wm-text>
+        </wm-wizardstep>
+        <wm-wizardstep name="wizardstep6" title="Review Family History">
+            <wm-label padding="unset 0.5em" name="label15" caption="Have other family members previously had a positive test for aero-allergens? This could be a useful clue to the environmental and genetic factors. Consider revising your selection based on this information."
+                fontweight="bold"></wm-label>
+            <wm-text width="100%" name="text7" placeholder="Add to aero-allergen suspect list?"></wm-text>
+        </wm-wizardstep>
+        <wm-wizardstep name="wizardstep5" title="Record Symptoms">
+            <wm-label padding="unset 0.5em" name="label14" caption="You will be prompted to input your symptoms in a structured input form for each aero-allergen, but first why not make notes of your experience?" fontweight="bold"></wm-label>
+            <wm-text width="100%" name="text6" placeholder="Main symptoms, duration, speed of onset, etc"></wm-text>
+        </wm-wizardstep>
+    </wm-wizard>
+</wm-partial>

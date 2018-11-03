@@ -1,0 +1,40 @@
+<wm-page data-ng-controller="Clinician_AddPageController" pagetitle="Clinician Add" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-page-content columnwidth="12" name="page_content1">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow5">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn7_1">
+                        <wm-livefilter name="UsersFilter1" title="ADD A CLINICIAN" dataset="bind:Variables.readUsers.dataSet" captionalign="left" captionposition="top">
+                            <wm-layoutgrid columns="1" name="layoutgrid2">
+                                <wm-gridrow name="gridrow4_1">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn4">
+                                        <wm-filter-field name="sharingCode" field="sharingCode" displayname="Clinician Code" widget="number" is-range="false" type="integer" is-primary-key="false" generator="assigned" show="true" placeholder="Enter code supplied by clinician"
+                                            inputtype="number" key="sharingCode"></wm-filter-field>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                            <wm-filter-action key="filter" display-name="search" show="true" class="btn-primary" iconclass="wi wi-filter-list" title="Filter" action="filter();filterAction($event)" disabled="false" type="button"></wm-filter-action>
+                            <wm-filter-action key="clear" display-name="Clear" show="true" class="btn-secondary" iconclass="wi wi-cancel" title="Clear" action="clearFilter();clearAction($event)" disabled="false" type="button"></wm-filter-action>
+                        </wm-livefilter>
+                        <wm-table name="Table1" title="" dataset="bind:Widgets.UsersFilter1.result" navigation="Basic" show="false" nodatamessage="Clinician not found, Please check code">
+                            <wm-table-column binding="title" caption="Title" edit-widget-type="text" type="text" generator="assigned" show="true" readonly="false"></wm-table-column>
+                            <wm-table-column binding="firstName" caption="First Name" edit-widget-type="text" type="text" generator="assigned" show="true" readonly="false"></wm-table-column>
+                            <wm-table-column binding="lastName" caption="Last Name" edit-widget-type="text" type="text" generator="assigned" show="true" readonly="false"></wm-table-column>
+                            <wm-table-action key="customButton1" display-name="Add Clinician" show="true" class="btn-secondary" iconclass="" title="Add Clinician" action="customButton1Action($event)" shortcutkey="" disabled="false" widget-type="button"></wm-table-action>
+                        </wm-table>
+                        <wm-table name="executePatientMedicsTable1" title="" dataset="bind:Variables.PatientMedics.dataSet" navigation="Basic" show="false">
+                            <wm-table-column binding="userId" caption="User Id" edit-widget-type="number" type="integer" show="true" readonly="false"></wm-table-column>
+                            <wm-table-column binding="patientId" caption="Patient Id" edit-widget-type="number" type="integer" show="true" readonly="false"></wm-table-column>
+                            <wm-table-column binding="title" caption="Title" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                            <wm-table-column binding="firstName" caption="First Name" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                            <wm-table-column binding="lastName" caption="Last Name" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                        </wm-table>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+            <wm-message name="message1" show="false"></wm-message>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+</wm-page>

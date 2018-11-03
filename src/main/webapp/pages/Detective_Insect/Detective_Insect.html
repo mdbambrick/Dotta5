@@ -1,0 +1,32 @@
+<wm-partial data-ng-controller="Detective_InsectPageController" name="partial1">
+    <wm-layoutgrid name="layoutgrid1">
+        <wm-gridrow name="gridrow1">
+            <wm-gridcolumn columnwidth="12" name="gridcolumn1" horizontalalign="center">
+                <wm-label padding="unset 0.5em" name="label1" caption="A quick guide to insect allergy detection" fontsize="15" fontweight="bold" textalign="center" width="100%"></wm-label>
+                <wm-label padding="unset 0.5em" name="label10_1" width="100%" caption="Distinguish between the normal reaction to insect bites and stings (pain, swelling redness round site) and allergic responses." fontstyle="italic" fontsize="10"></wm-label>
+            </wm-gridcolumn>
+        </wm-gridrow>
+        <wm-gridrow name="gridrow3">
+            <wm-gridcolumn columnwidth="6" name="gridcolumn5"></wm-gridcolumn>
+        </wm-gridrow>
+        <wm-gridrow name="gridrow2">
+            <wm-gridcolumn columnwidth="6" name="gridcolumn3"></wm-gridcolumn>
+            <wm-gridcolumn columnwidth="6" name="gridcolumn4"></wm-gridcolumn>
+        </wm-gridrow>
+    </wm-layoutgrid>
+    <wm-wizard stepstyle="justified" name="Food_wizard" horizontalalign="left">
+        <wm-wizardstep name="wizardstep1" title="Select Episode">
+            <wm-label padding="unset 0.5em" name="label17" caption="Recently had serious allergic reaction to an insect sting, such as breathing difficulty, dizziness or swollen face or mouth? Or a large localised reaction, such as swelling, itching and rash, lasting up to a week?"
+                fontweight="bold"></wm-label>
+            <wm-text width="100%" name="text2" placeholder="Note episode location/date (repeat as needed)"></wm-text>
+        </wm-wizardstep>
+        <wm-wizardstep name="wizardstep2" title="Identify Insect">
+            <wm-label padding="unset 0.5em" name="label11" caption="Allergic reactions can be caused by stings from bees, wasps &amp; hornets or bites from spiders, mosquitoes, fleas, bedbugs, mites &amp; ticks." fontweight="bold"></wm-label>
+            <wm-text width="100%" name="text3" placeholder="What insect was it?"></wm-text>
+        </wm-wizardstep>
+        <wm-wizardstep name="wizardstep5" title="Record Symptoms">
+            <wm-label padding="unset 0.5em" name="label14" caption="You will be prompted to input your symptoms in a structured input for each insect, but first why not make notes for yourself of what you experienced?" fontweight="bold"></wm-label>
+            <wm-text width="100%" name="text6" placeholder="Note main symptoms, duration, speed of onset, etc"></wm-text>
+        </wm-wizardstep>
+    </wm-wizard>
+</wm-partial>

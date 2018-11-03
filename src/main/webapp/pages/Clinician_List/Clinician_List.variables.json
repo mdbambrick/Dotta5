@@ -1,0 +1,55 @@
+{
+  "executeListCliniciansforPatient" : {
+    "_id" : "wm-executeListCliniciansforPatient-wm.ServiceVariable-1540984116407",
+    "name" : "executeListCliniciansforPatient",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "id",
+      "value" : "bind:Variables.patient.dataSet.dataValue",
+      "type" : "integer"
+    } ],
+    "type" : "com.dotta.medidata.models.query.ListCliniciansforPatientResponse",
+    "service" : "medidata",
+    "operation" : "executeListCliniciansforPatient",
+    "operationId" : "QueryExecutionController_executeListCliniciansforPatient",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : true,
+    "maxResults" : 20,
+    "startUpdate" : false,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "QueryExecution"
+  },
+  "MedidataExecuteListCliniciansforPatient" : {
+    "_id" : "wm-MedidataExecuteListCliniciansforPatient-wm.ServiceVariable-1540983942655",
+    "name" : "MedidataExecuteListCliniciansforPatient",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "id",
+      "value" : "bind:Variables.patient.dataSet.dataValue",
+      "type" : "integer"
+    } ],
+    "type" : "com.dotta.medidata.models.query.ListCliniciansforPatientResponse",
+    "service" : "medidata",
+    "operation" : "executeListCliniciansforPatient",
+    "operationId" : "QueryExecutionController_executeListCliniciansforPatient",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : true,
+    "maxResults" : 20,
+    "startUpdate" : false,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "isDefault" : true,
+    "controller" : "QueryExecution"
+  }
+}

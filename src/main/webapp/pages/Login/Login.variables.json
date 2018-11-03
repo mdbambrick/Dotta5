@@ -1,0 +1,32 @@
+{
+  "UpdatePWD" : {
+    "_id" : "wm-executeForgotPassword-wm.ServiceVariable-1538483997584",
+    "name" : "UpdatePWD",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "name",
+      "value" : "bind:Widgets.text3.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "pwd",
+      "value" : "bind:Widgets.text5.datavalue",
+      "type" : "string"
+    } ],
+    "type" : "com.wavemaker.commons.wrapper.IntegerWrapper",
+    "service" : "medidata",
+    "operation" : "executeForgotPassword",
+    "operationId" : "QueryExecutionController_executeForgotPassword",
+    "operationType" : "put",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : false,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "QueryExecution"
+  }
+}

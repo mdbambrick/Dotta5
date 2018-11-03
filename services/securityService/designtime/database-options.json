@@ -1,0 +1,19 @@
+{
+  "modelName" : "medidata",
+  "entityName" : "Users",
+  "tableName" : "users",
+  "unamePropertyName" : "username",
+  "unameColumnName" : "username",
+  "uidPropertyName" : "id",
+  "uidColumnName" : "id",
+  "pwPropertyName" : "password",
+  "pwColumnName" : "password",
+  "rolePropertyName" : "",
+  "roleColumnName" : "",
+  "useRolesQuery" : true,
+  "rolesByUsernameQuery" : "select ut.role from users u, user_types ut where u.username=:LOGGED_IN_USERNAME and u.user_type = ut.id\r\n",
+  "tenantIdField" : null,
+  "defTenantId" : 0,
+  "tenantIdPropertyName" : null,
+  "queryType" : "NATIVE_SQL"
+}

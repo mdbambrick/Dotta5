@@ -1,0 +1,52 @@
+<wm-page data-ng-controller="Dash_PatientPageController" pagetitle="Dash Patient" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1">
+            <wm-table name="TrackReadTable_Dash" title="" dataset="bind:Variables.TrackRead.dataSet" navigation="Basic" on-datarender="TrackReadTable_DashDatarender($scope, $data)" show="false">
+                <wm-table-column binding="firstName" caption="First Name" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                <wm-table-column binding="lastName" caption="Last Name" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                <wm-table-column binding="patientId" caption="Patient Id" edit-widget-type="number" type="integer" show="true" readonly="false"></wm-table-column>
+                <wm-table-column binding="sessionId" caption="Session Id" edit-widget-type="number" type="integer" show="true" readonly="false"></wm-table-column>
+                <wm-table-column binding="userType" caption="User Type" edit-widget-type="number" type="integer" show="true" readonly="false"></wm-table-column>
+                <wm-table-column binding="userId" caption="User Id" edit-widget-type="number" type="integer" show="true" readonly="false"></wm-table-column>
+            </wm-table>
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow5">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn5" horizontalalign="center">
+                        <wm-button class="btn-default" caption="Getting Started" type="button" margin="2em unset" textalign="center" fontweight="bold" on-click="Actions.goToPage_getting_started.invoke()" iconposition="left" backgroundcolor="#20b3c0" fontunit="em"
+                            padding="1em unset" width="22em" height="5em" name="button4" iconclass="wi wi-smiley-happy"></wm-button>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow3">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn4" horizontalalign="center">
+                        <wm-button class="btn-default" caption="Registration Data" type="button" margin="2em unset" textalign="center" fontweight="bold" name="registration_button" on-click="Actions.goToPage_Patient_Identification.invoke();registration_buttonClick($event, $scope)"
+                            backgroundcolor="#20b3c0" fontunit="em" padding="1em unset" width="22em" height="5em" iconclass="fa fa-bank"></wm-button>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow8" height="20%">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn27" horizontalalign="center">
+                        <wm-button class="btn-default" caption="Medical History" type="button" margin="2em unset" textalign="center" fontweight="bold" name="medicalHistoryButton" on-click="Actions.goToPage_MedicalHistory.invoke()" backgroundcolor="#20b3c0"
+                            fontunit="em" padding="1em unset" width="22em" height="5em" iconclass="fa fa-bed"></wm-button>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow1">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn12" horizontalalign="center">
+                        <wm-button class="btn-default" caption="Allergy Questionnaire" type="button" margin="2em unset" name="button1" textalign="center" fontweight="bold" on-click="Actions.goToPage_Dash_Allergy.invoke()" iconposition="left" backgroundcolor="#20b3c0"
+                            fontunit="em" padding="1em unset" width="22em" height="5em" iconclass="wi wi-done"></wm-button>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow4">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn4_1" horizontalalign="center">
+                        <wm-button class="btn-default" caption="what's next" type="button" margin="2em unset" textalign="center" fontweight="bold" on-click="Widgets.pagedialog1.open()" iconposition="left" backgroundcolor="#20b3c0" fontunit="em" padding="1em unset"
+                            width="22em" height="5em" iconclass="wi wi-skip-next" name="button5"></wm-button>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+    <wm-view class="dialog-view" name="view1">
+        <wm-pagedialog name="pagedialog1" title="What Next? Here's an outline of what's coming..." oktext="Got It" iconclass="wi wi-fast-play-forward" content="WhatNext"></wm-pagedialog>
+    </wm-view>
+</wm-page>

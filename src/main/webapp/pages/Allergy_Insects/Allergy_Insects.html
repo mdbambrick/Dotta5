@@ -1,0 +1,132 @@
+<wm-page data-ng-controller="Allergy_InsectsPageController" pagetitle="Allergy Set Insects" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow1">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn1" horizontalalign="center">
+                        <wm-label padding="unset 0.5em" name="label1" caption="Insects" fontsize="3" fontweight="bold" textalign="center" fontunit="em" margin="0.5em unset"></wm-label>
+                        <wm-button class="btn-success" caption="Insect Bites &amp; Stings Guide" type="button" margin="10px unset 20px unset" padding="10px unset" on-click="Widgets.pagedialog1.open()" width="100%" name="button2" iconclass="wi wi-bug-report"></wm-button>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow2" padding="unset unset 1em unset">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn3">
+                        <wm-composite name="composite8" width="90%">
+                            <wm-label class="col-md-6 control-label" caption="Ants" fontsize="20" on-click="Actions.goToPage_Symptoms.invoke()" name="label9"></wm-label>
+                            <wm-container class="col-md-6" name="container8">
+                                <wm-switch datavalue="no" on-click="ant_switchClick($event, $scope)" name="ant_switch"></wm-switch>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn4">
+                        <wm-composite name="composite6" width="90%">
+                            <wm-label class="col-md-6 control-label" caption="Bedbugs" fontsize="20" on-click="Actions.goToPage_Symptoms.invoke()" name="label7"></wm-label>
+                            <wm-container class="col-md-6" name="container6">
+                                <wm-switch datavalue="no" name="bedbug_switch" on-click="bedbug_switchClick($event, $scope)"></wm-switch>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow3" padding="unset unset 1em unset">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn6">
+                        <wm-composite name="composite3" width="90%">
+                            <wm-label class="col-md-6 control-label" caption="Bees" fontsize="20" on-click="Actions.goToPage_Symptoms.invoke()" name="label4"></wm-label>
+                            <wm-container class="col-md-6" name="container3">
+                                <wm-switch datavalue="no" name="bee_switch" on-click="bee_switchClick($event, $scope)"></wm-switch>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn8">
+                        <wm-composite name="composite4" width="90%">
+                            <wm-label class="col-md-6 control-label" caption="Fleas" fontsize="20" on-click="Actions.goToPage_Symptoms.invoke()" name="label5"></wm-label>
+                            <wm-container class="col-md-6" name="container4">
+                                <wm-switch datavalue="no" name="flea_switch" on-click="flea_switchClick($event, $scope)"></wm-switch>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow4" padding="unset unset 1em unset">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn9">
+                        <wm-composite name="composite5" width="90%">
+                            <wm-label class="col-md-6 control-label" caption="Horseflies" fontsize="20" on-click="Actions.goToPage_Symptoms.invoke()" name="label6"></wm-label>
+                            <wm-container class="col-md-6" name="container5">
+                                <wm-switch datavalue="no" name="horsefly_switch" on-click="horsefly_switchClick($event, $scope)"></wm-switch>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn11">
+                        <wm-composite name="composite2" width="90%">
+                            <wm-label class="col-md-6 control-label" caption="Mosquitoes" fontsize="20" on-click="Actions.goToPage_Symptoms.invoke()" name="label3"></wm-label>
+                            <wm-container class="col-md-6" name="container2">
+                                <wm-switch datavalue="no" name="mosquito_switch" on-click="mosquito_switchClick($event, $scope)"></wm-switch>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow5" padding="unset unset 1em unset">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn12">
+                        <wm-composite name="composite10" width="90%">
+                            <wm-label class="col-md-6 control-label" caption="Spiders" fontsize="20" on-click="Actions.goToPage_Symptoms.invoke()" name="label11"></wm-label>
+                            <wm-container class="col-md-6" name="container10">
+                                <wm-switch datavalue="no" on-click="spider_switchClick($event, $scope)" name="spider_switch"></wm-switch>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn14" horizontalalign="left">
+                        <wm-composite name="composite7" width="90%">
+                            <wm-label class="col-md-6 control-label" caption="Ticks" fontsize="20" on-click="Actions.goToPage_Symptoms.invoke()" name="label8"></wm-label>
+                            <wm-container class="col-md-6" name="container7">
+                                <wm-switch datavalue="no" name="tick_switch" on-click="tick_switchClick($event, $scope)"></wm-switch>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow6" padding="unset unset 1em unset">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn14_1" horizontalalign="left">
+                        <wm-composite name="composite1" horizontalalign="left" width="90%">
+                            <wm-label class="col-md-6 control-label" caption="Wasps" fontsize="20" width="50%" on-click="Actions.goToPage_Symptoms.invoke()" name="label2"></wm-label>
+                            <wm-container class="col-md-6" name="container1">
+                                <wm-switch datavalue="no" name="wasp_switch" on-click="wasp_switchClick($event, $scope)"></wm-switch>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn16">
+                        <wm-composite name="composite10_1" width="90%">
+                            <wm-label class="col-md-6 control-label" caption="Unknown/Other Insects" fontsize="20" on-click="Actions.goToPage_Symptoms.invoke()" name="label11_1"></wm-label>
+                            <wm-container class="col-md-6" name="container10_1">
+                                <wm-switch datavalue="no" on-click="unknown_insect_switchClick($event, $scope)" name="unknown_insect_switch"></wm-switch>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow7">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn17" horizontalalign="center">
+                        <wm-button class="btn-success btn-lg btn-rounded" caption="done" type="button" margin="0.5em" fontweight="bold" on-click="Widgets.dialog1.open()" name="button1" fontunit="em" fontsize="2"></wm-button>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+    <wm-view class="dialog-view" name="view1">
+        <wm-pagedialog name="pagedialog1" title="Guide to Insect Bites and Stings Allergy Selection" iconclass="wi wi-bug-report" content="Detective_Insect"></wm-pagedialog>
+    </wm-view>
+    <wm-view class="dialog-view" name="view2">
+        <wm-dialog dialogtype="design-dialog" modal="true" title="Information" iconclass="wi wi-file-text" name="dialog1">
+            <wm-layoutgrid name="layoutgrid2">
+                <wm-gridrow name="gridrow8">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn13" horizontalalign="center">
+                        <wm-label padding="unset 0.5em" name="label12" caption="Do you have any other Insect Sting allergies?" fontsize="2" fontunit="em"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow9"></wm-gridrow>
+            </wm-layoutgrid>
+            <wm-dialogactions name="dialogactions1">
+                <wm-button class="btn-primary" caption="I have recorded all my symptoms" on-click="Widgets.dialog1.close();Actions.goToPage_Dash_Allergy.invoke()" name="button3"></wm-button>
+                <wm-button class="btn-primary" caption="I'll add them now" type="button" margin="unset 0.5em" name="button4" on-click="Widgets.dialog1.close()"></wm-button>
+                <wm-button class="btn-primary" caption="I&quot;ll add them later" type="button" margin="unset 0.5em" name="button5" on-click="Widgets.dialog1.close();Actions.goToPage_Dash_Allergy.invoke()"></wm-button>
+            </wm-dialogactions>
+        </wm-dialog>
+    </wm-view>
+</wm-page>

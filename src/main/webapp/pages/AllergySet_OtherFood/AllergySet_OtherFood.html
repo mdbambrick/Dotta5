@@ -1,0 +1,102 @@
+<wm-page data-ng-controller="AllergySet_OtherFoodPageController" pagetitle="Allergy Set Nuts" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow1" padding="unset unset 1em unset">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn1" horizontalalign="center">
+                        <wm-label padding="unset 0.5em" name="label1" fontsize="3" fontweight="bold" textalign="center" caption="Other Foods" fontunit="em" margin="0.5em unset"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow2" padding="unset unset 1em unset">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn5">
+                        <wm-composite name="composite24" width="90%">
+                            <wm-label class="col-md-6 control-label" caption="Bean" fontsize="20" on-click="Actions.goToPage_Symptoms.invoke()" name="label25"></wm-label>
+                            <wm-container class="col-md-6" name="container24">
+                                <wm-switch datavalue="no" on-click="bean_switchClick($event, $scope)" name="bean_switch"></wm-switch>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn4">
+                        <wm-composite name="composite10" width="90%">
+                            <wm-label class="col-md-6 control-label" caption="Coconut" fontsize="20" name="label11"></wm-label>
+                            <wm-container class="col-md-6" name="container10">
+                                <wm-switch datavalue="no" name="coconut_switch" on-click="coconut_switchClick($event, $scope)"></wm-switch>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow3" padding="unset unset 1em unset">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn6">
+                        <wm-composite name="composite23" width="90%">
+                            <wm-label class="col-md-6 control-label" caption="Lentil" fontsize="20" width="50%" on-click="Actions.goToPage_Symptoms.invoke()" name="label24"></wm-label>
+                            <wm-container class="col-md-6" name="container23">
+                                <wm-switch datavalue="no" on-click="lentil_switchClick($event, $scope)" name="lentil_switch"></wm-switch>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn8">
+                        <wm-composite name="composite3" width="90%">
+                            <wm-label class="col-md-6 control-label" caption="Pea" fontsize="20" name="peas_label"></wm-label>
+                            <wm-container class="col-md-6" name="container3">
+                                <wm-switch datavalue="no" name="pea_switch" on-click="pea_switchClick($event, $scope)"></wm-switch>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow4" padding="unset unset 1em unset">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn9">
+                        <wm-composite name="composite13" width="90%">
+                            <wm-label class="col-md-6 control-label" caption="Potato" fontsize="20" name="label14"></wm-label>
+                            <wm-container class="col-md-6" name="container13">
+                                <wm-switch datavalue="no" name="potato_switch" on-click="potato_switchClick($event, $scope)"></wm-switch>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn11">
+                        <wm-composite name="composite14" width="90%">
+                            <wm-label class="col-md-6 control-label" caption="Rice" fontsize="20" name="label15"></wm-label>
+                            <wm-container class="col-md-6" name="container14">
+                                <wm-switch datavalue="no" name="rice_switch" on-click="rice_switchClick($event, $scope)"></wm-switch>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow5" padding="unset unset 1em unset">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn12">
+                        <wm-composite name="composite8" horizontalalign="left" width="90%">
+                            <wm-label class="col-md-6 control-label" caption="Unspecified Other" fontsize="20" on-click="Actions.goToPage_Symptoms.invoke()" name="label9"></wm-label>
+                            <wm-container class="col-md-6" name="container8">
+                                <wm-switch datavalue="no" on-click="unspecified_switchClick($event, $scope)" name="unspecified_switch"></wm-switch>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn14" horizontalalign="right"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow6" padding="unset unset 1em unset">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn15" horizontalalign="center">
+                        <wm-button class="btn-success btn-lg btn-rounded" caption="done" type="button" margin="0.5em" fontweight="bold" on-click="Widgets.dialog1.open()" name="button1" fontunit="em" fontsize="2" textalign="center"></wm-button>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+    <wm-view class="dialog-view" name="view1">
+        <wm-dialog dialogtype="design-dialog" modal="true" title="Information" iconclass="wi wi-file-text" name="dialog1">
+            <wm-layoutgrid name="layoutgrid2">
+                <wm-gridrow name="gridrow7">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn11_1" horizontalalign="center">
+                        <wm-label padding="unset 0.5em" caption="Have you any other &quot;Other Foods&quot; allergies?" name="label9_1" fontunit="em" fontsize="2"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+            <wm-dialogactions name="dialogactions1">
+                <wm-button class="btn-primary" caption="I have recorded all my symptoms" on-click="Widgets.dialog1.close();Actions.goToPage_Allergy_Food.invoke()" name="button2"></wm-button>
+                <wm-button class="btn-primary" caption="I'll add them now" type="button" margin="unset 0.5em" name="button3" on-click="Widgets.dialog1.close()"></wm-button>
+                <wm-button class="btn-primary" caption="I'll add them later" type="button" margin="unset 0.5em" name="button4" on-click="Widgets.dialog1.close();Actions.goToPage_Allergy_Food.invoke()"></wm-button>
+            </wm-dialogactions>
+        </wm-dialog>
+    </wm-view>
+</wm-page>

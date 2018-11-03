@@ -1,0 +1,106 @@
+<wm-page data-ng-controller="Patient_IdentificationPageController" pagetitle="Patient Identification" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1">
+            <wm-liveform errormessage="" title="Patient Registration Information" iconclass="wi wi-edit" defaultmode="Edit" dataset="bind:Variables.PatientsData.firstRecord" captionalign="left" captionposition="top" name="PatientsLiveForm1" subheading="Complete/update as applicable"
+                on-beforeservicecall="PatientsLiveForm1Beforeservicecall($event, $operation, $data)" on-success="PatientsLiveForm1Success($event, $operation, $data)" formdata="bind:Variables.PatientsData.firstRecord">
+                <wm-layoutgrid columns="1" name="layoutgrid1">
+                    <wm-gridrow name="gridrow1">
+                        <wm-gridcolumn columnwidth="12" name="gridcolumn1">
+                            <wm-form-field name="title" displayname="Title" show="true" primary-key="false" generator="assigned" key="title" type="text" readonly="false" widget="select" maxchars="65535" placeholder="" defaultvalue="bind:Variables.Patient_Read.firstRecord.title"
+                                dataset="Mr, Mrs, Ms, Miss, Master, Doctor, Other"></wm-form-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                    <wm-gridrow name="gridrow1">
+                        <wm-gridcolumn name="gridcolumn1" columnwidth="12">
+                            <wm-form-field name="firstName" displayname="First Name" show="true" primary-key="false" generator="assigned" key="firstName" type="text" readonly="true" required="false" widget="text" maxchars="65535" inputtype="text" placeholder=""
+                                defaultvalue="bind:Variables.Patient_Read.firstRecord.firstName"></wm-form-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                    <wm-gridrow name="gridrow2">
+                        <wm-gridcolumn name="gridcolumn2" columnwidth="12">
+                            <wm-form-field name="lastName" displayname="Last Name" show="true" primary-key="false" generator="assigned" key="lastName" type="text" readonly="true" required="false" widget="text" maxchars="65535" inputtype="text" placeholder=""
+                                defaultvalue="bind:Variables.Patient_Read.firstRecord.lastName"></wm-form-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                    <wm-gridrow name="gridrow3">
+                        <wm-gridcolumn name="gridcolumn3" columnwidth="12">
+                            <wm-form-field name="address1" displayname="Address1" show="true" primary-key="false" generator="assigned" key="address1" type="text" readonly="false" required="false" widget="text" maxchars="65535" inputtype="text" placeholder=""
+                                defaultvalue="bind:Variables.Patient_Read.firstRecord.address1"></wm-form-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                    <wm-gridrow name="gridrow4">
+                        <wm-gridcolumn name="gridcolumn4" columnwidth="12">
+                            <wm-form-field name="address2" displayname="Address2" show="true" primary-key="false" generator="assigned" key="address2" type="text" readonly="false" required="false" widget="text" maxchars="65535" inputtype="text" placeholder=""
+                                defaultvalue="bind:Variables.Patient_Read.firstRecord.address2"></wm-form-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                    <wm-gridrow name="gridrow5">
+                        <wm-gridcolumn name="gridcolumn5" columnwidth="12">
+                            <wm-form-field name="postcode" displayname="Postcode" show="true" primary-key="false" generator="assigned" key="postcode" type="text" readonly="false" required="false" widget="text" maxchars="65535" inputtype="text" placeholder=""
+                                defaultvalue="bind:Variables.Patient_Read.firstRecord.postcode"></wm-form-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                    <wm-gridrow name="gridrow6">
+                        <wm-gridcolumn name="gridcolumn6" columnwidth="12">
+                            <wm-form-field name="address3" displayname="Address3" show="true" primary-key="false" generator="assigned" key="address3" type="text" readonly="false" required="false" widget="text" maxchars="65535" inputtype="text" placeholder=""
+                                defaultvalue="bind:Variables.Patient_Read.firstRecord.address3"></wm-form-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                    <wm-gridrow name="gridrow7">
+                        <wm-gridcolumn name="gridcolumn7" columnwidth="12">
+                            <wm-form-field name="address4" displayname="Address4" show="true" primary-key="false" generator="assigned" key="address4" type="text" readonly="false" required="false" widget="text" maxchars="65535" inputtype="text" placeholder=""
+                                defaultvalue="bind:Variables.Patient_Read.firstRecord.address4"></wm-form-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                    <wm-gridrow name="gridrow8">
+                        <wm-gridcolumn name="gridcolumn8" columnwidth="12">
+                            <wm-form-field name="healthNumber" displayname="Health Number" show="true" primary-key="false" generator="assigned" key="healthNumber" type="text" readonly="false" required="false" widget="text" maxchars="65535" inputtype="text"
+                                placeholder="" defaultvalue="bind:Variables.Patient_Read.firstRecord.healthNumber"></wm-form-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                    <wm-gridrow name="gridrow9">
+                        <wm-gridcolumn name="gridcolumn9" columnwidth="12">
+                            <wm-form-field name="dateOfBirth" displayname="Date Of Birth" show="true" primary-key="false" generator="assigned" key="dateOfBirth" type="date" readonly="false" required="false" widget="date" placeholder="" datepattern="dd-MMM-yyyy"
+                                maxdate="CURRENT_DATE" mindate="1918-01-01" defaultvalue="bind:Variables.Patient_Read.firstRecord.dateOfBirth | toDate: 'yyyy-MM-dd'" outputformat="yyyy-MM-dd"></wm-form-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                    <wm-gridrow name="gridrow10">
+                        <wm-gridcolumn name="gridcolumn10" columnwidth="12">
+                            <wm-form-field name="sex" displayname="Sex" show="true" primary-key="false" generator="assigned" key="sex" type="text" readonly="false" widget="select" maxchars="65535" placeholder="" dataset="Male, Female" defaultvalue="bind:Variables.Patient_Read.firstRecord.sex"></wm-form-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                </wm-layoutgrid>
+                <wm-form-field name="id" displayname="Id" show="false" primary-key="true" generator="identity" key="id" type="integer" readonly="true" required="true" step="0" widget="number" inputtype="number" placeholder="" defaultvalue="bind:Variables.Patient_Read.firstRecord.id | stringToNumber"></wm-form-field>
+                <wm-form-field name="userId" displayname="User Id" show="false" primary-key="false" generator="assigned" key="userId" type="integer" readonly="true" required="false" step="0" widget="number" placeholder="" defaultvalue="bind:Variables.Patient_Read.firstRecord.userId | stringToNumber"
+                    inputtype="number"></wm-form-field>
+                <wm-form-action key="save" display-name="Save" show="true" class="form-save btn-success" iconclass="wi wi-save" title="Save" action="Actions.goToPage_Dash_Patient.invoke()" disabled="false" type="submit" update-mode="true"></wm-form-action>
+                <wm-form-action key="cancel" display-name="Cancel" show="true" class="form-cancel btn-secondary" iconclass="wi wi-cancel" title="Cancel" action="cancel()" shortcutkey="" disabled="false" type="button" update-mode="true"></wm-form-action>
+            </wm-liveform>
+            <wm-table name="Patient_ReadTable" title="" dataset="bind:Variables.Patient_Read.firstRecord" navigation="Basic" on-datarender="Patient_ReadTableDatarender($scope, $data)" show="false">
+                <wm-table-column binding="lastName" caption="Last Name" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column>
+                <wm-table-column binding="healthNumber" caption="Health Number" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column>
+                <wm-table-column binding="address3" caption="Address3" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column>
+                <wm-table-column binding="address2" caption="Address2" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column>
+                <wm-table-column binding="address1" caption="Address1" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column>
+                <wm-table-column binding="sex" caption="Sex" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column>
+                <wm-table-column binding="postcode" caption="Postcode" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column>
+                <wm-table-column binding="dateOfBirth" caption="Date Of Birth" pcdisplay="true" mobiledisplay="true" type="date"></wm-table-column>
+                <wm-table-column binding="title" caption="Title" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column>
+                <wm-table-column binding="userId" caption="User Id" pcdisplay="true" mobiledisplay="true" type="integer"></wm-table-column>
+            </wm-table>
+            <wm-layoutgrid name="layoutgrid2">
+                <wm-gridrow name="gridrow12">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn12"></wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn13"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow13">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn14"></wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn15" horizontalalign="right"></wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+</wm-page>

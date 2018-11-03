@@ -1,0 +1,12 @@
+<wm-partial data-ng-controller="headerPageController" name="header" type="header">
+    <wm-layoutgrid name="headerlayout" height="100%">
+        <wm-gridrow name="headerrow">
+            <wm-gridcolumn name="headerleft" verticalalign="middle" columnwidth="4" horizontalalign="center">
+                <wm-picture picturesource="resources/images/imagelists/dotta_white-red_300C.png" name="AppLogo" on-click="AppLogoClick($event, $scope)" height="65%" margin="unset unset 5px unset"></wm-picture>
+                <wm-label caption="  The Allergy App" class="application-name" name="AppName" fontsize="2" textalign="center" padding="unset 1em" margin="unset 1em 1em 1em" showindevice="sm,md,lg" fontunit="em" width="90%"></wm-label>
+            </wm-gridcolumn>
+            <wm-gridcolumn name="headerright" horizontalalign="right" verticalalign="middle" columnwidth="3"></wm-gridcolumn>
+            <wm-gridcolumn columnwidth="5" name="gridcolumn3" padding="4em unset unset 5em"></wm-gridcolumn>
+        </wm-gridrow>
+    </wm-layoutgrid>
+</wm-partial>

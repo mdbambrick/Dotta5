@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <sql-query name="TrackRead">
+        <![CDATA[
+        SELECT session_id, user_id, patient_id, first_name, last_name, user_type 
+FROM medidata.`session_id with users` 
+where user_id = :user_id 
+order by session_id desc
+        ]]>
+    <query-param name="user_id" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="TrackRead__count">
+        <![CDATA[
+        select count(*) from (SELECT session_id, user_id, patient_id, first_name, last_name, user_type 
+FROM medidata.`session_id with users` 
+where user_id = :user_id 
+order by session_id desc) wmTempTable
+        ]]>
+    <query-param name="user_id" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="ListCliniciansforPatient">
+        <![CDATA[
+        Select user_id,clinician_title,clinician_first_name,clinician_last_name,relationship
+from `medics with patients`
+where patient_id=:id AND relationship="doctor"
+        ]]>
+    <query-param name="id" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="ListCliniciansforPatient__count">
+        <![CDATA[
+        select count(*) from (Select user_id,clinician_title,clinician_first_name,clinician_last_name,relationship
+from `medics with patients`
+where patient_id=:id AND relationship="doctor") wmTempTable
+        ]]>
+    <query-param name="id" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="AddSymptom">
+        <![CDATA[
+        insert into survey_and_test_data(patient_id, allergy_id, symptom_id, result, session_id, data_source, current_status) values (:patient_id, :allergy_id, :symptom_id, :result, :session_id, :data_source, :current_status)
+        ]]>
+    <query-param name="patient_id" type="java.lang.Integer"/>
+    <query-param name="allergy_id" type="java.lang.Integer"/>
+    <query-param name="symptom_id" type="java.lang.Integer"/>
+    <query-param name="result" type="java.lang.Integer"/>
+    <query-param name="session_id" type="java.lang.Integer"/>
+    <query-param name="data_source" type="java.lang.Integer"/>
+    <query-param name="current_status" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="PatientSymptomsByAllergy">
+        <![CDATA[
+        select * from `patient symptoms by allergy`
+where patient_id = :id
+        ]]>
+    <query-param name="id" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="PatientSymptomsByAllergy__count">
+        <![CDATA[
+        select count(*) from (select * from `patient symptoms by allergy`
+where patient_id = :id) wmTempTable
+        ]]>
+    <query-param name="id" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="ShareCode">
+        <![CDATA[
+        SELECT sharing_code FROM medidata.users where id = :user_id
+        ]]>
+    <query-param name="user_id" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="ShareCode__count">
+        <![CDATA[
+        select count(*) from (SELECT sharing_code FROM medidata.users where id = :user_id) wmTempTable
+        ]]>
+    <query-param name="user_id" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="MedicsWithPatients">
+        <![CDATA[
+        Select title,first_name,last_name,address1,address2,address3,postcode,date_of_birth,health_number,patient_id
+from `medics with patients`
+where user_id=:id
+        ]]>
+    <query-param name="id" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="MedicsWithPatients__count">
+        <![CDATA[
+        select count(*) from (Select title,first_name,last_name,address1,address2,address3,postcode,date_of_birth,health_number,patient_id
+from `medics with patients`
+where user_id=:id) wmTempTable
+        ]]>
+    <query-param name="id" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="PatientRead">
+        <![CDATA[
+        SELECT id, first_name, last_name, title, address1, address2, postcode, address3, address4, health_number, date_of_birth, sex, user_id 
+FROM medidata.`patients` 
+where id = :patientId
+        ]]>
+    <query-param name="patientId" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="PatientRead__count">
+        <![CDATA[
+        select count(*) from (SELECT id, first_name, last_name, title, address1, address2, postcode, address3, address4, health_number, date_of_birth, sex, user_id 
+FROM medidata.`patients` 
+where id = :patientId) wmTempTable
+        ]]>
+    <query-param name="patientId" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="Clinician_List">
+        <![CDATA[
+        Select id,username,title,first_name,last_name,email,user_type,sharing_code
+from `users`
+where user_type=4
+        ]]>
+    </sql-query>
+
+    <sql-query name="Clinician_List__count">
+        <![CDATA[
+        select count(*) from (Select id,username,title,first_name,last_name,email,user_type,sharing_code
+from `users`
+where user_type=4) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="RemoveClincian">
+        <![CDATA[
+        delete from users_patients where patient_id =:patient_id AND user_id =:user_id
+        ]]>
+    <query-param name="patient_id" type="java.lang.String"/>
+    <query-param name="user_id" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="PatientMedics">
+        <![CDATA[
+        Select patient_id,user_id,title,first_name,last_name
+from `medics with patients`
+where patient_id=:patient_id
+        ]]>
+    <query-param name="patient_id" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="PatientMedics__count">
+        <![CDATA[
+        select count(*) from (Select patient_id,user_id,title,first_name,last_name
+from `medics with patients`
+where patient_id=:patient_id) wmTempTable
+        ]]>
+    <query-param name="patient_id" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="ForgotPassword">
+        <![CDATA[
+        update users set password = :pwd where username = :name
+        ]]>
+    <query-param name="pwd" type="java.lang.String"/>
+    <query-param name="name" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="BackgroundRead">
+        <![CDATA[
+        SELECT id, patient_id, session_id, terms_accepted, prior_allergy_treatment, ethnicity, early_urban_rural, early_pets_livestock, older_siblings, family_ingestion_allergy, family_aero_allergy, family_contact_allergy, family_eczema, family_celiac, family_asthma, ingestion_allergy, aero_allergy, contact_allergy, eczema, celiac, asthma, breastfed, weaned, cesarian, weight
+FROM medidata.`background` 
+where patient_id = :patientId 
+order by id desc
+        ]]>
+    <query-param name="patientId" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="BackgroundRead__count">
+        <![CDATA[
+        select count(*) from (SELECT id, patient_id, session_id, terms_accepted, prior_allergy_treatment, ethnicity, early_urban_rural, early_pets_livestock, older_siblings, family_ingestion_allergy, family_aero_allergy, family_contact_allergy, family_eczema, family_celiac, family_asthma, ingestion_allergy, aero_allergy, contact_allergy, eczema, celiac, asthma, breastfed, weaned, cesarian, weight
+FROM medidata.`background` 
+where patient_id = :patientId 
+order by id desc) wmTempTable
+        ]]>
+    <query-param name="patientId" type="java.lang.Integer"/>
+    </sql-query>
+</hibernate-mapping>

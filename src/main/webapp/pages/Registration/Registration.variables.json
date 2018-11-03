@@ -1,0 +1,365 @@
+{
+  "RegVar" : {
+    "_id" : "wm-RegVar-wm.LiveVariable-1524139917198",
+    "name" : "RegVar",
+    "owner" : "Page",
+    "category" : "wm.LiveVariable",
+    "dataBinding" : [ {
+      "target" : "username",
+      "value" : "bind:Widgets.text1.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "firstName",
+      "value" : "bind:Widgets.text3.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "lastName",
+      "value" : "bind:Widgets.text4.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "password",
+      "value" : "bind:Widgets.text5.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "email",
+      "value" : "bind:Widgets.text7.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "title",
+      "value" : "bind:Widgets.select3.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "userType",
+      "value" : "bind:Widgets.select2.datavalue",
+      "type" : "number"
+    }, {
+      "target" : "sharingCode",
+      "value" : "bind:Widgets.text8.datavalue",
+      "type" : "number"
+    } ],
+    "operation" : "insert",
+    "dataSet" : [ ],
+    "type" : "Users",
+    "isList" : false,
+    "saveInPhonegap" : false,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "onSuccess" : "RegVaronSuccess($event, $scope)",
+    "inFlightBehavior" : "executeLast",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "transformationRequired" : false,
+    "liveSource" : "medidata",
+    "ignoreCase" : true,
+    "matchMode" : "start",
+    "orderBy" : "id asc",
+    "propertiesMap" : {
+      "columns" : [ {
+        "fieldName" : "userTypes",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "user_type",
+        "isPrimaryKey" : false,
+        "notNull" : true,
+        "length" : 0,
+        "precision" : 10,
+        "generator" : "assigned",
+        "isRelated" : true,
+        "relatedTableName" : "user_types",
+        "relatedEntityName" : "UserTypes",
+        "relatedColumnName" : "userType",
+        "relatedFieldName" : "userTypes.id",
+        "isList" : false,
+        "targetTable" : "user_types",
+        "scale" : 0,
+        "columns" : [ {
+          "fieldName" : "id",
+          "type" : "integer",
+          "fullyQualifiedType" : "integer",
+          "columnName" : "id",
+          "isPrimaryKey" : true,
+          "notNull" : true,
+          "length" : 0,
+          "precision" : 10,
+          "generator" : "identity",
+          "isRelated" : false,
+          "scale" : 0
+        }, {
+          "fieldName" : "role",
+          "type" : "text",
+          "fullyQualifiedType" : "text",
+          "columnName" : "role",
+          "isPrimaryKey" : false,
+          "notNull" : true,
+          "length" : 65535,
+          "precision" : 0,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 0
+        }, {
+          "fieldName" : "viewRights",
+          "type" : "integer",
+          "fullyQualifiedType" : "integer",
+          "columnName" : "view_rights",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 0,
+          "precision" : 10,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 0
+        }, {
+          "fieldName" : "updateRights",
+          "type" : "integer",
+          "fullyQualifiedType" : "integer",
+          "columnName" : "update_rights",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 0,
+          "precision" : 10,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 0
+        }, {
+          "fieldName" : "permanence",
+          "type" : "integer",
+          "fullyQualifiedType" : "integer",
+          "columnName" : "permanence",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 0,
+          "precision" : 10,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 0
+        }, {
+          "fieldName" : "reliabilityDefault",
+          "type" : "big_decimal",
+          "fullyQualifiedType" : "big_decimal",
+          "columnName" : "reliability_default",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 0,
+          "precision" : 22,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 9
+        } ]
+      }, {
+        "fieldName" : "id",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "id",
+        "isPrimaryKey" : true,
+        "notNull" : true,
+        "length" : 0,
+        "precision" : 10,
+        "generator" : "identity",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "username",
+        "type" : "text",
+        "fullyQualifiedType" : "text",
+        "columnName" : "username",
+        "isPrimaryKey" : false,
+        "notNull" : true,
+        "length" : 45,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "title",
+        "type" : "text",
+        "fullyQualifiedType" : "text",
+        "columnName" : "title",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 65535,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "firstName",
+        "type" : "text",
+        "fullyQualifiedType" : "text",
+        "columnName" : "first_name",
+        "isPrimaryKey" : false,
+        "notNull" : true,
+        "length" : 65535,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "lastName",
+        "type" : "text",
+        "fullyQualifiedType" : "text",
+        "columnName" : "last_name",
+        "isPrimaryKey" : false,
+        "notNull" : true,
+        "length" : 65535,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "password",
+        "type" : "text",
+        "fullyQualifiedType" : "text",
+        "columnName" : "password",
+        "isPrimaryKey" : false,
+        "notNull" : true,
+        "length" : 2147483647,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "email",
+        "type" : "text",
+        "fullyQualifiedType" : "text",
+        "columnName" : "email",
+        "isPrimaryKey" : false,
+        "notNull" : true,
+        "length" : 45,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "salt",
+        "type" : "text",
+        "fullyQualifiedType" : "text",
+        "columnName" : "salt",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 2147483647,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "active",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "active",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 10,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "sharingCode",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "sharing_code",
+        "isPrimaryKey" : false,
+        "notNull" : true,
+        "length" : 0,
+        "precision" : 10,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      } ],
+      "entityName" : "Users",
+      "fullyQualifiedName" : "com.dotta.medidata.Users",
+      "tableType" : "TABLE",
+      "primaryFields" : [ "id" ]
+    },
+    "tableName" : "users",
+    "tableType" : "TABLE",
+    "properties" : [ "userTypes" ],
+    "relatedTables" : [ {
+      "columnName" : "userTypes",
+      "relationName" : "userTypes",
+      "type" : "UserTypes",
+      "watchOn" : "MedidataUserTypesData",
+      "package" : "com.dotta.medidata.Users"
+    } ],
+    "filterFields" : { },
+    "inputFields" : { },
+    "package" : "com.dotta.medidata.Users"
+  },
+  "SendEmail" : {
+    "_id" : "wm-SendEmail-wm.ServiceVariable-1538384792058",
+    "name" : "SendEmail",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "toEmailAddress",
+      "value" : "bind:Widgets.text7.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "emailSubject",
+      "value" : "Dotta Confimation",
+      "type" : "string"
+    }, {
+      "target" : "emailMessage",
+      "value" : "Test",
+      "type" : "string"
+    } ],
+    "type" : "object",
+    "service" : "EmailService",
+    "operation" : "sendEmail",
+    "operationId" : "EmailController_sendEmail",
+    "operationType" : "get",
+    "serviceType" : "JavaService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "SendEmailonSuccess($event, $scope)",
+    "onError" : "SendEmailonError($event, $scope)",
+    "startUpdate" : false,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "Email"
+  },
+  "userTypes" : {
+    "_id" : "wm-userTypes-wm.Variable-1524234379864",
+    "name" : "userTypes",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ {
+      "target" : "name",
+      "value" : "bind:Widgets.select2.displayValue"
+    }, {
+      "target" : "dataValue",
+      "value" : "bind:Widgets.select2.datavalue"
+    } ],
+    "dataSet" : [ {
+      "name" : "Patient",
+      "dataValue" : "1"
+    }, {
+      "name" : "Parent",
+      "dataValue" : "2"
+    }, {
+      "name" : "Guardian",
+      "dataValue" : "3"
+    }, {
+      "name" : "Allergy specialist",
+      "dataValue" : "4"
+    }, {
+      "name" : "GP",
+      "dataValue" : "5"
+    }, {
+      "name" : "Nurse",
+      "dataValue" : "6"
+    }, {
+      "name" : "Spouse or other trusted person",
+      "dataValue" : "7"
+    }, {
+      "name" : "Pharmacist",
+      "dataValue" : "8"
+    } ],
+    "type" : "entry",
+    "isList" : true,
+    "saveInPhonegap" : false
+  }
+}

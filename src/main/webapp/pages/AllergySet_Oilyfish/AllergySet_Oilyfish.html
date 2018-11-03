@@ -1,0 +1,73 @@
+<wm-page data-ng-controller="AllergySet_OilyfishPageController" pagetitle="Allergy Set Oilyfish" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow8" padding="unset unset 1em unset">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn21" horizontalalign="center">
+                        <wm-label padding="unset 0.5em" name="label1" caption="Oily Fish" fontsize="3" fontweight="bold" textalign="center" fontunit="em" margin="0.5em unset"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow7" padding="unset unset 1em unset">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn18">
+                        <wm-composite name="composite1" width="90%">
+                            <wm-label class="col-md-6 control-label" caption="Salmon" fontsize="20" on-click="Actions.goToPage_Symptoms.invoke()" name="label2"></wm-label>
+                            <wm-container class="col-md-6" name="container1">
+                                <wm-switch datavalue="no" name="salmon_switch" on-click="salmon_switchClick($event, $scope)"></wm-switch>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn20">
+                        <wm-composite name="composite3" width="90%">
+                            <wm-label class="col-md-6 control-label" caption="Trout" fontsize="20" on-click="Actions.goToPage_Symptoms.invoke()" name="label4"></wm-label>
+                            <wm-container class="col-md-6" name="container3">
+                                <wm-switch datavalue="no" name="trout_switch" on-click="trout_switchClick($event, $scope)"></wm-switch>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow6" padding="unset unset 1em unset">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn15">
+                        <wm-composite name="composite2" width="90%">
+                            <wm-label class="col-md-6 control-label" caption="Tuna" fontsize="20" on-click="Actions.goToPage_Symptoms.invoke()" name="label3"></wm-label>
+                            <wm-container class="col-md-6" name="container2">
+                                <wm-switch datavalue="no" name="tuna_switch" on-click="tuna_switchClick($event, $scope)"></wm-switch>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn17" horizontalalign="right">
+                        <wm-composite name="composite4" horizontalalign="left" width="90%">
+                            <wm-label class="col-md-6 control-label" caption="Unknown/Other/All Oily Fish" fontsize="20" on-click="Actions.goToPage_Symptoms.invoke()" name="label5"></wm-label>
+                            <wm-container class="col-md-6" name="container4">
+                                <wm-switch datavalue="no" on-click="unknown_oily_fish_switchClick($event, $scope)" name="unknown_oily_fish_switch"></wm-switch>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow4" padding="unset unset 1em unset">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn8" horizontalalign="center">
+                        <wm-button class="btn-success btn-lg btn-rounded" caption="done" type="button" margin="0.5em" fontweight="bold" on-click="Widgets.dialog1.open()" name="button1" fontunit="em" fontsize="2"></wm-button>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+    <wm-view class="dialog-view" name="view1">
+        <wm-dialog dialogtype="design-dialog" modal="true" title="Information" iconclass="wi wi-file-text" name="dialog1">
+            <wm-layoutgrid name="layoutgrid2">
+                <wm-gridrow name="gridrow5">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn7" horizontalalign="center">
+                        <wm-label padding="unset 0.5em" caption="Have you any other Oily Fish allergies?" name="label6" fontsize="2" fontunit="em"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+            <wm-dialogactions name="dialogactions1">
+                <wm-button class="btn-primary" caption="I have recorded all my symptoms" on-click="Widgets.dialog1.close();Actions.goToPage_Allergy_Food.invoke()" name="button2"></wm-button>
+                <wm-button class="btn-primary" caption="I'll add them now" type="button" margin="unset 0.5em" name="button3" on-click="Widgets.dialog1.close()"></wm-button>
+                <wm-button class="btn-primary" caption="I'll add them later" type="button" margin="unset 0.5em" name="button4" on-click="Widgets.dialog1.close();Actions.goToPage_Allergy_Food.invoke()"></wm-button>
+            </wm-dialogactions>
+        </wm-dialog>
+    </wm-view>
+</wm-page>

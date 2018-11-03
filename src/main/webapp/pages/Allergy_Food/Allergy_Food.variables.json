@@ -1,0 +1,50 @@
+{
+  "Allergy_List_Confirm1" : {
+    "_id" : "wm-Allergy_List_Confirm1-wm.NotificationVariable-1529923225719",
+    "name" : "Allergy_List_Confirm1",
+    "owner" : "Page",
+    "category" : "wm.NotificationVariable",
+    "dataBinding" : [ {
+      "target" : "text",
+      "value" : "If YES or MAYBE, press OK to go to Symptoms Assessment for this allergy",
+      "type" : "string"
+    }, {
+      "target" : "title",
+      "value" : "Transfer to Symptoms Collection",
+      "type" : "string"
+    }, {
+      "target" : "cancelButtonText",
+      "value" : "Going back to allergy list, without assessing symptoms",
+      "type" : "string"
+    } ],
+    "operation" : "confirm"
+  },
+  "Allergy_Switch_Notification" : {
+    "_id" : "wm-Allergy_Switch_Notification-wm.NotificationVariable-1529920961187",
+    "name" : "Allergy_Switch_Notification",
+    "owner" : "Page",
+    "category" : "wm.NotificationVariable",
+    "dataBinding" : [ {
+      "target" : "content",
+      "value" : "inline",
+      "type" : "string"
+    }, {
+      "target" : "text",
+      "value" : "Select YES or MAYBE to complete symptom assessment for this allergy",
+      "type" : "string"
+    }, {
+      "target" : "duration",
+      "value" : "9000",
+      "type" : "number"
+    }, {
+      "target" : "class",
+      "value" : "Info",
+      "type" : "string"
+    }, {
+      "target" : "toasterPosition",
+      "value" : "bottom center",
+      "type" : "string"
+    } ],
+    "operation" : "toast"
+  }
+}

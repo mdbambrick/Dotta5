@@ -1,0 +1,34 @@
+<wm-partial data-ng-controller="patient_symptoms_completePageController" name="partial1">
+    <wm-livefilter name="PatientSymptomsWithAuthorFilter1" title="Filter Patient_symptoms_with_author" dataset="bind:Variables.MedidataPatientSymptomsWithAuthorData.dataSet" captionalign="left" captionposition="top">
+        <wm-layoutgrid columns="1" name="layoutgrid1">
+            <wm-gridrow name="gridrow1">
+                <wm-gridcolumn columnwidth="12" show="true" name="gridcolumn1">
+                    <wm-filter-field name="title" field="title" displayname="Title" widget="text" is-range="false" type="text" is-primary-key="false" generator="assigned" show="true" pc-display="true" mobile-display="true"></wm-filter-field>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow2">
+                <wm-gridcolumn columnwidth="12" show="true" name="gridcolumn2">
+                    <wm-filter-field name="setName" field="setName" displayname="Set Name" widget="text" is-range="false" type="text" is-primary-key="false" generator="assigned" show="true" pc-display="true" mobile-display="true"></wm-filter-field>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow3">
+                <wm-gridcolumn columnwidth="12" show="true" name="gridcolumn3">
+                    <wm-filter-field name="allergyName" field="allergyName" displayname="Allergy Name" widget="text" is-range="false" type="text" is-primary-key="false" generator="assigned" show="true" pc-display="true" mobile-display="true"></wm-filter-field>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-filter-action key="filter" class="btn-primary" iconclass="wi wi-filter-list" action="filter()" display-name="Filter" show="true" type="button"></wm-filter-action>
+        <wm-filter-action key="clear" class="btn-secondary" iconclass="wi wi-cancel" action="clearFilter()" display-name="Clear" show="true" type="button"></wm-filter-action>
+    </wm-livefilter>
+    <wm-table name="Table1" title="" dataset="bind:Widgets.PatientSymptomsWithAuthorFilter1.result" navigation="Basic">
+        <wm-table-column binding="setName" caption="Set Name" edit-widget-type="text" type="text" generator="assigned" show="true" readonly="false"></wm-table-column>
+        <wm-table-column binding="allergyName" caption="Allergy Name" edit-widget-type="text" type="text" generator="assigned" show="true" readonly="false"></wm-table-column>
+        <wm-table-column binding="symptom" caption="Symptom" edit-widget-type="text" type="text" generator="assigned" show="true" readonly="false"></wm-table-column>
+        <wm-table-column binding="result" caption="Result" edit-widget-type="number" type="integer" generator="assigned" show="true" readonly="false"></wm-table-column>
+        <wm-table-column binding="authorTitle" caption="Author Title" edit-widget-type="text" type="text" show="true" readonly="false"></wm-table-column>
+        <wm-table-column binding="authorFirstName" caption="Author First Name" edit-widget-type="text" type="text" show="true" readonly="false"></wm-table-column>
+        <wm-table-column binding="authorLastName" caption="Author Last Name" edit-widget-type="text" type="text" show="true" readonly="false"></wm-table-column>
+        <wm-table-column binding="role" caption="Role" edit-widget-type="text" type="text" show="true" readonly="false"></wm-table-column>
+        <wm-table-column binding="timestamp" caption="Timestamp" edit-widget-type="timestamp" type="timestamp" datepattern="dd/MM/yyyy HH:MM:ss" formatpattern="toDate" show="true" readonly="false"></wm-table-column>
+    </wm-table>
+</wm-partial>

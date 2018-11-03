@@ -1,0 +1,26 @@
+[ {
+  "urlPattern" : "/pages/Login/**",
+  "permission" : "PermitAll",
+  "roles" : [ ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/Registration/**",
+  "permission" : "PermitAll",
+  "roles" : [ ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/**",
+  "permission" : "Authenticated",
+  "roles" : null,
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/services/medidata/**",
+  "permission" : "PermitAll",
+  "roles" : [ ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/services/email/**",
+  "permission" : "PermitAll",
+  "roles" : [ ],
+  "httpMethod" : null
+} ]

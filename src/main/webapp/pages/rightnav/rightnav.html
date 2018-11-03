@@ -1,0 +1,15 @@
+<wm-partial data-ng-controller="rightnavPageController" name="rightnav" type="rightnav"> 
+    <wm-nav name="rightnav" type="pills" layout="stacked"> 
+        <wm-nav-item name="list_task"> 
+            <wm-anchor caption="Patients" name="taskLink" iconclass="wi wi-people" on-click="Actions.goToPage_Dash_Clinician.invoke()"></wm-anchor> 
+        </wm-nav-item> 
+        <wm-nav-item name="list_directory"> 
+            <wm-anchor caption="Skin Prick Test" name="directoryLink" iconclass="wi wi-thumb-tack"></wm-anchor> 
+        </wm-nav-item> 
+        <wm-nav-item name="list_people"> 
+            <wm-anchor caption="Blood Test" name="peopleLink" iconclass="wi wi-local-hospital"></wm-anchor> 
+            <wm-anchor caption="Diagnosis" iconclass="wi wi-check-square" name="anchor4"></wm-anchor> 
+            <wm-anchor caption="Research Tools" iconclass="wi wi-build" name="anchor5"></wm-anchor> 
+        </wm-nav-item> 
+    </wm-nav> 
+</wm-partial>

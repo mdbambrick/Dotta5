@@ -1,0 +1,27 @@
+<wm-page data-ng-controller="Clinician_RemovePageController" pagetitle="Clinician Remove" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-page-content columnwidth="12" name="page_content1">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow1">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn1" horizontalalign="center">
+                        <wm-label padding="unset 0.5em" name="label1" caption="Remove Clinician from Data Access" fontweight="bold" fontsize="16"></wm-label>
+                        <wm-label padding="unset 0.5em" name="label2" caption="Click on the clinician's name and click remove clinician to revoke data access" width="100%" fontsize="1.2" fontunit="em"></wm-label>
+                        <wm-table title="" dataset="bind:Variables.MedidataExecuteListCliniciansforPatient.dataSet" navigation="None" name="table1">
+                            <wm-table-column binding="clinicianTitle" caption="Clinician Title" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                            <wm-table-column binding="clinicianFirstName" caption="Clinician First Name" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                            <wm-table-column binding="clinicianLastName" caption="Clinician Last Name" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                        </wm-table>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow2">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn4" horizontalalign="center">
+                        <wm-button class="btn-primary" caption="Remove Clinician" type="button" margin="unset 0.5em" name="button2" on-click="Variables.executeRemoveClincian.invoke();Widgets.table1.refreshData()"></wm-button>
+                        <wm-button class="btn-primary" caption="Return to home" type="button" margin="unset 0.5em" name="button1" on-click="Actions.navigationPreviousPage.invoke()"></wm-button>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+</wm-page>

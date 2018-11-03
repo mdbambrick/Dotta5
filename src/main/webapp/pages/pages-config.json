@@ -1,0 +1,199 @@
+[ {
+  "name" : "AllergySet_Animals",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "AllergySet_Fruit",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "AllergySet_Metals",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "AllergySet_Nuts",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "AllergySet_Oilyfish",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "AllergySet_OtherFood",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "AllergySet_Pollen",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "AllergySet_Shellfish",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "AllergySet_Wheat",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "AllergySet_Whitefish",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Allergy_Aero",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Allergy_Food",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Allergy_Insects",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Autoinjector_Instructions",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "Clinician_Add",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Clinician_List",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Clinician_Remove",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Common",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "Dash_Allergy",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Dash_Clinician",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Dash_Patient",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Detective_Aero",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "Detective_Food",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "Detective_Insect",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "Emergency",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "FAQ",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Jargon_Buster",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Login",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Main",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "MedicalHistory",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Patient_Identification",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Registration",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "Seasonal_Months",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "SymptomSurvey",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "WhatNext",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "allergy_ingredient",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "emailconfirmation",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "footer",
+  "type" : "FOOTER",
+  "params" : [ ]
+}, {
+  "name" : "getting_started",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "header",
+  "type" : "HEADER",
+  "params" : [ ]
+}, {
+  "name" : "leftnav",
+  "type" : "LEFTNAV",
+  "params" : [ ]
+}, {
+  "name" : "next_steps",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "patient_info",
+  "type" : "PARTIAL",
+  "params" : [ {
+    "name" : "patientId",
+    "type" : "integer"
+  } ]
+}, {
+  "name" : "patient_symptoms",
+  "type" : "PAGE",
+  "params" : [ {
+    "name" : "patient_id",
+    "type" : "integer"
+  } ]
+}, {
+  "name" : "patient_symptoms_complete",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "rightnav",
+  "type" : "RIGHTNAV",
+  "params" : [ ]
+}, {
+  "name" : "topnav",
+  "type" : "TOPNAV",
+  "params" : [ ]
+}, {
+  "name" : "typical_compounds",
+  "type" : "PAGE",
+  "params" : [ ]
+} ]

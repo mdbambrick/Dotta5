@@ -1,0 +1,44 @@
+<wm-partial data-ng-controller="Detective_FoodPageController" name="partial1">
+    <wm-layoutgrid name="layoutgrid1">
+        <wm-gridrow name="gridrow1">
+            <wm-gridcolumn columnwidth="12" name="gridcolumn1" horizontalalign="center">
+                <wm-label padding="unset 0.5em" name="label1" caption="Follow the clues to identify the suspects..." fontsize="15" fontweight="bold" textalign="center" width="100%"></wm-label>
+                <wm-label padding="unset 0.5em" name="label10_1" width="100%" caption="Repeat as required for different potential allergens" fontstyle="italic" fontsize="10"></wm-label>
+            </wm-gridcolumn>
+        </wm-gridrow>
+        <wm-gridrow name="gridrow3">
+            <wm-gridcolumn columnwidth="6" name="gridcolumn5"></wm-gridcolumn>
+        </wm-gridrow>
+        <wm-gridrow name="gridrow2">
+            <wm-gridcolumn columnwidth="6" name="gridcolumn3"></wm-gridcolumn>
+            <wm-gridcolumn columnwidth="6" name="gridcolumn4"></wm-gridcolumn>
+        </wm-gridrow>
+    </wm-layoutgrid>
+    <wm-wizard stepstyle="justified" name="Food_wizard" horizontalalign="left" class="custom">
+        <wm-wizardstep name="wizardstep1" title="Select Episode">
+            <wm-label padding="unset 0.5em" name="label17" caption="Think of a recent event when you experienced allergic symptoms within 4 hours of eating something? Note when and where it was" fontweight="bold"></wm-label>
+            <wm-text width="100%" name="text2" placeholder="Note location &amp; date"></wm-text>
+        </wm-wizardstep>
+        <wm-wizardstep name="wizardstep2" title="Identify Suspect Foods">
+            <wm-label padding="unset 0.5em" name="label11" caption="Note down everything you recall eating or drinking shortly before the symptoms appeared. (The period might extend up to 4 hours, but usually less)." fontweight="bold"></wm-label>
+            <wm-text width="100%" name="text3" placeholder="Note suspect food &amp; drink."></wm-text>
+        </wm-wizardstep>
+        <wm-wizardstep name="wizardstep3" title="Identify Ingredients">
+            <p><b>Identifying ingredients will depend on how the food was prepared. If at home, look at package ingredient lists, or check the cook's recipe. If at a restaurant, check the menu or ring them up. If necessary, Google allergens
+                typical to the food you ate or try the Allergy Ingredient Guide in the sidebar.</b></p>
+            <wm-text width="100%" name="text4" placeholder="Allergen ingredients - in bold on menus/packs"></wm-text>
+        </wm-wizardstep>
+        <wm-wizardstep name="wizardstep4" title="Isolate Suspect Allergens">
+            <wm-label padding="unset 0.5em" name="label13" caption="Carefully consider whether you have had recent or regular exposure to any of the list of allergens. If so, and you did not react, exclude from the suspect list..." fontweight="bold"></wm-label>
+            <wm-text width="100%" name="text5" placeholder="Record suspect allergens, not yet ruled out"></wm-text>
+        </wm-wizardstep>
+        <wm-wizardstep name="wizardstep5" title="Record Symptoms">
+            <wm-label padding="unset 0.5em" name="label14" caption="You will be prompted to input your symptoms in a structured input form for each allergen, but first why not make notes for yourself of what happened?" fontweight="bold"></wm-label>
+            <wm-text width="100%" name="text6" placeholder="Main symptoms, duration, speed of onset, etc"></wm-text>
+        </wm-wizardstep>
+        <wm-wizardstep name="wizardstep6" title="Review Related Allergens">
+            <wm-label padding="unset 0.5em" name="label15" caption="Are there similar allergens to which you have either never been exposed? (e.g. I react to peanut, but have never eaten cashew)? This might include allergies of other family members." fontweight="bold"></wm-label>
+            <wm-text width="100%" name="text7" placeholder="Record as a MAYBE (without symptoms)."></wm-text>
+        </wm-wizardstep>
+    </wm-wizard>
+</wm-partial>

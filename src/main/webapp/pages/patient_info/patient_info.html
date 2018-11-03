@@ -1,0 +1,52 @@
+<wm-partial data-ng-controller="patient_infoPageController" name="partial1">
+    <wm-label padding="unset 0.5em" name="label1" caption=""></wm-label>
+    <wm-layoutgrid name="layoutgrid1">
+        <wm-gridrow name="gridrow1">
+            <wm-gridcolumn columnwidth="12" name="gridcolumn1" horizontalalign="center">
+                <wm-label padding="unset 0.5em" name="label2" caption="Patient Information" fontunit="em" fontsize="2" textalign="center"></wm-label>
+            </wm-gridcolumn>
+        </wm-gridrow>
+        <wm-gridrow name="gridrow2">
+            <wm-gridcolumn columnwidth="12" name="gridcolumn3" horizontalalign="center">
+                <wm-table name="executePatientReadTable1" title="" dataset="bind:Variables.MedidataExecutePatientRead.dataSet" navigation="None">
+                    <wm-table-column binding="healthNumber" caption="Health Number" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="dateOfBirth" caption="Date Of Birth" col-class="yellow" edit-widget-type="date" type="date" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="address1" caption="Address1" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="address2" caption="Address2" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="address3" caption="Address3" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="postcode" caption="Postcode" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="sex" caption="Sex" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                </wm-table>
+            </wm-gridcolumn>
+        </wm-gridrow>
+        <wm-gridrow name="gridrow4">
+            <wm-gridcolumn columnwidth="12" name="gridcolumn7">
+                <wm-table name="executeBackgroundReadTable1" title="" dataset="bind:Variables.BackgroundRead.dataSet" navigation="None" navigationalign="center">
+                    <wm-table-column binding="priorAllergyTreatment" caption="Prior Allergy Treatment" textalignment="center" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="asthma" caption="Asthma" textalignment="center" col-ng-class="{'red':row.Asthma==yes, 'amber':row.Asthma==maybe}" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="familyAsthma" caption="Family Asthma" textalignment="center" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="eczema" caption="Eczema" textalignment="center" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="familyEczema" caption="Family Eczema" textalignment="center" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="celiac" caption="Celiac" textalignment="center" col-ng-class="{'amber':row.Celiac==Unsure, 'red':row.Celiac==Yes}" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="familyCeliac" caption="Family Celiac" textalignment="center" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="aeroAllergy" caption="Aero Allergy" textalignment="center" col-ng-class="{'red':row.Aero Allergy==Yes, 'amber':row.Aero Allergy==Maybe}" edit-widget-type="text" type="string" show="true"
+                        readonly="false"></wm-table-column>
+                    <wm-table-column binding="familyAeroAllergy" caption="Family Aero Allergy" textalignment="center" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="ingestionAllergy" caption="Ingestion Allergy" textalignment="center" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="familyIngestionAllergy" caption="Family Ingestion Allergy" textalignment="center" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="contactAllergy" caption="Contact Allergy" textalignment="center" edit-widget-type="text" type="string" show="false" readonly="false"></wm-table-column>
+                    <wm-table-column binding="familyContactAllergy" caption="Family Contact Allergy" textalignment="center" edit-widget-type="text" type="string" show="false" readonly="false"></wm-table-column>
+                    <wm-table-column binding="weight" caption="Weight" textalignment="center" edit-widget-type="number" type="double" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="earlyPetsLivestock" caption="Early Pets Livestock" textalignment="center" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="olderSiblings" caption="Older Siblings" textalignment="center" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="ethnicity" caption="Ethnicity" textalignment="center" edit-widget-type="text" type="string" show="false" readonly="false"></wm-table-column>
+                    <wm-table-column binding="earlyUrbanRural" caption="Early Urban Rural" textalignment="center" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="weaned" caption="Weaned" textalignment="center" edit-widget-type="text" type="string" show="false" readonly="false"></wm-table-column>
+                    <wm-table-column binding="breastfed" caption="Breastfed" textalignment="center" edit-widget-type="text" type="string" show="false" readonly="false"></wm-table-column>
+                    <wm-table-column binding="cesarian" caption="Cesarian" textalignment="center" edit-widget-type="text" type="string" show="false" readonly="false"></wm-table-column>
+                    <wm-table-column binding="termsAccepted" caption="Terms Accepted" textalignment="center" edit-widget-type="text" type="string" show="false" readonly="false"></wm-table-column>
+                </wm-table>
+            </wm-gridcolumn>
+        </wm-gridrow>
+    </wm-layoutgrid>
+</wm-partial>

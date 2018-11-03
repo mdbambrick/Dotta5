@@ -1,0 +1,315 @@
+<wm-page data-ng-controller="SymptomSurveyPageController" pagetitle="Symptom Survey" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-page-content columnwidth="12" name="page_content1" backgroundposition="center, top" padding="unset 3em">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow1">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn1" horizontalalign="center">
+                        <wm-label padding="unset 0.2em" name="Symptom_Survey_Header" caption="bind:Variables.AllergyName.dataSet.dataValue" fontweight="bold" textalign="center" fontsize="22" backgroundposition="top, center" margin="10px unset 4px unset" width="100%" fontunit="px"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow7_1">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn21" horizontalalign="center">
+                        <wm-label padding="unset 0.5em" name="label13" caption="Indicate main symptoms of suspected allergy:" fontsize="12"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow12_1">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn40_1" horizontalalign="center">
+                        <wm-label padding="unset 0.2em" name="label39" width="100%" fontweight="bold" textalign="center" caption="Eyes" fontsize="18" margin="20px unset 10px unset" fontunit="px" color="#2128cc"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow15">
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn49" horizontalalign="center">
+                        <wm-composite name="composite4" horizontalalign="left" captionposition="left">
+                            <wm-label class="col-xs-6 control-label" caption="Puffy eyes" name="label5" textalign="left"></wm-label>
+                            <wm-container class="col-xs-6" name="container4" horizontalalign="right">
+                                <wm-checkbox caption="Toggle" type="toggle" height="25" width="50" name="puffy_switch" on-change="puffy_switchChange($event, $scope, newVal, oldVal)"></wm-checkbox>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn50" horizontalalign="center">
+                        <wm-composite name="composite6" horizontalalign="left" captionposition="left">
+                            <wm-label class="col-xs-6 control-label" caption="Teary/red eyes" name="label14" textalign="left"></wm-label>
+                            <wm-container class="col-xs-6" name="container6" horizontalalign="right">
+                                <wm-checkbox caption="Toggle" type="toggle" height="25" width="50" on-change="teary_toggleChange($event, $scope, newVal, oldVal)" name="teary_toggle"></wm-checkbox>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn39_2"></wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn40_2"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow21">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn58" horizontalalign="center">
+                        <wm-label padding="unset 0.2em" width="100%" fontweight="bold" textalign="center" caption="Nose &amp; Mouth" fontsize="18" margin="20px unset 10px unset" fontunit="px" color="#2128cc" name="label41_1"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow14">
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn45" horizontalalign="center">
+                        <wm-composite name="composite9" horizontalalign="left">
+                            <wm-label class="col-xs-6 control-label" caption="Sneezing fits" name="label17"></wm-label>
+                            <wm-container class="col-xs-6" name="container9" horizontalalign="right">
+                                <wm-checkbox caption="Toggle" type="toggle" height="25" width="50" on-change="sneezing_toggleChange($event, $scope, newVal, oldVal)" name="sneezing_toggle"></wm-checkbox>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn46" horizontalalign="center">
+                        <wm-composite name="composite7" horizontalalign="left">
+                            <wm-label class="col-xs-6 control-label" caption="Runny nose" name="label15"></wm-label>
+                            <wm-container class="col-xs-6" name="container7" horizontalalign="right">
+                                <wm-checkbox caption="Toggle" type="toggle" height="25" width="50" on-change="runny_toggleChange($event, $scope, newVal, oldVal)" name="runny_toggle"></wm-checkbox>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn47" horizontalalign="center">
+                        <wm-composite name="composite5" horizontalalign="left">
+                            <wm-label class="col-xs-6 control-label" caption="Swelling of lips or face" name="label13_1"></wm-label>
+                            <wm-container class="col-xs-6" name="container5" horizontalalign="right">
+                                <wm-checkbox caption="Toggle" type="toggle" height="25" width="50" on-change="lips_toggleChange($event, $scope, newVal, oldVal)" name="lips_toggle"></wm-checkbox>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn48" horizontalalign="center">
+                        <wm-composite name="composite3" horizontalalign="left">
+                            <wm-label class="col-xs-6 control-label" caption="Swelling of tongue" name="label4"></wm-label>
+                            <wm-container class="col-xs-6" name="container3" horizontalalign="right">
+                                <wm-checkbox caption="Toggle" type="toggle" height="25" width="50" name="tongue_switch" on-change="tongue_switchChange($event, $scope, newVal, oldVal)"></wm-checkbox>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow20">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn57" horizontalalign="center">
+                        <wm-label padding="unset 0.2em" width="100%" fontweight="bold" textalign="center" caption="Skin" fontsize="18" margin="20px unset 10px unset" fontunit="px" color="#2128cc" name="label42_2"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow2">
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn5" horizontalalign="center">
+                        <wm-composite name="composite1" horizontalalign="left">
+                            <wm-label class="col-xs-9 control-label" name="label2" caption="Hives, itchy swollen skin"></wm-label>
+                            <wm-container class="col-xs-3" name="container1" horizontalalign="right">
+                                <wm-checkbox caption="Toggle" type="toggle" name="hive_switch" height="25" width="50" required="false" on-change="hive_switchChange($event, $scope, newVal, oldVal)"></wm-checkbox>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn6" horizontalalign="center">
+                        <wm-composite name="composite2" horizontalalign="left">
+                            <wm-label class="col-xs-6 control-label" caption="Facial flushing" name="label3"></wm-label>
+                            <wm-container class="col-xs-6" name="container2" horizontalalign="right">
+                                <wm-checkbox caption="Toggle" type="toggle" height="25" width="50" name="flush_switch" on-change="flush_switchChange($event, $scope, newVal, oldVal)"></wm-checkbox>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn3"></wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn4"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow19">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn56" horizontalalign="center">
+                        <wm-label padding="unset 0.2em" width="100%" fontweight="bold" textalign="center" caption="Breathing" fontsize="18" margin="20px unset 10px unset" fontunit="px" color="#2128cc" name="label43_1"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow13">
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn41_1" horizontalalign="center">
+                        <wm-composite name="composite12" horizontalalign="left">
+                            <wm-label class="col-xs-9 control-label" caption="Choking, severe breathing difficulty" name="label20"></wm-label>
+                            <wm-container class="col-xs-3" name="container12" horizontalalign="right">
+                                <wm-checkbox caption="Toggle" type="toggle" height="25" width="50" on-change="breathing_toggleChange($event, $scope, newVal, oldVal)" name="breathing_toggle"></wm-checkbox>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn42" horizontalalign="center">
+                        <wm-composite name="composite8" horizontalalign="left">
+                            <wm-label class="col-xs-6 control-label" caption="Wheeze" name="label16"></wm-label>
+                            <wm-container class="col-xs-6" name="container8" horizontalalign="right">
+                                <wm-checkbox caption="Toggle" type="toggle" height="25" width="50" on-change="wheeze_toggleChange($event, $scope, newVal, oldVal)" name="wheeze_toggle"></wm-checkbox>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn43"></wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn44"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow18">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn55" horizontalalign="center">
+                        <wm-label padding="unset 0.2em" width="100%" fontweight="bold" textalign="center" caption="Digestion" fontsize="18" margin="20px unset 10px unset" fontunit="px" color="#2128cc" name="label44"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow12">
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn38" horizontalalign="center">
+                        <wm-composite name="composite13" horizontalalign="left">
+                            <wm-label class="col-xs-6 control-label" caption="Vomiting" name="label21"></wm-label>
+                            <wm-container class="col-xs-6" name="container13" horizontalalign="right">
+                                <wm-checkbox caption="Toggle" type="toggle" height="25" width="50" on-change="vomit_toggleChange($event, $scope, newVal, oldVal)" name="vomit_toggle"></wm-checkbox>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn39" horizontalalign="center">
+                        <wm-composite name="composite15" horizontalalign="left">
+                            <wm-label class="col-xs-6 control-label" caption="Bloated" name="label23"></wm-label>
+                            <wm-container class="col-xs-6" name="container15" horizontalalign="right">
+                                <wm-checkbox caption="Toggle" type="toggle" height="25" width="50" on-change="bloat_toggleChange($event, $scope, newVal, oldVal)" name="bloat_toggle"></wm-checkbox>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn40" horizontalalign="center">
+                        <wm-composite name="composite14" horizontalalign="left">
+                            <wm-label class="col-xs-6 control-label" caption="Diarrhoea" name="label22"></wm-label>
+                            <wm-container class="col-xs-6" name="container14" horizontalalign="right">
+                                <wm-checkbox caption="Toggle" type="toggle" height="25" width="50" on-change="diarrhoea_toggleChange($event, $scope, newVal, oldVal)" name="diarrhoea_toggle"></wm-checkbox>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn41" horizontalalign="center">
+                        <wm-composite name="composite18" horizontalalign="left">
+                            <wm-label class="col-xs-6 control-label" caption="Cramps" name="label26"></wm-label>
+                            <wm-container class="col-xs-6" name="container18" horizontalalign="right">
+                                <wm-checkbox caption="Toggle" type="toggle" height="25" width="50" on-change="mood_toggleChange($event, $scope, newVal, oldVal)" name="mood_toggle"></wm-checkbox>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow17">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn54" horizontalalign="center">
+                        <wm-label padding="unset 0.2em" width="100%" fontweight="bold" textalign="center" caption="General" fontsize="18" margin="20px unset 10px unset" fontunit="px" color="#2128cc" name="label45"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow11">
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn34" horizontalalign="center">
+                        <wm-composite name="composite19" horizontalalign="left">
+                            <wm-label class="col-xs-9 control-label" caption="Fever, raised temperature" name="label27"></wm-label>
+                            <wm-container class="col-xs-3" name="container19" horizontalalign="right">
+                                <wm-checkbox caption="Toggle" type="toggle" height="25" width="50" on-change="fever_toggleChange($event, $scope, newVal, oldVal)" name="fever_toggle"></wm-checkbox>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn35" horizontalalign="center">
+                        <wm-composite name="composite10" horizontalalign="left">
+                            <wm-label class="col-xs-6 control-label" caption="Disturbed sleep" name="label18"></wm-label>
+                            <wm-container class="col-xs-6" name="container10" horizontalalign="right">
+                                <wm-checkbox caption="Toggle" type="toggle" height="25" width="50" on-change="sleep_toggleChange($event, $scope, newVal, oldVal)" name="sleep_toggle"></wm-checkbox>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn36" horizontalalign="center">
+                        <wm-composite name="composite11" horizontalalign="left">
+                            <wm-label class="col-xs-9 control-label" caption="Poor concentration &amp;/or productivity" name="label19"></wm-label>
+                            <wm-container class="col-xs-3" name="container11" horizontalalign="right">
+                                <wm-checkbox caption="Toggle" type="toggle" height="25" width="50" on-change="toggle11Change($event, $scope, newVal, oldVal)" name="toggle11"></wm-checkbox>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn37" horizontalalign="center">
+                        <wm-composite name="composite17" horizontalalign="left">
+                            <wm-label class="col-xs-6 control-label" caption="Dizzy, lightheaded" name="label25"></wm-label>
+                            <wm-container class="col-xs-6" name="container17" horizontalalign="right">
+                                <wm-checkbox caption="Toggle" type="toggle" height="25" width="50" on-change="dizzy_toggleChange($event, $scope, newVal, oldVal)" name="dizzy_toggle"></wm-checkbox>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow8_1">
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn22_1" horizontalalign="left">
+                        <wm-composite name="composite24">
+                            <wm-label class="col-xs-3 control-label" name="label32" caption="Speed of onset (typical time to first reaction)?"></wm-label>
+                            <wm-container class="col-xs-9" name="container24">
+                                <wm-radioset height="auto" name="onset_radioset" dataset="less than a minute, up to 15 minutes, up to one hour, less than 4 hours, more than 4 hours, unsure" selectedvalue="unsure" on-change="onset_radiosetChange($event, $scope, newVal, oldVal)"></wm-radioset>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn23_1">
+                        <wm-composite name="composite22">
+                            <wm-label class="col-xs-3 control-label" name="label30" caption="Episode duration"></wm-label>
+                            <wm-container class="col-xs-9" name="container22">
+                                <wm-radioset height="auto" name="duration_radioset" dataset="less than an hour, up to a day, up to a week, constant, erratic" selectedvalue="erratic" on-change="duration_radiosetChange($event, $scope, newVal, oldVal)"></wm-radioset>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn24_1">
+                        <wm-composite name="composite23">
+                            <wm-label class="col-xs-3 control-label" name="label31" caption="How much allergen produces a reaction?"></wm-label>
+                            <wm-container class="col-xs-9" name="container23">
+                                <wm-radioset height="auto" name="exposure_radioset" selectedvalue="don't know" on-change="exposure_radiosetChange($event, $scope, newVal, oldVal)" dataset="bind:Variables.Allergy_Amount.dataSet" datafield="All Fields"></wm-radioset>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow7">
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn22">
+                        <wm-composite name="composite43">
+                            <wm-label class="col-xs-3 control-label" name="label37" caption="Age at onset (years)"></wm-label>
+                            <wm-container class="col-xs-9" name="container25">
+                                <wm-text name="text1" on-change="text1Change($event, $scope, newVal, oldVal)" type="number" placeholder="enter age in years"></wm-text>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn39_1">
+                        <wm-composite name="compositeSeasonal">
+                            <wm-label class="col-xs-3 control-label" name="label38" caption="Are symptoms seasonal?" width="50%"></wm-label>
+                            <wm-container class="col-xs-9" name="container26">
+                                <wm-radioset height="auto" name="seasonality_radioset" dataset="No, Yes" selectedvalue="No" on-change="seasonality_radiosetChange($event, $scope, newVal, oldVal)"></wm-radioset>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn23">
+                        <wm-label padding="0.5em unset" name="season_label" caption="Are Symptoms seasonal?" fontsize="12" fontweight="bold" textalign="left" width="200" show="false"></wm-label>
+                        <wm-composite name="composite38" show="false">
+                            <wm-checkbox caption="not seasonal" class="col-xs-push-3 col-xs-9" name="checkbox_unseasonal" on-change="checkbox_unseasonalChange($event, $scope, newVal, oldVal)" datavalue="false" checkedvalue="true" uncheckedvalue="false"></wm-checkbox>
+                        </wm-composite>
+                        <wm-composite name="composite39" show="false">
+                            <wm-checkbox caption="January" class="col-xs-push-3 col-xs-9" name="checkbox_jan" on-change="checkbox_janChange($event, $scope, newVal, oldVal)"></wm-checkbox>
+                        </wm-composite>
+                        <wm-composite name="composite40" show="false">
+                            <wm-checkbox caption="February" class="col-xs-push-3 col-xs-9" name="checkbox_feb" on-change="checkbox_febChange($event, $scope, newVal, oldVal)"></wm-checkbox>
+                        </wm-composite>
+                        <wm-composite name="composite45" show="false">
+                            <wm-checkbox caption="March" class="col-xs-push-3 col-xs-9" name="checkbox_mar" on-change="checkbox_marChange($event, $scope, newVal, oldVal)"></wm-checkbox>
+                        </wm-composite>
+                        <wm-composite name="composite46" show="false">
+                            <wm-checkbox caption="April" class="col-xs-push-3 col-xs-9" name="checkbox_apr" on-change="checkbox_aprChange($event, $scope, newVal, oldVal)"></wm-checkbox>
+                        </wm-composite>
+                        <wm-composite name="compositeFrequency">
+                            <wm-label class="col-xs-3 control-label" name="label29" caption="Frequency of episodes" fontsize="12"></wm-label>
+                            <wm-container class="col-xs-9" name="container21">
+                                <wm-radioset height="auto" name="frequency_radioset" dataset="every day, most weeks, most months, hard to say" on-change="frequency_radiosetChange($event, $scope, newVal, oldVal)" selectedvalue="hard to say"></wm-radioset>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn56_1">
+                        <wm-composite name="compositeLocationsHeader">
+                            <wm-label padding="unset 0.5em" name="location_label" textalign="center" fontsize="12" fontweight="bold" caption="Locations of Episodes" backgroundsize="200,50" backgroundposition="top, centre" margin="unset unset unset 50px"></wm-label>
+                        </wm-composite>
+                        <wm-composite name="compositeLocations" horizontalalign="left">
+                            <wm-checkbox caption="home" class="col-xs-push-3 col-xs-9" name="checkbox_home" on-change="checkbox_homeChange($event, $scope, newVal, oldVal)" datavalue="false" checkedvalue="true" uncheckedvalue="false"></wm-checkbox>
+                            <wm-checkbox caption="work or school" class="col-xs-push-3 col-xs-9" name="checkbox_work" on-change="checkbox_workChange($event, $scope, newVal, oldVal)"></wm-checkbox>
+                            <wm-checkbox caption="restaurant or hotel" class="col-xs-push-3 col-xs-9" name="checkbox_restaurant" on-change="checkbox_restaurantChange($event, $scope, newVal, oldVal)"></wm-checkbox>
+                            <wm-checkbox caption="old or dusty buildings" class="col-xs-push-3 col-xs-9" name="checkbox_old" on-change="checkbox_oldChange($event, $scope, newVal, oldVal)"></wm-checkbox>
+                            <wm-checkbox caption="cold &amp;/or damp buildings" class="col-xs-push-3 col-xs-9" name="checkbox_cold" on-change="checkbox_coldChange($event, $scope, newVal, oldVal)"></wm-checkbox>
+                            <wm-checkbox caption="farm or zoo" class="col-xs-push-3 col-xs-9" name="checkbox_farm" on-change="checkbox_farmChange($event, $scope, newVal, oldVal)"></wm-checkbox>
+                            <wm-checkbox caption="other locations" class="col-xs-push-3 col-xs-9" name="checkbox_other" on-change="checkbox_otherChange($event, $scope, newVal, oldVal)"></wm-checkbox>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow9">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn33" horizontalalign="center">
+                        <wm-label padding="unset 0.5em" name="session_label" caption="bind:Widgets.TrackReadTable.selecteditem.sessionId" show="false"></wm-label>
+                        <wm-button class="btn-success btn-rounded btn-lg" caption="DONE" type="button" margin="unset 0.5em" fontsize="30" textalign="center" fontweight="bold" width="150px" on-click="Actions.navigationPreviousPage.invoke()" borderstyle="double" name="button1"
+                            borderwidth=".3px unset"></wm-button>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+            <wm-table name="TrackReadTable" title="" dataset="bind:Variables.TrackRead.dataSet" navigation="Basic" show="false" gridfirstrowselect="true">
+                <wm-table-column binding="firstName" caption="First Name" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                <wm-table-column binding="lastName" caption="Last Name" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                <wm-table-column binding="patientId" caption="Patient Id" edit-widget-type="number" type="integer" show="true" readonly="false"></wm-table-column>
+                <wm-table-column binding="sessionId" caption="Session Id" edit-widget-type="number" type="integer" show="true" readonly="false"></wm-table-column>
+                <wm-table-column binding="userType" caption="User Type" edit-widget-type="number" type="integer" show="true" readonly="false"></wm-table-column>
+                <wm-table-column binding="userId" caption="User Id" edit-widget-type="number" type="integer" show="true" readonly="false"></wm-table-column>
+            </wm-table>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+    <wm-view class="dialog-view" name="view1">
+        <wm-pagedialog name="pagedialog1" title="Seasonal Symptoms" oktext="Exit" iconclass="wi wi-calendar"></wm-pagedialog>
+    </wm-view>
+    <wm-view class="dialog-view" name="view2">
+        <wm-pagedialog name="pagedialog2" iconclass="wi wi-calendar" title="Seasonality" oktext="Done" content="Seasonal_Months"></wm-pagedialog>
+    </wm-view>
+</wm-page>

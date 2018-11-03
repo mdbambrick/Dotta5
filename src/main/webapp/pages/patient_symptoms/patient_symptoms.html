@@ -1,0 +1,87 @@
+<wm-page data-ng-controller="patient_symptomsPageController" pagetitle="Patient Symptoms" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1">
+            <wm-table name="executePatientReadTable1" title="" dataset="bind:Variables.PatientRead.dataSet" navigation="None" on-beforeformrender="executePatientReadTable1Beforeformrender($event, $scope, $rowData, $operation)" gridfirstrowselect="true" show="false">
+                <wm-table-column binding="firstName" caption="First Name" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                <wm-table-column binding="lastName" caption="Last Name" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                <wm-table-column binding="healthNumber" caption="Health Number" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                <wm-table-column binding="address3" caption="Address3" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                <wm-table-column binding="address2" caption="Address2" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                <wm-table-column binding="address1" caption="Address1" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                <wm-table-column binding="sex" caption="Sex" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                <wm-table-column binding="postcode" caption="Postcode" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                <wm-table-column binding="dateOfBirth" caption="Date Of Birth" edit-widget-type="date" type="date" show="true" readonly="false"></wm-table-column>
+                <wm-table-column binding="title" caption="Title" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                <wm-table-column binding="userId" caption="User Id" edit-widget-type="number" type="integer" show="true" readonly="false"></wm-table-column>
+            </wm-table>
+            <wm-layoutgrid name="layoutgrid1" show="true" columns="2">
+                <wm-gridrow name="gridrow3" padding="2em unset">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn9" horizontalalign="right">
+                        <wm-label padding="unset 0.2em unset 0.5em" name="FName" caption="bind:Widgets.executePatientReadTable1.selecteditem.firstName" fontsize="40" fontweight="bold" textalign="center" fontunit="px"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn10" horizontalalign="left">
+                        <wm-label padding="unset 0.5em unset 0.2em" name="LName" caption="bind:Widgets.executePatientReadTable1.selecteditem.lastName" fontsize="40" fontweight="bold" textalign="center"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow5">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn6"></wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn7" horizontalalign="right">
+                        <wm-button class="btn-primary" caption="Medical History" type="button" margin="1em" name="button1" width="150" padding="1em" height="50" textalign="center" on-click="Widgets.pagedialog1.open()"></wm-button>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow6">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn8">
+                        <wm-label padding="unset 0.5em" name="label3" caption="Reported Allergy Symptoms" fontsize="20" fontweight="bold"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn9_1"></wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+            <wm-livefilter title="Filter Symptoms" dataset="bind:Variables.MedidataPatientSymptomsWithAuthorAndRankingAndColourData.dataSet" captionalign="left" captionposition="top" name="livefilter1">
+                <wm-layoutgrid columns="1" name="layoutgrid2">
+                    <wm-gridrow name="gridrow2">
+                        <wm-gridcolumn columnwidth="12" show="true" name="gridcolumn3">
+                            <wm-filter-field name="title" field="title" displayname="Title" widget="text" is-range="false" type="text" is-primary-key="false" generator="assigned" show="false" pc-display="true" mobile-display="true"></wm-filter-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                    <wm-gridrow name="gridrow3_1">
+                        <wm-gridcolumn columnwidth="12" show="true" name="gridcolumn4">
+                            <wm-filter-field name="setName" field="setName" displayname="Allergy Type" widget="text" is-range="false" type="text" is-primary-key="false" generator="assigned" show="true" pc-display="true" mobile-display="true"></wm-filter-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                    <wm-gridrow name="gridrow4">
+                        <wm-gridcolumn columnwidth="12" show="true" name="gridcolumn5">
+                            <wm-filter-field name="allergyName" field="allergyName" displayname="Allergy Name" widget="text" is-range="false" type="text" is-primary-key="false" generator="assigned" show="true" pc-display="true" mobile-display="true"></wm-filter-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                </wm-layoutgrid>
+                <wm-filter-action key="filter" class="btn-primary" iconclass="wi wi-filter-list" action="filter()" display-name="Filter" show="true" type="button"></wm-filter-action>
+                <wm-filter-action key="clear" class="btn-secondary" iconclass="wi wi-cancel" action="clearFilter()" display-name="Clear" show="true" type="button"></wm-filter-action>
+            </wm-livefilter>
+            <wm-button class="btn-primary" caption="complete symptoms" type="button" margin="1em" width="150" padding="1em" height="50" textalign="center" on-click="Widgets.pagedialog2.open()" name="button3" show="false"></wm-button>
+            <wm-table name="Table1" title="" dataset="bind:Widgets.livefilter1.result" navigation="Basic" rowngclass="{'green':row.colour==25, 'amber':row.colour==50, 'red':row.colour==100}">
+                <wm-table-column binding="setName" caption="Allergy Type" edit-widget-type="text" type="text" generator="assigned" show="true" readonly="false"></wm-table-column>
+                <wm-table-column binding="allergyName" caption="Allergy" textalignment="center" edit-widget-type="text" type="text" generator="assigned" show="true" readonly="false"></wm-table-column>
+                <wm-table-column binding="symptom" caption="Symptom" textalignment="center" edit-widget-type="text" type="text" generator="assigned" show="true" readonly="false"></wm-table-column>
+                <wm-table-column binding="result" caption="Status Reported" textalignment="center" edit-widget-type="number" type="integer" generator="assigned" show="true" readonly="false"></wm-table-column>
+                <wm-table-column binding="timestamp" caption="Date Input" textalignment="center" edit-widget-type="timestamp" type="timestamp" generator="assigned" datepattern="d MMM yyyy" formatpattern="toDate" show="true" readonly="false"></wm-table-column>
+                <wm-table-column binding="authorTitle" caption="Author Title" textalignment="center" edit-widget-type="text" type="text" generator="assigned" show="true" readonly="false"></wm-table-column>
+                <wm-table-column binding="authorFirstName" caption="Author First Name" textalignment="center" edit-widget-type="text" type="text" generator="assigned" show="true" readonly="false"></wm-table-column>
+                <wm-table-column binding="authorLastName" caption="Author Last Name" textalignment="center" edit-widget-type="text" type="text" generator="assigned" show="true" readonly="false"></wm-table-column>
+                <wm-table-column binding="role" caption="Role" textalignment="center" edit-widget-type="text" type="text" generator="assigned" show="true" readonly="false"></wm-table-column>
+                <wm-table-column binding="ranking" caption="Ranking" textalignment="center" edit-widget-type="number" type="integer" generator="assigned" show="false" readonly="false"></wm-table-column>
+                <wm-table-column binding="colour" caption="Rating" textalignment="center" edit-widget-type="number" type="integer" generator="assigned" show="true" readonly="false"></wm-table-column>
+            </wm-table>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+    <wm-view class="dialog-view" name="view1">
+        <wm-pagedialog name="pagedialog1" content="patient_info" width="100%">
+            <wm-param name="patientId" value="bind:pageParams.patient_id" type="integer"></wm-param>
+        </wm-pagedialog>
+    </wm-view>
+    <wm-view class="dialog-view" name="view2">
+        <wm-pagedialog name="pagedialog2" content="patient_symptoms_complete" width="100%"></wm-pagedialog>
+    </wm-view>
+</wm-page>

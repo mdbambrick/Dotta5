@@ -1,0 +1,88 @@
+<wm-page data-ng-controller="Allergy_AeroPageController" pagetitle="Allergy_Aero" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow1">
+                    <wm-gridcolumn columnwidth="12" horizontalalign="center" name="gridcolumn1">
+                        <wm-label padding="unset 0.5em" caption="Aero Allergens" fontweight="bold" textalign="center" fontsize="3" backgroundposition="center,top" name="label1" fontunit="em" margin="0.5em unset 0.2em unset" width="100%"></wm-label>
+                        <wm-button class="btn-success" caption="Aero Allergen Detection Guide" type="button" margin="10px unset 20px unset" name="button2" padding="10px unset" on-click="Widgets.pagedialog1.open()" width="100%" iconclass="wi wi-cloud-queue"></wm-button>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow2" padding="unset unset 1em unset">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn2" horizontalalign="left">
+                        <wm-composite name="composite20" horizontalalign="left" width="90%">
+                            <wm-label class="col-md-6 control-label" caption="Animals" fontsize="20" on-click="Actions.goToPage_Symptoms.invoke()" name="label21" textalign="left"></wm-label>
+                            <wm-container class="col-md-6" name="container20">
+                                <wm-switch datavalue="no" on-click="animalgp_switchClick($event, $scope)" name="animalgp_switch"></wm-switch>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn4" horizontalalign="left">
+                        <wm-composite name="composite24" width="90%">
+                            <wm-label class="col-md-6 control-label" caption="Dust/Mites" fontsize="20" on-click="Actions.goToPage_Symptoms.invoke()" name="label25"></wm-label>
+                            <wm-container class="col-md-6" name="container24">
+                                <wm-switch datavalue="no" on-click="housedust_switchClick($event, $scope)" name="housedust_switch"></wm-switch>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow3" padding="unset unset 1em unset">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn5" horizontalalign="left">
+                        <wm-composite name="composite22" width="90%">
+                            <wm-label class="col-md-6 control-label" caption="Mould (damp)" fontsize="20" on-click="Actions.goToPage_Symptoms.invoke()" name="label23"></wm-label>
+                            <wm-container class="col-md-6" name="container22">
+                                <wm-switch datavalue="no" on-click="damp_switchClick($event, $scope)" name="damp_switch"></wm-switch>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn7" horizontalalign="left">
+                        <wm-composite name="composite14" horizontalalign="left" width="90%">
+                            <wm-label class="col-md-6  control-label" caption="Pollen" fontsize="20" on-click="Actions.goToPage_Symptoms.invoke()" name="label15"></wm-label>
+                            <wm-container class="col-md-6" name="container14">
+                                <wm-switch datavalue="no" on-click="tree_switchClick($event, $scope)" name="tree_switch"></wm-switch>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow5" padding="unset unset 1em unset">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn11">
+                        <wm-composite name="composite10" width="90%">
+                            <wm-label class="col-md-6 control-label" caption="Other/Unknown" fontsize="20" name="label11"></wm-label>
+                            <wm-container class="col-md-6" name="container10">
+                                <wm-switch datavalue="no" on-click="aero_unknown_switchClick($event, $scope)" name="aero_unknown_switch"></wm-switch>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn13"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow6">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn14" horizontalalign="center">
+                        <wm-button class="btn-success btn-rounded btn-lg" caption="DONE" type="button" margin="0.5em" fontsize="2" textalign="center" fontweight="bold" on-click="Widgets.dialog1.open()" borderstyle="double" name="button1" fontunit="em"></wm-button>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+    <wm-view class="dialog-view" name="view1">
+        <wm-pagedialog name="pagedialog1" title="Aero-Allergen Detection Guide" iconclass="wi wi-cloud-queue" content="Detective_Aero"></wm-pagedialog>
+    </wm-view>
+    <wm-view class="dialog-view" name="view3">
+        <wm-dialog dialogtype="design-dialog" modal="true" title="Information" iconclass="wi wi-file-text" name="dialog1">
+            <wm-dialogactions name="dialogactions1">
+                <wm-button class="btn-primary" caption="I have recorded all my symptoms" on-click="Actions.goToPage_Dash_Allergy.invoke();Widgets.dialog1.close()" name="button3"></wm-button>
+                <wm-button class="btn-primary" caption="I'll add them now" type="button" margin="unset 0.5em" name="button4" on-click="Widgets.dialog1.close()"></wm-button>
+                <wm-button class="btn-primary" caption="I'll add them later" type="button" margin="unset 0.5em" name="button5" on-click="Widgets.dialog1.close();Actions.goToPage_Dash_Allergy.invoke()"></wm-button>
+            </wm-dialogactions>
+            <wm-layoutgrid name="layoutgrid3">
+                <wm-gridrow name="gridrow8">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn13_1" horizontalalign="center">
+                        <wm-label padding="unset 0.5em" name="label11_1" caption="Do you have any other Aero allergies?" fontsize="2" textalign="center" fontunit="em"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-dialog>
+    </wm-view>
+</wm-page>

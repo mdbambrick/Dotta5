@@ -1,0 +1,148 @@
+{
+  "username" : "mdbambrick",
+  "password" : "7b6a43524a2b3f1d386236694a5c783a172653",
+  "url" : "jdbc:mysql://54.154.235.197:3306/medidata?useUnicode=yes&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull",
+  "driverClass" : "com.mysql.jdbc.Driver",
+  "dialect" : "com.wavemaker.runtime.data.dialect.MySQLDialect",
+  "serviceId" : "medidata",
+  "packageName" : "com.dotta.medidata",
+  "dbType" : "MySQL",
+  "host" : "54.154.235.197",
+  "dbName" : "medidata",
+  "port" : "3306",
+  "schemaName" : null,
+  "tableFilter" : [ {
+    "table" : "action_plans",
+    "schema" : null
+  }, {
+    "table" : "actions_diagnoses",
+    "schema" : null
+  }, {
+    "table" : "allergies",
+    "schema" : null
+  }, {
+    "table" : "allergy_category",
+    "schema" : null
+  }, {
+    "table" : "allergy_class",
+    "schema" : null
+  }, {
+    "table" : "allergy_sets",
+    "schema" : null
+  }, {
+    "table" : "background",
+    "schema" : null
+  }, {
+    "table" : "background_elements",
+    "schema" : null
+  }, {
+    "table" : "background_integers",
+    "schema" : null
+  }, {
+    "table" : "compounds",
+    "schema" : null
+  }, {
+    "table" : "compounds_allergies",
+    "schema" : null
+  }, {
+    "table" : "compounds with allergens",
+    "schema" : null
+  }, {
+    "table" : "conditions",
+    "schema" : null
+  }, {
+    "table" : "connected_symptom_groups",
+    "schema" : null
+  }, {
+    "table" : "connected_symptom_multipliers",
+    "schema" : null
+  }, {
+    "table" : "data_source",
+    "schema" : null
+  }, {
+    "table" : "diagnoses",
+    "schema" : null
+  }, {
+    "table" : "medics with patients",
+    "schema" : null
+  }, {
+    "table" : "patient symptoms by allergy",
+    "schema" : null
+  }, {
+    "table" : "patient_symptoms_with_author",
+    "schema" : null
+  }, {
+    "table" : "patient_symptoms_with_author_and_ranking_and_colour",
+    "schema" : null
+  }, {
+    "table" : "patients",
+    "schema" : null
+  }, {
+    "table" : "probability_allergy_symptom_primary",
+    "schema" : null
+  }, {
+    "table" : "process_stages",
+    "schema" : null
+  }, {
+    "table" : "qn_group",
+    "schema" : null
+  }, {
+    "table" : "session_id with user_id and patient_id",
+    "schema" : null
+  }, {
+    "table" : "session_id with users",
+    "schema" : null
+  }, {
+    "table" : "sessions",
+    "schema" : null
+  }, {
+    "table" : "substitutes",
+    "schema" : null
+  }, {
+    "table" : "substitutes_allergies",
+    "schema" : null
+  }, {
+    "table" : "survey_and_test_data",
+    "schema" : null
+  }, {
+    "table" : "survey_unique",
+    "schema" : null
+  }, {
+    "table" : "symptom_set",
+    "schema" : null
+  }, {
+    "table" : "symptoms",
+    "schema" : null
+  }, {
+    "table" : "synonym_allergies",
+    "schema" : null
+  }, {
+    "table" : "user_types",
+    "schema" : null
+  }, {
+    "table" : "users",
+    "schema" : null
+  }, {
+    "table" : "users_patients",
+    "schema" : null
+  }, {
+    "table" : "view_users_with_type",
+    "schema" : null
+  } ],
+  "schemaFilter" : [ ],
+  "impersonateUser" : false,
+  "activeDirectoryDomain" : null,
+  "hbm2ddl" : "none",
+  "maxPageSize" : 100,
+  "minPoolSize" : 2,
+  "maxPoolSize" : 4,
+  "transactionTimeout" : 30,
+  "dataSourceType" : "WM_MANAGED_DATASOURCE",
+  "jndiName" : "",
+  "reloadInfo" : {
+    "reload" : false,
+    "reason" : null,
+    "message" : null
+  },
+  "readOnly" : false
+}

@@ -1,0 +1,76 @@
+<wm-partial data-ng-controller="RegistrationPageController" name="partial1">
+    <wm-composite name="composite1" show="false">
+        <wm-label class="col-md-3 control-label" name="label1" caption="User Name"></wm-label>
+        <wm-container class="col-md-9" name="container1">
+            <wm-text name="text1" placeholder="Enter unique user ID, e.g. email address, 7 characters minimum" on-mouseleave="text1Mouseleave($event, $scope)"></wm-text>
+        </wm-container>
+    </wm-composite>
+    <wm-composite name="composite3">
+        <wm-composite name="composite11">
+            <wm-label class="col-md-3 control-label" name="label11" caption="Title" hint="Select a relevant title if preferred"></wm-label>
+            <wm-container class="col-md-9" name="container11">
+                <wm-select name="select3" placeholder="" hint="Non-mandatory field" dataset="None specified, Mr, Mrs, Ms, Mstr, Miss, Dr, Professor, Other" datavalue="None specified" datafield="All Fields"></wm-select>
+            </wm-container>
+        </wm-composite>
+        <wm-label class="col-md-3 control-label" name="label3" caption="First Name"></wm-label>
+        <wm-container class="col-md-9" name="container3">
+            <wm-text name="text3" placeholder="Enter first name" maxchars="30"></wm-text>
+        </wm-container>
+    </wm-composite>
+    <wm-composite name="composite4">
+        <wm-label class="col-md-3 control-label" name="label4" caption="Last Name"></wm-label>
+        <wm-container class="col-md-9" name="container4">
+            <wm-text name="text4" placeholder="Enter surname" maxchars="30"></wm-text>
+        </wm-container>
+    </wm-composite>
+    <wm-composite name="composite5">
+        <wm-label class="col-md-3 control-label" name="label5" caption="Password"></wm-label>
+        <wm-container class="col-md-9" name="container5">
+            <wm-text name="text5" placeholder="Create password" maxchars="30" hint="Minimum 8 character, 1 special character and mixed upper/lower case" on-blur="text5Blur($event, $scope)" required="false"></wm-text>
+        </wm-container>
+    </wm-composite>
+    <wm-composite name="composite6">
+        <wm-label class="col-md-3 control-label" name="label6" caption="Confirm Password"></wm-label>
+        <wm-container class="col-md-9" name="container6">
+            <wm-text name="text6" placeholder="Re-enter to verify" on-blur="text6Blur($event, $scope)"></wm-text>
+        </wm-container>
+    </wm-composite>
+    <wm-composite name="composite7">
+        <wm-label class="col-md-3 control-label" name="label7" caption="Email Address"></wm-label>
+        <wm-container class="col-md-9" name="container7">
+            <wm-text name="text7" placeholder="Enter valid email address" maxchars="60" on-blur="text7Blur($event, $scope)"></wm-text>
+        </wm-container>
+    </wm-composite>
+    <wm-composite name="composite10">
+        <wm-label class="col-md-3 control-label" name="label10" caption="User Type" hint="User-type should reflect your use e.g. as patient, parent etc."></wm-label>
+        <wm-container class="col-md-9" name="container10">
+            <wm-select name="select2" dataset="bind:Variables.userTypes.dataSet" datafield="dataValue" displayfield="name" on-blur="select2Blur($event, $scope)"></wm-select>
+        </wm-container>
+    </wm-composite>
+    <wm-composite name="composite9" show="false">
+        <wm-label class="col-md-3 control-label" name="label9" caption="Share Code"></wm-label>
+        <wm-container class="col-md-9" name="container9">
+            <wm-text name="text8" type="number" datavalue="bind:Variables.shareCode.dataSet.dataValue"></wm-text>
+        </wm-container>
+    </wm-composite>
+    <wm-composite name="compositePasscode" show="false">
+        <wm-label class="col-md-3 control-label" name="passCodeLabel" caption="Passcode for User Type"></wm-label>
+        <wm-container class="col-md-9" name="passCodeContainer" show="true">
+            <wm-text name="passCodeText" type="number" placeholder="Enter authorised passcode" on-blur="passCodeTextBlur($event, $scope)"></wm-text>
+        </wm-container>
+    </wm-composite>
+    <wm-layoutgrid name="layoutgrid1">
+        <wm-gridrow name="gridrow1">
+            <wm-gridcolumn columnwidth="12" name="gridcolumn2" horizontalalign="right">
+                <wm-button class="btn-lg btn-primary" caption="REGISTER" type="button" margin="0.2em 0.5em" name="button1" on-click="button1Click($event, $scope);Variables.SendEmail.invoke()" fontweight="bold" iconclass="wi wi-check-box"></wm-button>
+                <wm-message name="message1" show="false"></wm-message>
+                <wm-message name="message2" show="false"></wm-message>
+                <wm-message name="message3" show="false"></wm-message>
+                <wm-message name="message4" show="false"></wm-message>
+                <wm-message name="message5" show="false"></wm-message>
+                <wm-message name="message6" show="false"></wm-message>
+            </wm-gridcolumn>
+        </wm-gridrow>
+        <wm-gridrow name="gridrow3"></wm-gridrow>
+    </wm-layoutgrid>
+</wm-partial>

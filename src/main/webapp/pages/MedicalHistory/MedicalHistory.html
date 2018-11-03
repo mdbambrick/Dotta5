@@ -1,0 +1,142 @@
+<wm-page data-ng-controller="MedicalHistoryPageController" pagetitle="Medical History" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1">
+            <wm-layoutgrid name="layoutgrid2">
+                <wm-gridrow name="gridrow10">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn25" horizontalalign="center">
+                        <wm-liveform errormessage="" title="Medical History" iconclass="wi wi-edit" defaultmode="Edit" dataset="bind:Variables.MedidataBackgroundData.firstRecord" captionalign="center" captionposition="left" name="medicalHistoryLiveForm" formdata="bind:Variables.MedidataBackgroundData.firstRecord"
+                            subheading="You may need to consult medical records, your GP and other family members to accurately complete this section.">
+                            <wm-layoutgrid columns="1" name="layoutgrid3">
+                                <wm-gridrow name="gridrow14_1">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn28_1">
+                                        <wm-form-field name="priorAllergyTreatment" displayname="Prior Allergy Treatment" show="true" primary-key="false" generator="assigned" period="false" key="priorAllergyTreatment" type="text" readonly="false" widget="select"
+                                            maxchars="65535" placeholder="Select value" dataset="Hospital specialist assessment, GP assessment, Other assessment, No prior diagnosis" hint="To what extent (if at all)  have you progressed diagnosis, within the past 5 years?"></wm-form-field>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow15">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn29_1">
+                                        <wm-form-field name="ingestionAllergy" displayname="Food or Drink Allergy" show="true" primary-key="false" generator="assigned" period="false" key="ingestionAllergy" type="text" readonly="false" widget="select" maxchars="65535"
+                                            placeholder="Select value" dataset="Yes, No, Maybe" hint="Have you experienced allergy to food or drink?"></wm-form-field>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow16">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn30_1">
+                                        <wm-form-field name="aeroAllergy" displayname="Aero Allergy" show="true" primary-key="false" generator="assigned" period="false" key="aeroAllergy" type="text" readonly="false" widget="select" maxchars="65535" placeholder="Select value"
+                                            dataset="Yes, No, Maybe" hint="Do you suffer from hayfever or allergy to dust, mould or pets?"></wm-form-field>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow17">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn31_1">
+                                        <wm-form-field name="asthma" displayname="Asthma" show="true" primary-key="false" generator="assigned" period="false" key="asthma" type="text" readonly="false" widget="select" maxchars="65535" placeholder="Select value"
+                                            dataset="Yes, No, Maybe" hint="Do you suffer from asthma?"></wm-form-field>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow18">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn32_1">
+                                        <wm-form-field name="eczema" displayname="Eczema" show="true" primary-key="false" generator="assigned" period="false" key="eczema" type="text" readonly="false" widget="select" maxchars="65535" placeholder="Select value"
+                                            dataset="Yes, No, Maybe" hint="Do you suffer from dermatitis?"></wm-form-field>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow19">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn33_1">
+                                        <wm-form-field name="celiac" displayname="Celiac" show="true" primary-key="false" generator="assigned" period="false" key="celiac" type="text" readonly="false" widget="select" maxchars="65535" placeholder="Select value"
+                                            dataset="Yes, No, Maybe" hint="Has your immediate family any history of celiac disease?"></wm-form-field>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow20">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn34_1">
+                                        <wm-form-field name="familyIngestionAllergy" displayname="Family Food Allergy" show="true" primary-key="false" generator="assigned" period="false" key="familyIngestionAllergy" type="text" readonly="false" widget="select"
+                                            maxchars="65535" placeholder="Select value" dataset="Yes, No, Maybe" hint="Any family allergy to food or drink?"></wm-form-field>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow21">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn35">
+                                        <wm-form-field name="familyAeroAllergy" displayname="Family Aero Allergy" show="true" primary-key="false" generator="assigned" period="false" key="familyAeroAllergy" type="text" readonly="false" widget="select" maxchars="65535"
+                                            placeholder="Select value" dataset="Yes, No, Maybe" hint="Any family members suffer from hayfever or other aero allergy?"></wm-form-field>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow22">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn36">
+                                        <wm-form-field name="familyAsthma" displayname="Family Asthma" show="true" primary-key="false" generator="assigned" period="false" key="familyAsthma" type="text" readonly="false" widget="select" maxchars="65535" placeholder="Select value"
+                                            dataset="Yes, No, Maybe" hint="Any family members suffer from asthma?"></wm-form-field>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow23">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn37">
+                                        <wm-form-field name="familyEczema" displayname="Family Eczema" show="true" primary-key="false" generator="assigned" period="false" key="familyEczema" type="text" readonly="false" widget="select" maxchars="65535" placeholder="Select value"
+                                            dataset="Yes, No, Maybe" hint="Any dermatitis in the family?"></wm-form-field>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow24">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn38">
+                                        <wm-form-field name="familyCeliac" displayname="Family Celiac" show="true" primary-key="false" generator="assigned" period="false" key="familyCeliac" type="text" readonly="false" widget="select" maxchars="65535" placeholder="Select value"
+                                            dataset="Yes, No, Maybe"></wm-form-field>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow25">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn39">
+                                        <wm-form-field name="weight" displayname="Weight" show="true" primary-key="false" generator="assigned" period="false" key="weight" type="big_decimal" readonly="false" required="false" step="1e-9" widget="number" inputtype="number"
+                                            placeholder="Enter value" hint="Enter your weight in kg"></wm-form-field>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow26">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn40">
+                                        <wm-form-field name="earlyPetsLivestock" displayname="Early Pets &amp; Livestock" show="true" primary-key="false" generator="assigned" period="false" key="earlyPetsLivestock" type="text" readonly="false" widget="select"
+                                            maxchars="65535" placeholder="Select value" hint="As a child were you often in proximity to farm animals or family pets?" dataset="Yes, No, Maybe"></wm-form-field>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow27">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn41">
+                                        <wm-form-field name="earlyUrbanRural" displayname="Early Environment (Urban/Rural)" show="true" primary-key="false" generator="assigned" period="false" key="earlyUrbanRural" type="text" readonly="false" widget="select"
+                                            maxchars="65535" placeholder="Select value" dataset="Town or city, Rural or countryside, Village or edge of town, Other environment" hint="In what location did you spend the bulk of your childhood?"></wm-form-field>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow28">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn42">
+                                        <wm-form-field name="ethnicity" displayname="Childhood region" show="true" primary-key="false" generator="assigned" period="false" key="ethnicity" type="text" readonly="false" widget="select" maxchars="65535" placeholder="Select value"
+                                            hint="The region where you spent the bulk of your childhood." dataset="Europe, North America, South America, Africa, Middle East, Asia, Australia/NZ, Varied/Elsewhere"></wm-form-field>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow29">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn43">
+                                        <wm-form-field name="olderSiblings" displayname="Older Siblings" show="true" primary-key="false" generator="assigned" period="false" key="olderSiblings" type="text" readonly="false" widget="select" maxchars="65535"
+                                            placeholder="Select value" hint="How many older brothers and sisters do you have?" dataset="None, 1, 2, 3 or more"></wm-form-field>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow30">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn44">
+                                        <wm-form-field name="breastfed" displayname="Breastfed" show="true" primary-key="false" generator="assigned" period="false" key="breastfed" type="text" readonly="false" widget="select" maxchars="65535" placeholder="Select value"
+                                            dataset="Yes, No, Maybe" hint="Were you breastfed as an infant?"></wm-form-field>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow31">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn45">
+                                        <wm-form-field name="cesarian" displayname="Cesarian" show="true" primary-key="false" generator="assigned" period="false" key="cesarian" type="text" readonly="false" widget="select" maxchars="65535" placeholder="Select value"
+                                            dataset="Yes, No" hint="Were you delivered by C-section at birth?"></wm-form-field>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                            <wm-form-field name="weaned" displayname="Weaned" show="false" primary-key="false" generator="assigned" period="false" key="weaned" type="text" readonly="false" widget="select" maxchars="65535" placeholder="Select value" dataset="Yes, No"
+                                hint="Relevant to babies..."></wm-form-field>
+                            <wm-form-field name="contactAllergy" displayname="Contact Allergy" show="false" primary-key="false" generator="assigned" period="false" key="contactAllergy" type="text" readonly="false" widget="select" maxchars="65535"
+                                placeholder="Select value" dataset="Yes, No, Maybe" hint="Do you suffer from allergy to some metals e.g. watches, earings, or latex?"></wm-form-field>
+                            <wm-form-field name="id" displayname="Id" show="false" primary-key="true" generator="identity" period="false" key="id" type="integer" readonly="true" required="true" step="0" widget="number" inputtype="number"
+                                placeholder="Enter value"></wm-form-field>
+                            <wm-form-field name="familyContactAllergy" displayname="Family Contact Allergy" show="false" primary-key="false" generator="assigned" period="false" key="familyContactAllergy" type="text" readonly="false" widget="select"
+                                maxchars="65535" placeholder="Select value" dataset="Yes, No, Maybe" hint="Any family members allergic to certain metals or rubber?"></wm-form-field>
+                            <wm-form-action key="save" display-name="Save" show="true" class="form-save btn-success" iconclass="wi wi-save" title="Save" action="Actions.goToPage_Dash_Patient.invoke()" disabled="false" type="submit" update-mode="true"></wm-form-action>
+                            <wm-form-action key="cancel" display-name="Cancel" show="true" class="form-cancel btn-secondary" iconclass="wi wi-cancel" title="Cancel" action="cancel();Actions.goToPage_Dash_Patient.invoke()" shortcutkey=""
+                                disabled="false" type="button" update-mode="true"></wm-form-action>
+                        </wm-liveform>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow13_1">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn26_2"></wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+</wm-page>

@@ -1,0 +1,36 @@
+<wm-page data-ng-controller="next_stepsPageController" pagetitle="Next Steps" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow1"></wm-gridrow>
+                <wm-gridrow name="gridrow2">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn3">
+                        <wm-label padding="unset 0.5em" name="label1" caption="<b>Work In Progress </b>(Next Steps module under development)" textalign="center" fontsize="20" width="100%" margin="unset unset 1em unset"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow3">
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn3_1" horizontalalign="center">
+                        <wm-button class="btn-primary" caption="Survey Status" type="button" margin="unset 0.5em 1em 0.5em" name="button1" width="60%"></wm-button>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn7" horizontalalign="center">
+                        <wm-button class="btn-primary" caption="SUGGESTED TESTS" type="button" margin="unset 0.5em 1em 0.5em" width="60%" name="button2"></wm-button>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn5" horizontalalign="center">
+                        <wm-button class="btn-primary" caption="TEST RESULTS" type="button" margin="unset 0.5em 1em 0.5em" width="60%" name="button3"></wm-button>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn6" horizontalalign="center">
+                        <wm-button class="btn-primary" caption="CLINICIAN NOTES" type="button" margin="unset 0.5em 1em 0.5em" width="60%" name="button4"></wm-button>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow4">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn4" horizontalalign="center">
+                        <wm-button class="btn-success" caption="exit" type="button" margin="unset 0.5em" name="button5" on-click="Actions.navigationPreviousPage.invoke()" width="40%"></wm-button>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+</wm-page>

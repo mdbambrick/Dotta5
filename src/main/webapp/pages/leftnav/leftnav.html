@@ -1,0 +1,34 @@
+<wm-partial data-ng-controller="leftnavPageController" name="leftnav" type="leftnav">
+    <wm-nav name="leftnavigation" type="pills" layout="stacked">
+        <wm-nav-item name="nav_Home">
+            <wm-anchor name="anchor9" iconclass="wi wi-home" caption="Home" on-click="anchor9Click($event, $scope)"></wm-anchor>
+        </wm-nav-item>
+        <wm-nav-item name="list_Emergencies">
+            <wm-anchor caption="Emergencies" name="dashboardLink" iconclass="wi wi-alarm-add" on-click="Actions.goToPage_Emergency.invoke()" color="#FF545F"></wm-anchor>
+        </wm-nav-item>
+        <wm-nav-item name="GStarted">
+            <wm-anchor caption="Getting Started" iconclass="wi wi-smiley-happy" name="anchor5" on-click="Actions.goToPage_getting_started.invoke()"></wm-anchor>
+        </wm-nav-item>
+        <wm-nav-item name="list_JBuster">
+            <wm-anchor caption="Jargon Buster" iconclass="wi wi-report" on-click="Actions.goToPage_Jargon_Buster.invoke()" name="anchor8"></wm-anchor>
+        </wm-nav-item>
+        <wm-nav-item name="list_FAQ">
+            <wm-anchor caption="Frequent Questions" name="FAQs" iconclass="wi wi-question" on-click="Actions.goToPage_FAQ.invoke()"></wm-anchor>
+        </wm-nav-item>
+        <wm-nav-item name="list_Ingredients">
+            <wm-anchor caption="Allergy Ingredient Guide" name="ingredientGuide" iconclass="wi wi-restaurant" on-click="Actions.goToPage_allergy_ingredient.invoke()"></wm-anchor>
+        </wm-nav-item>
+        <wm-nav-item name="list_Compounds">
+            <wm-anchor caption="Typical Compounds" name="typicalCompunds" iconclass="wi wi-flag" on-click="Actions.goToPage_typical_compounds.invoke()"></wm-anchor>
+        </wm-nav-item>
+        <wm-nav-item name="nav_Next">
+            <wm-anchor caption="Next Steps" iconclass="wi wi-directions-walk" name="nextSteps" on-click="Actions.goToPage_next_steps.invoke()" show="true"></wm-anchor>
+        </wm-nav-item>
+        <wm-nav-item name="nav_item9">
+            <wm-menu caption="Clinicians" autoclose="outsideClick" name="menu1" iconclass="wi wi-female" type="anchor" dataset="Add Clinician, Remove Clinician, List Clinicians" padding="unset unset unset 20px" on-select="menu1Select($event, $scope, $item)"></wm-menu>
+        </wm-nav-item>
+        <wm-nav-item name="nav_LogOut">
+            <wm-anchor caption="Log Out" name="logOut" on-click="Actions.logoutAction.invoke()" show="true" iconclass="wi wi-sign-out"></wm-anchor>
+        </wm-nav-item>
+    </wm-nav>
+</wm-partial>

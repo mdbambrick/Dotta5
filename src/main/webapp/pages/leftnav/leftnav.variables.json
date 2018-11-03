@@ -1,0 +1,16 @@
+{
+  "goToClinicianAdd" : {
+    "_id" : "wm-goToClinicianAdd-wm.NavigationVariable-1536832608352",
+    "name" : "goToClinicianAdd",
+    "owner" : "Page",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ {
+      "target" : "pageName",
+      "value" : "Clinician_Add",
+      "type" : "string"
+    } ],
+    "operation" : "gotoPage",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  }
+}

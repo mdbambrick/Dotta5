@@ -1,0 +1,65 @@
+<wm-page data-ng-controller="Dash_AllergyPageController" pagetitle="Dash Allergy" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1">
+            <wm-layoutgrid name="layoutgrid1" columns="2" columnwidth="6">
+                <wm-gridrow name="gridrow16">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn46" horizontalalign="center">
+                        <wm-label padding="unset 0.5em" name="label1" caption="Select Allergy Type" fontweight="bold" fontsize="3" fontunit="em" textalign="center"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow24">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn61" horizontalalign="center">
+                        <wm-button class="btn-primary" caption="Food &amp; drink" type="button" margin="2em 0.5em unset 0.5em" width="60%" fontweight="bold" textalign="center" name="food" padding="10px unset" on-click="Actions.goToPage_Allergy_Food.invoke();foodClick($event, $scope)"
+                            iconclass="wi wi-restaurant"></wm-button>
+                        <wm-label padding="unset 0.5em" name="foodLabel" caption="e.g. milk, egg, nuts, soya, wheat, fish" width="100%"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn62" horizontalalign="center">
+                        <wm-button class="btn-primary" caption="Airborne" type="button" margin="2em 0.5em unset 0.5em" name="aero" width="60%" fontweight="bold" textalign="center" padding="10px unset" on-click="Actions.goToPage_Allergy_Aero.invoke();aeroClick($event, $scope)"
+                            iconclass="wi wi-cloud-queue"></wm-button>
+                        <wm-label padding="unset 0.5em" name="aeroLabel" caption="Aero e.g. pollen, dust, mould, pets" width="100%"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow17">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn48" horizontalalign="center">
+                        <wm-button class="btn-primary" caption="INSECT STINGS" type="button" margin="2em 0.5em unset 0.5em" width="60%" fontweight="bold" textalign="center" name="insects" padding="10px unset" on-click="Actions.goToPage_Allergy_Insects.invoke();insectsClick($event, $scope)"
+                            iconclass="wi wi-bug-report"></wm-button>
+                        <wm-label padding="unset 0.5em" name="insectsLabel" caption="e.g. bee, wasp, hornet, ant" width="100%"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn49" horizontalalign="center">
+                        <wm-button class="btn" caption="MEDICINE" type="button" margin="2em 0.5em unset 0.5em" width="40%" fontweight="bold" textalign="center" name="button5" padding="10px unset" on-click="Widgets.Drugdialog.open()" iconclass="fa fa-flask"></wm-button>
+                        <wm-label padding="unset 0.5em" caption="Drugs e.g. penicillin (outside Application Scope)" color="#8B0000" name="drugLabel" fontstyle="italic" width="100%"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow18">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn50" horizontalalign="center">
+                        <wm-button class="btn" caption="CONTACT" type="button" margin="2em 0.5em unset 0.5em" width="40%" fontweight="bold" textalign="center" name="contact" padding="10px unset" on-click="Widgets.contactDialog.open()" iconclass="fa fa-hand-paper-o"></wm-button>
+                        <wm-label padding="unset 0.5em" name="label6" caption="Allergic Dermatitis (outside Application Scope)" color="#8B0000" fontstyle="italic" width="100%"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn51" horizontalalign="center">
+                        <wm-button class="btn-primary" caption="DON'T KNOW" type="button" margin="2em 0.5em unset 0.5em" width="60%" fontweight="bold" textalign="center" name="unsure" padding="10px unset" on-click="Widgets.alertdialog1.open();unsureClick($event, $scope)"
+                            iconclass="wi wi-help-outline"></wm-button>
+                        <wm-label padding="unset 0.5em" name="unsureLabel" caption="Select to record symptoms with uncertain allergy type" width="100%"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow5">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn8" horizontalalign="center">
+                        <wm-button class="btn-success btn-lg btn-rounded" caption="done" type="button" margin="0.5em" fontweight="bold" on-click="Actions.goToPage_Dash_Patient.invoke()" fontunit="em" fontsize="2" name="button7"></wm-button>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+    <wm-view class="dialog-view" name="view1">
+        <wm-alertdialog name="alertdialog1" message="Have you read Getting Started, including the Detective links for  Food &amp; Aero allergens?  If not, please review them carefully before continuing, as it will be better at least to allocate your symptoms to a class of allergy if possible. (To return from Symptoms Survey, hit DONE button at bottom of next page)."
+            alerttype="information" title="Information" iconclass="wi wi-info" on-ok="Widgets.alertdialog1.close();alertdialog1Ok($event, $scope)"></wm-alertdialog>
+    </wm-view>
+    <wm-view class="dialog-view" name="view2">
+        <wm-alertdialog name="Drugdialog" title="Drug Allergies" message="Dotta is not designed to address allergy to medicine and drugs, such as penicillin. Questions about drug allergy will usually be handled by General Practitioner or Pharmacist." iconclass="wi wi-flask"></wm-alertdialog>
+    </wm-view>
+    <wm-view class="dialog-view" name="view3">
+        <wm-alertdialog name="contactDialog" iconclass="fa fa-hand-paper-o" title="Contact Allergies" message="Contact allergies are closely connected to dermatitis, and are caused by a wide variety of chemicals and compounds found at work or elsewhere. Dotta does not currently handle patch tests (the main diagnostic method for contact allergy), and advice should be sought via General Practitioner for diagnosis and treatment."></wm-alertdialog>
+    </wm-view>
+</wm-page>

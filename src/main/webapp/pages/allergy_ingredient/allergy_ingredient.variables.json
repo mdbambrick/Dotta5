@@ -1,0 +1,89 @@
+{
+  "MedidataCompoundsWithAllergensData" : {
+    "_id" : "wm-MedidataCompoundsWithAllergensData-wm.LiveVariable-1533117128475",
+    "name" : "MedidataCompoundsWithAllergensData",
+    "owner" : "Page",
+    "category" : "wm.LiveVariable",
+    "dataBinding" : [ ],
+    "operation" : "read",
+    "dataSet" : [ ],
+    "type" : "CompoundsWithAllergens",
+    "isList" : true,
+    "saveInPhonegap" : false,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "inFlightBehavior" : "executeLast",
+    "startUpdate" : true,
+    "autoUpdate" : true,
+    "transformationRequired" : false,
+    "liveSource" : "medidata",
+    "ignoreCase" : true,
+    "matchMode" : "start",
+    "propertiesMap" : {
+      "columns" : [ {
+        "fieldName" : "compoundId",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "compound_id",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 10,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "compoundName",
+        "type" : "text",
+        "fullyQualifiedType" : "text",
+        "columnName" : "compound_name",
+        "isPrimaryKey" : false,
+        "notNull" : true,
+        "length" : 65535,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "allergyId",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "allergy_id",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 10,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "allergyName",
+        "type" : "text",
+        "fullyQualifiedType" : "text",
+        "columnName" : "allergy_name",
+        "isPrimaryKey" : false,
+        "notNull" : true,
+        "length" : 65535,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      } ],
+      "entityName" : "CompoundsWithAllergens",
+      "fullyQualifiedName" : "com.dotta.medidata.CompoundsWithAllergens",
+      "tableType" : "VIEW",
+      "primaryFields" : [ ]
+    },
+    "isDefault" : true,
+    "bindCount" : 2,
+    "tableName" : "compounds with allergens",
+    "tableType" : "VIEW",
+    "properties" : [ ],
+    "relatedTables" : [ ],
+    "filterExpressions" : {
+      "condition" : "AND",
+      "rules" : [ ]
+    },
+    "package" : "com.dotta.medidata.CompoundsWithAllergens"
+  }
+}

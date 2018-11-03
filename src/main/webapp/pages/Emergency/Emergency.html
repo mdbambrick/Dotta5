@@ -1,0 +1,108 @@
+<wm-page data-ng-controller="EmergencyPageController" pagetitle="Emergency" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow1">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn1" horizontalalign="center">
+                        <wm-label padding="unset 0.5em" caption="In An Allergy Emergency..." fontweight="bold" fontsize="20" name="label1"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow2">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn3" horizontalalign="center">
+                        <wm-label padding="unset 0.5em" caption="Check for Signs of ANAPHYLAXIS (life-threatening allergic reaction)" fontweight="bold" fontsize="15" width="100%" color="#FF545F" margin="25px unset 10px unset" name="label2"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow3">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn4" horizontalalign="center">
+                        <wm-label padding="unset 0.5em" color="#FF545F" caption="<b>A</b>irway" fontsize="15" width="100%" name="label3"></wm-label>
+                        <wm-label padding="unset 0.5em" color="#FF545F" caption="Persistent cough, hoarse voice, difficulty swallowing, swollen tongue" fontsize="12" width="100%" margin="unset unset 10px unset" name="label4"></wm-label>
+                        <wm-label padding="unset 0.5em" color="#FF545F" caption="<b>B</b>reathing" fontsize="15" width="100%" name="label5"></wm-label>
+                        <wm-label padding="unset 0.5em" color="#FF545F" caption="Difficult or noisy breathing, wheeze or persistent cough" fontsize="12" width="100%" margin="unset unset 10px unset" name="label6"></wm-label>
+                        <wm-label padding="unset 0.5em" color="#FF545F" caption="<b>C</b>onsciousness" fontsize="15" width="100%" name="label7"></wm-label>
+                        <wm-label padding="unset 0.5em" color="#FF545F" caption="Persistent dizziness/pale or floppy, suddenly sleepy, collapse, unconscious" fontsize="12" width="100%" margin="unset unset 10px unset" name="label8"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow4">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn6" horizontalalign="center">
+                        <wm-label padding="unset 0.5em" name="label9" caption="Action, if ANY ONE (or more) of these signs are present:" fontweight="bold" margin="25px unset 10px unset" fontsize="15"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow5">
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn7" horizontalalign="center">
+                        <wm-label padding="unset 0.5em" name="label10" caption="1. Lay patient flat" fontweight="bold" width="100%" margin="8px unset unset unset"></wm-label>
+                        <wm-label padding="unset 0.5em" name="label11" width="100%" caption="If breathing is difficult, allow patient to sit, but not stand"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn8" horizontalalign="center">
+                        <wm-label padding="unset 0.5em" caption="2. Use Adrenaline Auto-Injector, without delay" fontweight="bold" width="100%" name="label13" margin="8px unset unset unset"></wm-label>
+                        <wm-button class="btn-danger" caption="Injector Instructions" type="button" margin=".5em 1.5em 1em 1.5em" name="button1" on-click="Widgets.pagedialog1.open()" iconclass="wi wi-mode-edit" padding="10px 15px" fontweight="bold"
+                            width="90%"></wm-button>
+                        <wm-video controls="controls" videopreload="none" name="Autoadraline_Injection" mp4format="resources/videos/How_to_Use_the_Jext_Pen__1_.mp4"></wm-video>
+                        <wm-label padding="unset 0.5em" name="label39_1" width="100%" caption="Video instructions (Jext injector)" color="#FF545F" fontstyle="italic" fontweight="bold"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn10" horizontalalign="center">
+                        <wm-label padding="unset 0.5em" caption="3. Dial 999 for ambulance" fontweight="bold" width="100%" name="label14" margin="8px unset unset unset"></wm-label>
+                        <wm-label padding="unset 0.5em" name="label12" caption="Say Anaphylaxis (pronounced ANA-FIL-AX-IS)" width="100%"></wm-label>
+                        <wm-label padding="unset 0.5em" name="label15" width="100%" caption="If in doubt, Give Adrenaline" fontweight="bold" margin="25px unset unset unset"></wm-label>
+                        <wm-label padding="unset 0.5em" width="100%" caption="After Giving Adrenaline:" fontweight="bold" margin="25px unset unset unset" name="label16"></wm-label>
+                        <wm-label padding="unset 0.5em" name="label17" width="100%" caption="1. Stay with patient until ambulance arrives. Do not stand patient up."></wm-label>
+                        <wm-label padding="unset 0.5em" width="100%" caption="2. Commence CPR if there are no signs of life" name="label18"></wm-label>
+                        <wm-label padding="unset 0.5em" width="100%" caption="3. Phone parent/emergency contact" name="label19"></wm-label>
+                        <wm-label padding="unset 0.5em" width="100%" caption="4. If no improvement after 5 minutes, give a second adrenaline dose if another auto-injector is available." name="label20"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow6">
+                    <wm-gridcolumn columnwidth="5" name="gridcolumn8_1" horizontalalign="center">
+                        <wm-label padding="unset 0.5em" name="label21" caption="Moderate to Mild Allergic Symptoms" color="#161ccc" fontweight="bold" width="100%" margin="35px unset unset unset"></wm-label>
+                        <wm-label padding="unset 0.5em" caption="1. Swollen lips, face or eyes" color="#161ccc" width="100%" name="label23"></wm-label>
+                        <wm-label padding="unset 0.5em" caption="2. Itchy/tingling mouth" color="#161ccc" width="100%" name="label24"></wm-label>
+                        <wm-label padding="unset 0.5em" caption="3. Hives or itchy skin rash" color="#161ccc" width="100%" name="label25"></wm-label>
+                        <wm-label padding="unset 0.5em" caption="4. Abdominal pain or vomiting" color="#161ccc" width="100%" name="label26"></wm-label>
+                        <wm-label padding="unset 0.5em" caption="5. Sudden change in behaviour" color="#161ccc" width="100%" name="label27"></wm-label>
+                        <wm-label padding="unset 0.5em" caption="Action (child affected)" color="#161ccc" fontweight="bold" width="100%" name="label29"></wm-label>
+                        <wm-label padding="unset 0.5em" caption="1. Stay with child, call for help if necessary" color="#161ccc" width="100%" name="label28"></wm-label>
+                        <wm-label padding="unset 0.5em" caption="2. Locate adrenaline autoinjector(s)" color="#161ccc" width="100%" name="label30"></wm-label>
+                        <wm-label padding="unset 0.5em" caption="3. Give antihistamine" color="#161ccc" width="100%" name="label31"></wm-label>
+                        <wm-label padding="unset 0.5em" caption="4. Call parent/emergency contact" color="#161ccc" width="100%" name="label32"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="7" name="gridcolumn9">
+                        <wm-label padding="unset 0.5em" name="label33" caption="Other Emergency Information" fontweight="bold" margin="35px unset unset unset"></wm-label>
+                        <wm-accordion name="accordion1">
+                            <wm-accordionpane name="accordionpane1" title="If Wheezy?">
+                                <wm-label padding="unset 0.5em" name="label34" caption="Give adrenaline first, then asthma relief puffer (blue inhaler) via spacer" color="#161ccc"></wm-label>
+                            </wm-accordionpane>
+                            <wm-accordionpane name="accordionpane2" title="EpiPen expired?">
+                                <wm-label padding="unset 0.5em" name="label35" caption="Use the out-of-date EpiPen if no other available. Studies report that emergency injectors for people with severe allergies, may still work long after the expiration date."
+                                    color="#161ccc"></wm-label>
+                            </wm-accordionpane>
+                            <wm-accordionpane name="accordionpane3" title="Why 2 EpiPens?">
+                                <wm-label padding="unset 0.5em" name="label36" caption="Children with a history of severe food allergies should carry two doses of self-injectable epinephrine instead of one (as one may not be enough)." color="#161ccc"></wm-label>
+                            </wm-accordionpane>
+                            <wm-accordionpane name="accordionpane4" title="How long does an EpiPen last after injection?">
+                                <wm-label padding="unset 0.5em" name="label37" caption="It constricts blood vessels, relaxes smooth muscles in the lungs to improve breathing, stimulates the heart, and works to reverse hives and swelling around the face and lips (angioedema). The effects of epinephrine usually last 10 to 20 minutes."
+                                    color="#161ccc"></wm-label>
+                            </wm-accordionpane>
+                            <wm-accordionpane name="accordionpane5" title="What does an epipen do to your body?">
+                                <wm-label padding="unset 0.5em" name="label38" caption="This medication is used in emergencies to treat very serious allergic reactions to insect stings/bites, foods, drugs, or other substances. Epinephrine acts quickly to improve breathing, stimulate the heart, raise a dropping blood pressure, reverse hives, a"
+                                    color="#161ccc"></wm-label>
+                            </wm-accordionpane>
+                            <wm-accordionpane name="accordionpane6" title="Do all auto-injectors have the same active ingredient?">
+                                <wm-label padding="unset 0.5em" name="label39" caption="Yes. The dosage varies by weight (15-30 kg child gets 0.15mg Epinephrine), over 30 kg that doubles." color="#161ccc"></wm-label>
+                            </wm-accordionpane>
+                        </wm-accordion>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow7">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn11" horizontalalign="right">
+                        <wm-button class="btn-success" caption="EXIT" type="button" margin="1.0em 0.5em unset 0.5em" name="button2" fontweight="bold" textalign="center" padding="20px" on-click="Actions.navigationPreviousPage.invoke()"></wm-button>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+    <wm-view class="dialog-view" name="view1">
+        <wm-pagedialog name="pagedialog1" title="In Emergency" iconclass="fa fa-exclamation-triangle" content="Autoinjector_Instructions"></wm-pagedialog>
+    </wm-view>
+</wm-page>

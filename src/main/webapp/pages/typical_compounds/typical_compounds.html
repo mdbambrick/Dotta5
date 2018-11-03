@@ -1,0 +1,37 @@
+<wm-page data-ng-controller="typical_compoundsPageController" pagetitle="Typical Compounds" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow3_1">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn3_1">
+                        <wm-button class="standard app-header-action btn-inverse btn-success" caption="EXIT" type="button" margin="unset 0.5em 1em 0.5em" iconposition="left" textalign="center" iconclass="wi wi-exit-to-app" width="100%" padding="unset 20px"
+                            on-click="Actions.navigationPreviousPage.invoke()" name="button1"></wm-button>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow1">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn1">
+                        <wm-livefilter name="CompoundsWithAllergensFilter1" title="Enter the name of an allergen (then hit Filter button), to see in which foods it commonly occurs." dataset="bind:Variables.MedidataCompoundsWithAllergensData2.dataSet" captionalign="left"
+                            captionposition="left">
+                            <wm-layoutgrid columns="1" name="layoutgrid2">
+                                <wm-gridrow name="gridrow3">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn3">
+                                        <wm-filter-field name="allergyName" field="allergyName" displayname="Allergy Name" widget="text" is-range="false" type="text" is-primary-key="false" generator="assigned" show="true" inputtype="text" key="allergyName"
+                                            placeholder="Enter value"></wm-filter-field>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                            <wm-filter-action key="filter" display-name="Filter" show="true" class="btn-primary" iconclass="wi wi-filter-list" title="Filter" action="filter();filterAction($event)" disabled="false" type="button"></wm-filter-action>
+                            <wm-filter-action key="clear" display-name="Clear" show="true" class="btn-secondary" iconclass="wi wi-cancel" title="Clear" action="clearFilter();clearAction($event)" disabled="false" type="button"></wm-filter-action>
+                        </wm-livefilter>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+            <wm-table name="Table1" title="" dataset="bind:Widgets.CompoundsWithAllergensFilter1.result" navigation="None" show="false">
+                <wm-table-column binding="compoundName" caption="Compound Name" type="string" show="true" readonly="undefined"></wm-table-column>
+            </wm-table>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+</wm-page>
