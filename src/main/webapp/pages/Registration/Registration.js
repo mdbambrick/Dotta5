@@ -70,17 +70,17 @@ Application.$controller("RegistrationPageController", ["$scope", function($scope
             */
 
 
-            // $scope.Variables.RegVar.insertRecord();
+            $scope.Variables.RegVar.insertRecord();
         };
 
-        /* $scope.RegVaronSuccess = function(variable, data, options) {
-             $scope.Widgets.message6.type = "success";
-             $scope.Widgets.message6.caption = "Registration Successful, Returning to LogIn...";
-             $scope.Widgets.message6.show = true;
-             $scope.Actions.navigationPreviousPage.invoke();
+        $scope.RegVaronSuccess = function(variable, data, options) {
+            $scope.Widgets.message6.type = "success";
+            $scope.Widgets.message6.caption = "Registration Successful, Returning to LogIn...";
+            $scope.Widgets.message6.show = true;
+            $scope.Actions.navigationPreviousPage.invoke();
 
-         };
-         */
+        };
+
         $scope.select2Blur = function($event, $isolateScope) { //usertype
             $scope.Widgets.text1.datavalue = $scope.Widgets.text7.datavalue;
 
@@ -101,13 +101,14 @@ Application.$controller("RegistrationPageController", ["$scope", function($scope
                 $scope.Widgets.message4.caption = "Input passcode for proposed user-type";
                 $scope.Widgets.message4.show = true;
 
-            } else if ($scope.Widgets.select2.datavalue !== 1) {
+            } else if ($scope.Widgets.select2.datavalue == 1) {
+                $scope.Widgets.message4.show = false;
+
+            } else {
                 $scope.Widgets.message4.type = "error";
                 $scope.Widgets.message4.caption = "User-type unavailable";
                 $scope.Widgets.message4.show = true;
-
-
-            } else $scope.Widgets.message4.show = false;
+            }
         };
 
         /*
@@ -199,7 +200,7 @@ Application.$controller("RegistrationPageController", ["$scope", function($scope
     };
 
     $scope.SendEmailonSuccess = function(variable, data, options) {
-        $scope.Widgets.message1.type = "sucess";
+        $scope.Widgets.message1.type = "success";
         $scope.Widgets.message1.caption = "Email sent";
         $scope.Widgets.message1.show = true;
 
