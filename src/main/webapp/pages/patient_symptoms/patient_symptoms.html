@@ -18,11 +18,9 @@
             </wm-table>
             <wm-layoutgrid name="layoutgrid1" show="true" columns="2">
                 <wm-gridrow name="gridrow3" padding="2em unset">
-                    <wm-gridcolumn columnwidth="6" name="gridcolumn9" horizontalalign="right">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn9" horizontalalign="center">
                         <wm-label padding="unset 0.2em unset 0.5em" name="FName" caption="bind:Widgets.executePatientReadTable1.selecteditem.firstName" fontsize="40" fontweight="bold" textalign="center" fontunit="px"></wm-label>
-                    </wm-gridcolumn>
-                    <wm-gridcolumn columnwidth="6" name="gridcolumn10" horizontalalign="left">
-                        <wm-label padding="unset 0.5em unset 0.2em" name="LName" caption="bind:Widgets.executePatientReadTable1.selecteditem.lastName" fontsize="40" fontweight="bold" textalign="center"></wm-label>
+                        <wm-label padding="unset 0.5em unset 0.2em" name="LName" caption="bind:Widgets.executePatientReadTable1.selecteditem.lastName" fontsize="40" fontweight="bold" textalign="center" margin="unset unset unset 10px"></wm-label>
                     </wm-gridcolumn>
                 </wm-gridrow>
                 <wm-gridrow name="gridrow5">
@@ -31,33 +29,42 @@
                         <wm-button class="btn-primary" caption="Medical History" type="button" margin="1em" name="button1" width="150" padding="1em" height="50" textalign="center" on-click="Widgets.pagedialog1.open()"></wm-button>
                     </wm-gridcolumn>
                 </wm-gridrow>
-                <wm-gridrow name="gridrow6">
-                    <wm-gridcolumn columnwidth="6" name="gridcolumn8">
-                        <wm-label padding="unset 0.5em" name="label3" caption="Reported Allergy Symptoms" fontsize="20" fontweight="bold"></wm-label>
+                <wm-gridrow name="gridrow8">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn10">
+                        <wm-label padding="unset 0.5em" caption="Summary of Allergy Symptoms" fontsize="20" fontweight="bold" name="label4"></wm-label>
                     </wm-gridcolumn>
-                    <wm-gridcolumn columnwidth="6" name="gridcolumn9_1"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow7">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn10_1" horizontalalign="center">
+                        <wm-table title="" dataset="bind:Variables.PatientAllergySummary.dataSet" navigation="Basic" name="table3">
+                            <wm-table-column binding="setName" caption="Allergy Type" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                            <wm-table-column binding="allergyName" caption="Allergy Name" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                            <wm-table-column binding="total" caption="Number of Symptoms" textalignment="center" edit-widget-type="number" type="long" show="true" readonly="false"></wm-table-column>
+                        </wm-table>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow6">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn8">
+                        <wm-label padding="unset 0.5em" name="label3" caption="Detailed Allergy Symptoms" fontsize="20" fontweight="bold" margin="50px unset unset unset"></wm-label>
+                    </wm-gridcolumn>
                 </wm-gridrow>
             </wm-layoutgrid>
             <wm-livefilter title="Filter Symptoms" dataset="bind:Variables.MedidataPatientSymptomsWithAuthorAndRankingAndColourData.dataSet" captionalign="left" captionposition="top" name="livefilter1">
                 <wm-layoutgrid columns="1" name="layoutgrid2">
                     <wm-gridrow name="gridrow2">
-                        <wm-gridcolumn columnwidth="12" show="true" name="gridcolumn3">
-                            <wm-filter-field name="title" field="title" displayname="Title" widget="text" is-range="false" type="text" is-primary-key="false" generator="assigned" show="false" pc-display="true" mobile-display="true"></wm-filter-field>
+                        <wm-gridcolumn columnwidth="12" name="gridcolumn3">
+                            <wm-filter-field name="setName" field="setName" displayname="Allergy Type" widget="text" is-range="false" type="text" is-primary-key="false" generator="assigned" show="true" inputtype="text" key="setName" placeholder="Enter value"></wm-filter-field>
                         </wm-gridcolumn>
                     </wm-gridrow>
                     <wm-gridrow name="gridrow3_1">
-                        <wm-gridcolumn columnwidth="12" show="true" name="gridcolumn4">
-                            <wm-filter-field name="setName" field="setName" displayname="Allergy Type" widget="text" is-range="false" type="text" is-primary-key="false" generator="assigned" show="true" pc-display="true" mobile-display="true"></wm-filter-field>
-                        </wm-gridcolumn>
-                    </wm-gridrow>
-                    <wm-gridrow name="gridrow4">
-                        <wm-gridcolumn columnwidth="12" show="true" name="gridcolumn5">
-                            <wm-filter-field name="allergyName" field="allergyName" displayname="Allergy Name" widget="text" is-range="false" type="text" is-primary-key="false" generator="assigned" show="true" pc-display="true" mobile-display="true"></wm-filter-field>
+                        <wm-gridcolumn columnwidth="12" name="gridcolumn4">
+                            <wm-filter-field name="allergyName" field="allergyName" displayname="Allergy Name" widget="text" is-range="false" type="text" is-primary-key="false" generator="assigned" show="true" inputtype="text" key="allergyName" placeholder="Enter value"></wm-filter-field>
                         </wm-gridcolumn>
                     </wm-gridrow>
                 </wm-layoutgrid>
-                <wm-filter-action key="filter" class="btn-primary" iconclass="wi wi-filter-list" action="filter()" display-name="Filter" show="true" type="button"></wm-filter-action>
-                <wm-filter-action key="clear" class="btn-secondary" iconclass="wi wi-cancel" action="clearFilter()" display-name="Clear" show="true" type="button"></wm-filter-action>
+                <wm-filter-field name="title" field="title" displayname="Title" widget="text" is-range="false" type="text" is-primary-key="false" generator="assigned" show="false" inputtype="text" key="title" placeholder="Enter value"></wm-filter-field>
+                <wm-filter-action key="filter" display-name="Filter" show="true" class="btn-primary" iconclass="wi wi-filter-list" title="Filter" action="filter()" disabled="false" type="button"></wm-filter-action>
+                <wm-filter-action key="clear" display-name="Clear" show="true" class="btn-secondary" iconclass="wi wi-cancel" title="Clear" action="clearFilter()" disabled="false" type="button"></wm-filter-action>
             </wm-livefilter>
             <wm-button class="btn-primary" caption="complete symptoms" type="button" margin="1em" width="150" padding="1em" height="50" textalign="center" on-click="Widgets.pagedialog2.open()" name="button3" show="false"></wm-button>
             <wm-table name="Table1" title="" dataset="bind:Widgets.livefilter1.result" navigation="Basic" rowngclass="{'green':row.colour==25, 'amber':row.colour==50, 'red':row.colour==100}">

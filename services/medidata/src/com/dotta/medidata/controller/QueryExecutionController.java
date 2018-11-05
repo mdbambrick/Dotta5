@@ -45,34 +45,6 @@ public class QueryExecutionController {
     @Autowired
 	private ExportedFileManager exportedFileManager;
 
-    @RequestMapping(value = "/queries/TrackRead", method = RequestMethod.GET)
-    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    @ApiOperation(value = "Retrieves most recent session data for the user")
-    public Page<TrackReadResponse> executeTrackRead(@RequestParam(value = "user_id") Integer userId, Pageable pageable, HttpServletRequest _request) {
-        LOGGER.debug("Executing named query: TrackRead");
-        Page<TrackReadResponse> _result = queryService.executeTrackRead(userId, pageable);
-        LOGGER.debug("got the result for named query: TrackRead, result:{}", _result);
-        return _result;
-    }
-
-    @ApiOperation(value = "Returns downloadable file url for query TrackRead")
-    @RequestMapping(value = "/queries/TrackRead/export", method = RequestMethod.POST)
-    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    public StringWrapper exportTrackRead(@RequestParam(value = "user_id") Integer userId, @RequestBody ExportOptions exportOptions, Pageable pageable) {
-        LOGGER.debug("Exporting named query: TrackRead");
-
-        String exportedFileName = exportOptions.getFileName();
-        if(exportedFileName == null || exportedFileName.isEmpty()) {
-            exportedFileName = "TrackRead";
-        }
-        exportedFileName += exportOptions.getExportType().getExtension();
-
-        String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
-                        outputStream -> queryService.exportTrackRead(userId,  exportOptions, pageable, outputStream));
-
-        return new StringWrapper(exportedUrl);
-    }
-
     @RequestMapping(value = "/queries/ListCliniciansforPatient", method = RequestMethod.GET)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "List Clinicians for Patient")
@@ -139,30 +111,30 @@ public class QueryExecutionController {
         return new StringWrapper(exportedUrl);
     }
 
-    @RequestMapping(value = "/queries/ShareCode", method = RequestMethod.GET)
+    @RequestMapping(value = "/queries/PatientSymptomSummary", method = RequestMethod.GET)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    @ApiOperation(value = "Extracts share code for user")
-    public Page<ShareCodeResponse> executeShareCode(@RequestParam(value = "user_id") Integer userId, Pageable pageable, HttpServletRequest _request) {
-        LOGGER.debug("Executing named query: ShareCode");
-        Page<ShareCodeResponse> _result = queryService.executeShareCode(userId, pageable);
-        LOGGER.debug("got the result for named query: ShareCode, result:{}", _result);
+    @ApiOperation(value = "Counts unique symptoms for each allergy,.")
+    public Page<PatientSymptomSummaryResponse> executePatientSymptomSummary(@RequestParam(value = "userId") Integer userId, Pageable pageable, HttpServletRequest _request) {
+        LOGGER.debug("Executing named query: PatientSymptomSummary");
+        Page<PatientSymptomSummaryResponse> _result = queryService.executePatientSymptomSummary(userId, pageable);
+        LOGGER.debug("got the result for named query: PatientSymptomSummary, result:{}", _result);
         return _result;
     }
 
-    @ApiOperation(value = "Returns downloadable file url for query ShareCode")
-    @RequestMapping(value = "/queries/ShareCode/export", method = RequestMethod.POST)
+    @ApiOperation(value = "Returns downloadable file url for query PatientSymptomSummary")
+    @RequestMapping(value = "/queries/PatientSymptomSummary/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    public StringWrapper exportShareCode(@RequestParam(value = "user_id") Integer userId, @RequestBody ExportOptions exportOptions, Pageable pageable) {
-        LOGGER.debug("Exporting named query: ShareCode");
+    public StringWrapper exportPatientSymptomSummary(@RequestParam(value = "userId") Integer userId, @RequestBody ExportOptions exportOptions, Pageable pageable) {
+        LOGGER.debug("Exporting named query: PatientSymptomSummary");
 
         String exportedFileName = exportOptions.getFileName();
         if(exportedFileName == null || exportedFileName.isEmpty()) {
-            exportedFileName = "ShareCode";
+            exportedFileName = "PatientSymptomSummary";
         }
         exportedFileName += exportOptions.getExportType().getExtension();
 
         String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
-                        outputStream -> queryService.exportShareCode(userId,  exportOptions, pageable, outputStream));
+                        outputStream -> queryService.exportPatientSymptomSummary(userId,  exportOptions, pageable, outputStream));
 
         return new StringWrapper(exportedUrl);
     }
@@ -223,44 +195,6 @@ public class QueryExecutionController {
         return new StringWrapper(exportedUrl);
     }
 
-    @RequestMapping(value = "/queries/Clinician_List", method = RequestMethod.GET)
-    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    @ApiOperation(value = "List of all users type 4 (clinicians)")
-    public Page<ClinicianListResponse> executeClinician_List(Pageable pageable, HttpServletRequest _request) {
-        LOGGER.debug("Executing named query: Clinician_List");
-        Page<ClinicianListResponse> _result = queryService.executeClinician_List(pageable);
-        LOGGER.debug("got the result for named query: Clinician_List, result:{}", _result);
-        return _result;
-    }
-
-    @ApiOperation(value = "Returns downloadable file url for query Clinician_List")
-    @RequestMapping(value = "/queries/Clinician_List/export", method = RequestMethod.POST)
-    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    public StringWrapper exportClinician_List(@RequestBody ExportOptions exportOptions, Pageable pageable) {
-        LOGGER.debug("Exporting named query: Clinician_List");
-
-        String exportedFileName = exportOptions.getFileName();
-        if(exportedFileName == null || exportedFileName.isEmpty()) {
-            exportedFileName = "Clinician_List";
-        }
-        exportedFileName += exportOptions.getExportType().getExtension();
-
-        String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
-                        outputStream -> queryService.exportClinician_List( exportOptions, pageable, outputStream));
-
-        return new StringWrapper(exportedUrl);
-    }
-
-    @RequestMapping(value = "/queries/RemoveClincian", method = RequestMethod.DELETE)
-    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    @ApiOperation(value = "Remove Clincian")
-    public IntegerWrapper executeRemoveClincian(@RequestParam(value = "patient_id") String patientId, @RequestParam(value = "user_id") Integer userId, HttpServletRequest _request) {
-        LOGGER.debug("Executing named query: RemoveClincian");
-        Integer _result = queryService.executeRemoveClincian(patientId, userId);
-        LOGGER.debug("got the result for named query: RemoveClincian, result:{}", _result);
-        return new IntegerWrapper(_result);
-    }
-
     @RequestMapping(value = "/queries/PatientMedics", method = RequestMethod.GET)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "Shows Clinicians current authorised to access patient records")
@@ -296,6 +230,128 @@ public class QueryExecutionController {
         LOGGER.debug("Executing named query: ForgotPassword");
         Integer _result = queryService.executeForgotPassword(forgotPasswordRequest);
         LOGGER.debug("got the result for named query: ForgotPassword, result:{}", _result);
+        return new IntegerWrapper(_result);
+    }
+
+    @RequestMapping(value = "/queries/TrackRead", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Retrieves most recent session data for the user")
+    public Page<TrackReadResponse> executeTrackRead(@RequestParam(value = "user_id") Integer userId, Pageable pageable, HttpServletRequest _request) {
+        LOGGER.debug("Executing named query: TrackRead");
+        Page<TrackReadResponse> _result = queryService.executeTrackRead(userId, pageable);
+        LOGGER.debug("got the result for named query: TrackRead, result:{}", _result);
+        return _result;
+    }
+
+    @ApiOperation(value = "Returns downloadable file url for query TrackRead")
+    @RequestMapping(value = "/queries/TrackRead/export", method = RequestMethod.POST)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public StringWrapper exportTrackRead(@RequestParam(value = "user_id") Integer userId, @RequestBody ExportOptions exportOptions, Pageable pageable) {
+        LOGGER.debug("Exporting named query: TrackRead");
+
+        String exportedFileName = exportOptions.getFileName();
+        if(exportedFileName == null || exportedFileName.isEmpty()) {
+            exportedFileName = "TrackRead";
+        }
+        exportedFileName += exportOptions.getExportType().getExtension();
+
+        String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
+                        outputStream -> queryService.exportTrackRead(userId,  exportOptions, pageable, outputStream));
+
+        return new StringWrapper(exportedUrl);
+    }
+
+    @RequestMapping(value = "/queries/PatientColourCountSummary", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Using colour as severity indicator, counts each class for each allergy")
+    public Page<PatientColourCountSummaryResponse> executePatientColourCountSummary(@RequestParam(value = "userId") Integer userId, Pageable pageable, HttpServletRequest _request) {
+        LOGGER.debug("Executing named query: PatientColourCountSummary");
+        Page<PatientColourCountSummaryResponse> _result = queryService.executePatientColourCountSummary(userId, pageable);
+        LOGGER.debug("got the result for named query: PatientColourCountSummary, result:{}", _result);
+        return _result;
+    }
+
+    @ApiOperation(value = "Returns downloadable file url for query PatientColourCountSummary")
+    @RequestMapping(value = "/queries/PatientColourCountSummary/export", method = RequestMethod.POST)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public StringWrapper exportPatientColourCountSummary(@RequestParam(value = "userId") Integer userId, @RequestBody ExportOptions exportOptions, Pageable pageable) {
+        LOGGER.debug("Exporting named query: PatientColourCountSummary");
+
+        String exportedFileName = exportOptions.getFileName();
+        if(exportedFileName == null || exportedFileName.isEmpty()) {
+            exportedFileName = "PatientColourCountSummary";
+        }
+        exportedFileName += exportOptions.getExportType().getExtension();
+
+        String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
+                        outputStream -> queryService.exportPatientColourCountSummary(userId,  exportOptions, pageable, outputStream));
+
+        return new StringWrapper(exportedUrl);
+    }
+
+    @RequestMapping(value = "/queries/ShareCode", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Extracts share code for user")
+    public Page<ShareCodeResponse> executeShareCode(@RequestParam(value = "user_id") Integer userId, Pageable pageable, HttpServletRequest _request) {
+        LOGGER.debug("Executing named query: ShareCode");
+        Page<ShareCodeResponse> _result = queryService.executeShareCode(userId, pageable);
+        LOGGER.debug("got the result for named query: ShareCode, result:{}", _result);
+        return _result;
+    }
+
+    @ApiOperation(value = "Returns downloadable file url for query ShareCode")
+    @RequestMapping(value = "/queries/ShareCode/export", method = RequestMethod.POST)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public StringWrapper exportShareCode(@RequestParam(value = "user_id") Integer userId, @RequestBody ExportOptions exportOptions, Pageable pageable) {
+        LOGGER.debug("Exporting named query: ShareCode");
+
+        String exportedFileName = exportOptions.getFileName();
+        if(exportedFileName == null || exportedFileName.isEmpty()) {
+            exportedFileName = "ShareCode";
+        }
+        exportedFileName += exportOptions.getExportType().getExtension();
+
+        String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
+                        outputStream -> queryService.exportShareCode(userId,  exportOptions, pageable, outputStream));
+
+        return new StringWrapper(exportedUrl);
+    }
+
+    @RequestMapping(value = "/queries/Clinician_List", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "List of all users type 4 (clinicians)")
+    public Page<ClinicianListResponse> executeClinician_List(Pageable pageable, HttpServletRequest _request) {
+        LOGGER.debug("Executing named query: Clinician_List");
+        Page<ClinicianListResponse> _result = queryService.executeClinician_List(pageable);
+        LOGGER.debug("got the result for named query: Clinician_List, result:{}", _result);
+        return _result;
+    }
+
+    @ApiOperation(value = "Returns downloadable file url for query Clinician_List")
+    @RequestMapping(value = "/queries/Clinician_List/export", method = RequestMethod.POST)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public StringWrapper exportClinician_List(@RequestBody ExportOptions exportOptions, Pageable pageable) {
+        LOGGER.debug("Exporting named query: Clinician_List");
+
+        String exportedFileName = exportOptions.getFileName();
+        if(exportedFileName == null || exportedFileName.isEmpty()) {
+            exportedFileName = "Clinician_List";
+        }
+        exportedFileName += exportOptions.getExportType().getExtension();
+
+        String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
+                        outputStream -> queryService.exportClinician_List( exportOptions, pageable, outputStream));
+
+        return new StringWrapper(exportedUrl);
+    }
+
+    @RequestMapping(value = "/queries/RemoveClincian", method = RequestMethod.DELETE)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Remove Clincian")
+    public IntegerWrapper executeRemoveClincian(@RequestParam(value = "patient_id") String patientId, @RequestParam(value = "user_id") Integer userId, HttpServletRequest _request) {
+        LOGGER.debug("Executing named query: RemoveClincian");
+        Integer _result = queryService.executeRemoveClincian(patientId, userId);
+        LOGGER.debug("got the result for named query: RemoveClincian, result:{}", _result);
         return new IntegerWrapper(_result);
     }
 

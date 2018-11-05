@@ -16,10 +16,6 @@ import com.dotta.medidata.models.query.*;
 
 public interface MedidataQueryExecutorService {
 
-    Page<TrackReadResponse> executeTrackRead(Integer userId, Pageable pageable);
-
-    void exportTrackRead(Integer userId, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
-
     Page<ListCliniciansforPatientResponse> executeListCliniciansforPatient(Integer id, Pageable pageable);
 
     void exportListCliniciansforPatient(Integer id, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
@@ -30,9 +26,9 @@ public interface MedidataQueryExecutorService {
 
     void exportPatientSymptomsByAllergy(Integer id, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
 
-    Page<ShareCodeResponse> executeShareCode(Integer userId, Pageable pageable);
+    Page<PatientSymptomSummaryResponse> executePatientSymptomSummary(Integer userId, Pageable pageable);
 
-    void exportShareCode(Integer userId, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+    void exportPatientSymptomSummary(Integer userId, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
 
     Page<MedicsWithPatientsResponse> executeMedicsWithPatients(String id, Pageable pageable);
 
@@ -42,17 +38,29 @@ public interface MedidataQueryExecutorService {
 
     void exportPatientRead(Integer patientId, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
 
-    Page<ClinicianListResponse> executeClinician_List(Pageable pageable);
-
-    void exportClinician_List(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
-
-    Integer executeRemoveClincian(String patientId, Integer userId);
-
     Page<PatientMedicsResponse> executePatientMedics(Integer patientId, Pageable pageable);
 
     void exportPatientMedics(Integer patientId, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
 
     Integer executeForgotPassword(ForgotPasswordRequest forgotPasswordRequest);
+
+    Page<TrackReadResponse> executeTrackRead(Integer userId, Pageable pageable);
+
+    void exportTrackRead(Integer userId, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Page<PatientColourCountSummaryResponse> executePatientColourCountSummary(Integer userId, Pageable pageable);
+
+    void exportPatientColourCountSummary(Integer userId, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Page<ShareCodeResponse> executeShareCode(Integer userId, Pageable pageable);
+
+    void exportShareCode(Integer userId, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Page<ClinicianListResponse> executeClinician_List(Pageable pageable);
+
+    void exportClinician_List(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Integer executeRemoveClincian(String patientId, Integer userId);
 
     Page<BackgroundReadResponse> executeBackgroundRead(Integer patientId, Pageable pageable);
 

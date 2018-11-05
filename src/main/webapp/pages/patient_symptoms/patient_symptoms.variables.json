@@ -13,8 +13,8 @@
     "maxResults" : 20,
     "designMaxResults" : 10,
     "inFlightBehavior" : "executeLast",
-    "startUpdate" : true,
-    "autoUpdate" : true,
+    "startUpdate" : false,
+    "autoUpdate" : false,
     "transformationRequired" : false,
     "liveSource" : "medidata",
     "ignoreCase" : true,
@@ -216,6 +216,32 @@
       } ]
     },
     "package" : "com.dotta.medidata.PatientSymptomsByAllergy"
+  },
+  "PatientAllergySummary" : {
+    "_id" : "wm-PatientAllergySummary-wm.ServiceVariable-1541255778523",
+    "name" : "PatientAllergySummary",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "userId",
+      "value" : "bind:Variables.PatientSymptomsWIthAuthor.firstRecord.authorId",
+      "type" : "integer"
+    } ],
+    "type" : "com.dotta.medidata.models.query.PatientSymptomSummaryResponse",
+    "service" : "medidata",
+    "operation" : "executePatientSymptomSummary",
+    "operationId" : "QueryExecutionController_executePatientSymptomSummary",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : true,
+    "maxResults" : 20,
+    "startUpdate" : true,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "QueryExecution"
   },
   "PatientSymptomsWIthAuthor" : {
     "_id" : "wm-PatientSymptomsWIthAuthor-wm.LiveVariable-1536766942101",

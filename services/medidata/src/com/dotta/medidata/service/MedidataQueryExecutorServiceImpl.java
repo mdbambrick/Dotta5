@@ -35,28 +35,6 @@ public class MedidataQueryExecutorServiceImpl implements MedidataQueryExecutorSe
 
     @Transactional(value = "medidataTransactionManager", readOnly = true)
     @Override
-    public Page<TrackReadResponse> executeTrackRead(Integer userId, Pageable pageable) {
-        Map<String, Object> params = new HashMap<>(1);
-
-        params.put("user_id", userId);
-
-        return queryExecutor.executeNamedQuery("TrackRead", params, TrackReadResponse.class, pageable);
-    }
-
-    @Transactional(value = "medidataTransactionManager", timeout = 300, readOnly = true)
-    @Override
-    public void exportTrackRead(Integer userId, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
-        Map<String, Object> params = new HashMap<>(1);
-
-        params.put("user_id", userId);
-
-        QueryProcedureInput queryInput = new QueryProcedureInput("TrackRead", params, TrackReadResponse.class);
-
-        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
-    }
-
-    @Transactional(value = "medidataTransactionManager", readOnly = true)
-    @Override
     public Page<ListCliniciansforPatientResponse> executeListCliniciansforPatient(Integer id, Pageable pageable) {
         Map<String, Object> params = new HashMap<>(1);
 
@@ -117,22 +95,22 @@ public class MedidataQueryExecutorServiceImpl implements MedidataQueryExecutorSe
 
     @Transactional(value = "medidataTransactionManager", readOnly = true)
     @Override
-    public Page<ShareCodeResponse> executeShareCode(Integer userId, Pageable pageable) {
+    public Page<PatientSymptomSummaryResponse> executePatientSymptomSummary(Integer userId, Pageable pageable) {
         Map<String, Object> params = new HashMap<>(1);
 
-        params.put("user_id", userId);
+        params.put("userId", userId);
 
-        return queryExecutor.executeNamedQuery("ShareCode", params, ShareCodeResponse.class, pageable);
+        return queryExecutor.executeNamedQuery("PatientSymptomSummary", params, PatientSymptomSummaryResponse.class, pageable);
     }
 
     @Transactional(value = "medidataTransactionManager", timeout = 300, readOnly = true)
     @Override
-    public void exportShareCode(Integer userId, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+    public void exportPatientSymptomSummary(Integer userId, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
         Map<String, Object> params = new HashMap<>(1);
 
-        params.put("user_id", userId);
+        params.put("userId", userId);
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("ShareCode", params, ShareCodeResponse.class);
+        QueryProcedureInput queryInput = new QueryProcedureInput("PatientSymptomSummary", params, PatientSymptomSummaryResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -183,37 +161,6 @@ public class MedidataQueryExecutorServiceImpl implements MedidataQueryExecutorSe
 
     @Transactional(value = "medidataTransactionManager", readOnly = true)
     @Override
-    public Page<ClinicianListResponse> executeClinician_List(Pageable pageable) {
-        Map<String, Object> params = new HashMap<>(0);
-
-
-        return queryExecutor.executeNamedQuery("Clinician_List", params, ClinicianListResponse.class, pageable);
-    }
-
-    @Transactional(value = "medidataTransactionManager", timeout = 300, readOnly = true)
-    @Override
-    public void exportClinician_List(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
-        Map<String, Object> params = new HashMap<>(0);
-
-
-        QueryProcedureInput queryInput = new QueryProcedureInput("Clinician_List", params, ClinicianListResponse.class);
-
-        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
-    }
-
-    @Transactional(value = "medidataTransactionManager")
-    @Override
-    public Integer executeRemoveClincian(String patientId, Integer userId) {
-        Map<String, Object> params = new HashMap<>(2);
-
-        params.put("patient_id", patientId);
-        params.put("user_id", userId);
-
-        return queryExecutor.executeNamedQueryForUpdate("RemoveClincian", params);
-    }
-
-    @Transactional(value = "medidataTransactionManager", readOnly = true)
-    @Override
     public Page<PatientMedicsResponse> executePatientMedics(Integer patientId, Pageable pageable) {
         Map<String, Object> params = new HashMap<>(1);
 
@@ -243,6 +190,103 @@ public class MedidataQueryExecutorServiceImpl implements MedidataQueryExecutorSe
         params.put("name", forgotPasswordRequest.getName());
 
         return queryExecutor.executeNamedQueryForUpdate("ForgotPassword", params);
+    }
+
+    @Transactional(value = "medidataTransactionManager", readOnly = true)
+    @Override
+    public Page<TrackReadResponse> executeTrackRead(Integer userId, Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("user_id", userId);
+
+        return queryExecutor.executeNamedQuery("TrackRead", params, TrackReadResponse.class, pageable);
+    }
+
+    @Transactional(value = "medidataTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportTrackRead(Integer userId, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("user_id", userId);
+
+        QueryProcedureInput queryInput = new QueryProcedureInput("TrackRead", params, TrackReadResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "medidataTransactionManager", readOnly = true)
+    @Override
+    public Page<PatientColourCountSummaryResponse> executePatientColourCountSummary(Integer userId, Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("userId", userId);
+
+        return queryExecutor.executeNamedQuery("PatientColourCountSummary", params, PatientColourCountSummaryResponse.class, pageable);
+    }
+
+    @Transactional(value = "medidataTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportPatientColourCountSummary(Integer userId, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("userId", userId);
+
+        QueryProcedureInput queryInput = new QueryProcedureInput("PatientColourCountSummary", params, PatientColourCountSummaryResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "medidataTransactionManager", readOnly = true)
+    @Override
+    public Page<ShareCodeResponse> executeShareCode(Integer userId, Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("user_id", userId);
+
+        return queryExecutor.executeNamedQuery("ShareCode", params, ShareCodeResponse.class, pageable);
+    }
+
+    @Transactional(value = "medidataTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportShareCode(Integer userId, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("user_id", userId);
+
+        QueryProcedureInput queryInput = new QueryProcedureInput("ShareCode", params, ShareCodeResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "medidataTransactionManager", readOnly = true)
+    @Override
+    public Page<ClinicianListResponse> executeClinician_List(Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        return queryExecutor.executeNamedQuery("Clinician_List", params, ClinicianListResponse.class, pageable);
+    }
+
+    @Transactional(value = "medidataTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportClinician_List(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        QueryProcedureInput queryInput = new QueryProcedureInput("Clinician_List", params, ClinicianListResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "medidataTransactionManager")
+    @Override
+    public Integer executeRemoveClincian(String patientId, Integer userId) {
+        Map<String, Object> params = new HashMap<>(2);
+
+        params.put("patient_id", patientId);
+        params.put("user_id", userId);
+
+        return queryExecutor.executeNamedQueryForUpdate("RemoveClincian", params);
     }
 
     @Transactional(value = "medidataTransactionManager", readOnly = true)

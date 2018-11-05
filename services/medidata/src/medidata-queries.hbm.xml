@@ -2,26 +2,6 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <sql-query name="TrackRead">
-        <![CDATA[
-        SELECT session_id, user_id, patient_id, first_name, last_name, user_type 
-FROM medidata.`session_id with users` 
-where user_id = :user_id 
-order by session_id desc
-        ]]>
-    <query-param name="user_id" type="java.lang.Integer"/>
-    </sql-query>
-
-    <sql-query name="TrackRead__count">
-        <![CDATA[
-        select count(*) from (SELECT session_id, user_id, patient_id, first_name, last_name, user_type 
-FROM medidata.`session_id with users` 
-where user_id = :user_id 
-order by session_id desc) wmTempTable
-        ]]>
-    <query-param name="user_id" type="java.lang.Integer"/>
-    </sql-query>
-
     <sql-query name="ListCliniciansforPatient">
         <![CDATA[
         Select user_id,clinician_title,clinician_first_name,clinician_last_name,relationship
@@ -69,18 +49,24 @@ where patient_id = :id) wmTempTable
     <query-param name="id" type="java.lang.Integer"/>
     </sql-query>
 
-    <sql-query name="ShareCode">
+    <sql-query name="PatientSymptomSummary">
         <![CDATA[
-        SELECT sharing_code FROM medidata.users where id = :user_id
+        SELECT `Set Name`, `Allergy Name`, COUNT(*) AS TOTAL 
+FROM medidata.patient_symptoms_with_author_and_ranking_and_colour 
+where `Author Id` = :userId 
+group by `Allergy Name`
         ]]>
-    <query-param name="user_id" type="java.lang.Integer"/>
+    <query-param name="userId" type="java.lang.Integer"/>
     </sql-query>
 
-    <sql-query name="ShareCode__count">
+    <sql-query name="PatientSymptomSummary__count">
         <![CDATA[
-        select count(*) from (SELECT sharing_code FROM medidata.users where id = :user_id) wmTempTable
+        select count(*) from (SELECT `Set Name`, `Allergy Name`, COUNT(*) AS TOTAL 
+FROM medidata.patient_symptoms_with_author_and_ranking_and_colour 
+where `Author Id` = :userId 
+group by `Allergy Name`) wmTempTable
         ]]>
-    <query-param name="user_id" type="java.lang.Integer"/>
+    <query-param name="userId" type="java.lang.Integer"/>
     </sql-query>
 
     <sql-query name="MedicsWithPatients">
@@ -119,30 +105,6 @@ where id = :patientId) wmTempTable
     <query-param name="patientId" type="java.lang.Integer"/>
     </sql-query>
 
-    <sql-query name="Clinician_List">
-        <![CDATA[
-        Select id,username,title,first_name,last_name,email,user_type,sharing_code
-from `users`
-where user_type=4
-        ]]>
-    </sql-query>
-
-    <sql-query name="Clinician_List__count">
-        <![CDATA[
-        select count(*) from (Select id,username,title,first_name,last_name,email,user_type,sharing_code
-from `users`
-where user_type=4) wmTempTable
-        ]]>
-    </sql-query>
-
-    <sql-query name="RemoveClincian">
-        <![CDATA[
-        delete from users_patients where patient_id =:patient_id AND user_id =:user_id
-        ]]>
-    <query-param name="patient_id" type="java.lang.String"/>
-    <query-param name="user_id" type="java.lang.Integer"/>
-    </sql-query>
-
     <sql-query name="PatientMedics">
         <![CDATA[
         Select patient_id,user_id,title,first_name,last_name
@@ -167,6 +129,84 @@ where patient_id=:patient_id) wmTempTable
         ]]>
     <query-param name="pwd" type="java.lang.String"/>
     <query-param name="name" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="TrackRead">
+        <![CDATA[
+        SELECT session_id, user_id, patient_id, first_name, last_name, user_type 
+FROM medidata.`session_id with users` 
+where user_id = :user_id 
+order by session_id desc
+        ]]>
+    <query-param name="user_id" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="TrackRead__count">
+        <![CDATA[
+        select count(*) from (SELECT session_id, user_id, patient_id, first_name, last_name, user_type 
+FROM medidata.`session_id with users` 
+where user_id = :user_id 
+order by session_id desc) wmTempTable
+        ]]>
+    <query-param name="user_id" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="PatientColourCountSummary">
+        <![CDATA[
+        SELECT `Set Name`, `Allergy Name`, `colour`, COUNT(*) AS TOTAL 
+FROM medidata.patient_symptoms_with_author_and_ranking_and_colour 
+where `Author Id` = :userId 
+group by `Allergy Name`,`colour`
+        ]]>
+    <query-param name="userId" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="PatientColourCountSummary__count">
+        <![CDATA[
+        select count(*) from (SELECT `Set Name`, `Allergy Name`, `colour`, COUNT(*) AS TOTAL 
+FROM medidata.patient_symptoms_with_author_and_ranking_and_colour 
+where `Author Id` = :userId 
+group by `Allergy Name`,`colour`) wmTempTable
+        ]]>
+    <query-param name="userId" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="ShareCode">
+        <![CDATA[
+        SELECT sharing_code FROM medidata.users where id = :user_id
+        ]]>
+    <query-param name="user_id" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="ShareCode__count">
+        <![CDATA[
+        select count(*) from (SELECT sharing_code FROM medidata.users where id = :user_id) wmTempTable
+        ]]>
+    <query-param name="user_id" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="Clinician_List">
+        <![CDATA[
+        Select id,username,title,first_name,last_name,email,user_type,sharing_code
+from `users`
+where user_type=4
+        ]]>
+    </sql-query>
+
+    <sql-query name="Clinician_List__count">
+        <![CDATA[
+        select count(*) from (Select id,username,title,first_name,last_name,email,user_type,sharing_code
+from `users`
+where user_type=4) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="RemoveClincian">
+        <![CDATA[
+        delete from users_patients where patient_id =:patient_id AND user_id =:user_id
+        ]]>
+    <query-param name="patient_id" type="java.lang.String"/>
+    <query-param name="user_id" type="java.lang.Integer"/>
     </sql-query>
 
     <sql-query name="BackgroundRead">

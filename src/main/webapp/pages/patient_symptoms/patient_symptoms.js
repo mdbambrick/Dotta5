@@ -121,3 +121,10 @@ Application.$controller("pagedialog2Controller", ["$scope",
         $scope.ctrlScope = $scope;
     }
 ]);
+
+Application.$controller("table3Controller", ["$scope",
+	function($scope) {
+		"use strict";
+		$scope.ctrlScope = $scope;
+	}
+]);

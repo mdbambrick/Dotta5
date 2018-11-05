@@ -663,6 +663,73 @@
       } ]
     }
   },
+  "PatientColourCountSummary" : {
+    "name" : "PatientColourCountSummary",
+    "description" : "Using colour as severity indicator, counts each class for each allergy",
+    "version" : "V2",
+    "queryString" : "SELECT `Set Name`, `Allergy Name`, `colour`, COUNT(*) AS TOTAL \nFROM medidata.patient_symptoms_with_author_and_ranking_and_colour \nwhere `Author Id` = :userId \ngroup by `Allergy Name`,`colour`",
+    "countQueryString" : "select count(*) from (SELECT `Set Name`, `Allergy Name`, `colour`, COUNT(*) AS TOTAL \nFROM medidata.patient_symptoms_with_author_and_ranking_and_colour \nwhere `Author Id` = :userId \ngroup by `Allergy Name`,`colour`) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "userId",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "130",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.dotta.medidata.models.query.PatientColourCountSummaryResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "Set Name",
+        "fieldName" : "setName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "Allergy Name",
+        "fieldName" : "allergyName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "colour",
+        "fieldName" : "colour",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "TOTAL",
+        "fieldName" : "total",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      } ]
+    }
+  },
   "PatientMedics" : {
     "name" : "PatientMedics",
     "description" : "Shows Clinicians current authorised to access patient records",
@@ -882,6 +949,64 @@
         "fieldType" : {
           "type" : "PRIMITIVE",
           "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "PatientSymptomSummary" : {
+    "name" : "PatientSymptomSummary",
+    "description" : "Counts unique symptoms for each allergy,.",
+    "version" : "V2",
+    "queryString" : "SELECT `Set Name`, `Allergy Name`, COUNT(*) AS TOTAL \nFROM medidata.patient_symptoms_with_author_and_ranking_and_colour \nwhere `Author Id` = :userId \ngroup by `Allergy Name`",
+    "countQueryString" : "select count(*) from (SELECT `Set Name`, `Allergy Name`, COUNT(*) AS TOTAL \nFROM medidata.patient_symptoms_with_author_and_ranking_and_colour \nwhere `Author Id` = :userId \ngroup by `Allergy Name`) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "userId",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "130",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.dotta.medidata.models.query.PatientSymptomSummaryResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "Set Name",
+        "fieldName" : "setName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "Allergy Name",
+        "fieldName" : "allergyName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "TOTAL",
+        "fieldName" : "total",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
           "list" : false
         }
       } ]
