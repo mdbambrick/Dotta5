@@ -30,7 +30,7 @@
         </wm-container>
     </wm-composite>
     <wm-composite name="composite6">
-        <wm-label class="col-md-3 control-label" name="label6" caption="Confirm Password"></wm-label>
+        <wm-label class="col-md-3 control-label" name="label6" caption="Confirm Password" show="true"></wm-label>
         <wm-container class="col-md-9" name="container6">
             <wm-text name="text6" placeholder="Re-enter to verify" on-blur="text6Blur($event, $scope)"></wm-text>
         </wm-container>
@@ -49,8 +49,8 @@
     </wm-composite>
     <wm-composite name="composite9" show="false">
         <wm-label class="col-md-3 control-label" name="label9" caption="Share Code"></wm-label>
-        <wm-container class="col-md-9" name="container9">
-            <wm-text name="text8" type="number" datavalue="bind:Variables.shareCode.dataSet.dataValue"></wm-text>
+        <wm-container class="col-md-9" name="container9" show="true">
+            <wm-text name="text8" type="number" datavalue="bind:Variables.shareCode.dataSet.dataValue" show="true"></wm-text>
         </wm-container>
     </wm-composite>
     <wm-composite name="compositePasscode" show="false">
@@ -62,7 +62,7 @@
     <wm-layoutgrid name="layoutgrid1">
         <wm-gridrow name="gridrow1">
             <wm-gridcolumn columnwidth="12" name="gridcolumn2" horizontalalign="right">
-                <wm-button class="btn-lg btn-primary" caption="REGISTER" type="button" margin="0.2em 0.5em" name="button1" on-click="button1Click($event, $scope);Variables.SendEmail.invoke()" fontweight="bold" iconclass="wi wi-check-box"></wm-button>
+                <wm-button class="btn-lg btn-primary" caption="REGISTER" type="button" margin="0.2em 0.5em" name="button1" on-click="button1Click($event, $scope)" fontweight="bold" iconclass="wi wi-check-box"></wm-button>
                 <wm-message name="message1" show="false"></wm-message>
                 <wm-message name="message2" show="false"></wm-message>
                 <wm-message name="message3" show="false"></wm-message>

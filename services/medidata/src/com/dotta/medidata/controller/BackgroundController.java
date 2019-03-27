@@ -34,6 +34,7 @@ import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 
 import com.dotta.medidata.Background;
+import com.dotta.medidata.BackgroundId;
 import com.dotta.medidata.service.BackgroundService;
 
 
@@ -67,41 +68,53 @@ public class BackgroundController {
 	    return background;
 	}
 
-    @ApiOperation(value = "Returns the Background instance associated with the given id.")
-    @RequestMapping(value = "/{id:.+}", method = RequestMethod.GET)
+    @ApiOperation(value = "Returns the Background instance associated with the given composite-id.")
+    @RequestMapping(value = "/composite-id", method = RequestMethod.GET)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    public Background getBackground(@PathVariable("id") Integer id) {
-        LOGGER.debug("Getting Background with id: {}" , id);
+    public Background getBackground(@RequestParam("patientId") Integer patientId, @RequestParam("id") Integer id) {
 
-        Background foundBackground = backgroundService.getById(id);
-        LOGGER.debug("Background details with id: {}" , foundBackground);
+        BackgroundId backgroundId = new BackgroundId();
+        backgroundId.setPatientId(patientId);
+        backgroundId.setId(id);
 
-        return foundBackground;
-    }
-
-    @ApiOperation(value = "Updates the Background instance associated with the given id.")
-    @RequestMapping(value = "/{id:.+}", method = RequestMethod.PUT)
-    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    public Background editBackground(@PathVariable("id") Integer id, @RequestBody Background background) {
-        LOGGER.debug("Editing Background with id: {}" , background.getId());
-
-        background.setId(id);
-        background = backgroundService.update(background);
+        LOGGER.debug("Getting Background with id: {}" , backgroundId);
+        Background background = backgroundService.getById(backgroundId);
         LOGGER.debug("Background details with id: {}" , background);
 
         return background;
     }
 
-    @ApiOperation(value = "Deletes the Background instance associated with the given id.")
-    @RequestMapping(value = "/{id:.+}", method = RequestMethod.DELETE)
+
+
+    @ApiOperation(value = "Updates the Background instance associated with the given composite-id.")
+    @RequestMapping(value = "/composite-id", method = RequestMethod.PUT)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    public boolean deleteBackground(@PathVariable("id") Integer id) {
-        LOGGER.debug("Deleting Background with id: {}" , id);
+    public Background editBackground(@RequestParam("patientId") Integer patientId, @RequestParam("id") Integer id, @RequestBody Background background) {
 
-        Background deletedBackground = backgroundService.delete(id);
+        background.setPatientId(patientId);
+        background.setId(id);
 
-        return deletedBackground != null;
+        LOGGER.debug("Background details with id is updated with: {}" , background);
+
+        return backgroundService.update(background);
     }
+
+
+    @ApiOperation(value = "Deletes the Background instance associated with the given composite-id.")
+    @RequestMapping(value = "/composite-id", method = RequestMethod.DELETE)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public boolean deleteBackground(@RequestParam("patientId") Integer patientId, @RequestParam("id") Integer id) {
+
+        BackgroundId backgroundId = new BackgroundId();
+        backgroundId.setPatientId(patientId);
+        backgroundId.setId(id);
+
+        LOGGER.debug("Deleting Background with id: {}" , backgroundId);
+        Background background = backgroundService.delete(backgroundId);
+
+        return background != null;
+    }
+
 
     @RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
     @ApiOperation(value = "Returns the matching Background with given unique key values.")

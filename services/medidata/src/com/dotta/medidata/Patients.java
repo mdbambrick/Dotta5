@@ -48,7 +48,6 @@ public class Patients implements Serializable {
     private Date dateOfBirth;
     private String sex;
     private Integer userId;
-    private List<Background> backgrounds;
     private List<Diagnoses> diagnoseses;
     private List<SurveyAndTestData> surveyAndTestDatas;
     private List<UsersPatients> usersPatientses;
@@ -175,17 +174,6 @@ public class Patients implements Serializable {
     @JsonInclude(Include.NON_EMPTY)
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "patients")
     @Cascade({CascadeType.SAVE_UPDATE})
-    public List<Background> getBackgrounds() {
-        return this.backgrounds;
-    }
-
-    public void setBackgrounds(List<Background> backgrounds) {
-        this.backgrounds = backgrounds;
-    }
-
-    @JsonInclude(Include.NON_EMPTY)
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "patients")
-    @Cascade({CascadeType.SAVE_UPDATE})
     public List<Diagnoses> getDiagnoseses() {
         return this.diagnoseses;
     }
@@ -218,9 +206,6 @@ public class Patients implements Serializable {
 
     @PostPersist
     public void onPostPersist() {
-        if(backgrounds != null) {
-            backgrounds.forEach(_background -> _background.setPatients(this));
-        }
         if(diagnoseses != null) {
             diagnoseses.forEach(_diagnoses -> _diagnoses.setPatients(this));
         }

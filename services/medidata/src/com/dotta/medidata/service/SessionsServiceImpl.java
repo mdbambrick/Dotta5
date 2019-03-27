@@ -31,7 +31,6 @@ import com.wavemaker.runtime.data.model.AggregationInfo;
 import com.wavemaker.runtime.data.util.DaoUtils;
 import com.wavemaker.runtime.file.model.Downloadable;
 
-import com.dotta.medidata.Background;
 import com.dotta.medidata.Sessions;
 import com.dotta.medidata.SurveyAndTestData;
 
@@ -46,11 +45,6 @@ import com.dotta.medidata.SurveyAndTestData;
 public class SessionsServiceImpl implements SessionsService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SessionsServiceImpl.class);
-
-    @Lazy
-    @Autowired
-    @Qualifier("medidata.BackgroundService")
-    private BackgroundService backgroundService;
 
     @Lazy
     @Autowired
@@ -117,27 +111,13 @@ public class SessionsServiceImpl implements SessionsService {
     public Sessions update(Sessions sessions) {
         LOGGER.debug("Updating Sessions with information: {}", sessions);
 
-        List<Background> backgrounds = sessions.getBackgrounds();
         List<SurveyAndTestData> surveyAndTestDatas = sessions.getSurveyAndTestDatas();
-        if(backgrounds != null && Hibernate.isInitialized(backgrounds)) {
-            backgrounds.forEach(_background -> _background.setSessions(sessions));
-        }
         if(surveyAndTestDatas != null && Hibernate.isInitialized(surveyAndTestDatas)) {
             surveyAndTestDatas.forEach(_surveyAndTestData -> _surveyAndTestData.setSessions(sessions));
         }
 
         this.wmGenericDao.update(sessions);
         this.wmGenericDao.refresh(sessions);
-
-        // Deleting children which are not present in the list.
-        if(backgrounds != null && Hibernate.isInitialized(backgrounds) && !backgrounds.isEmpty()) {
-            List<Background> _remainingChildren = wmGenericDao.execute(
-                session -> DaoUtils.findAllRemainingChildren(session, Background.class,
-                        new DaoUtils.ChildrenFilter<>("sessions", sessions, backgrounds)));
-            LOGGER.debug("Found {} detached children, deleting", _remainingChildren.size());
-            _remainingChildren.forEach(_background -> backgroundService.delete(_background));
-            sessions.setBackgrounds(backgrounds);
-        }
 
         // Deleting children which are not present in the list.
         if(surveyAndTestDatas != null && Hibernate.isInitialized(surveyAndTestDatas) && !surveyAndTestDatas.isEmpty()) {
@@ -214,17 +194,6 @@ public class SessionsServiceImpl implements SessionsService {
 
     @Transactional(readOnly = true, value = "medidataTransactionManager")
     @Override
-    public Page<Background> findAssociatedBackgrounds(Integer id, Pageable pageable) {
-        LOGGER.debug("Fetching all associated backgrounds");
-
-        StringBuilder queryBuilder = new StringBuilder();
-        queryBuilder.append("sessions.id = '" + id + "'");
-
-        return backgroundService.findAll(queryBuilder.toString(), pageable);
-    }
-
-    @Transactional(readOnly = true, value = "medidataTransactionManager")
-    @Override
     public Page<SurveyAndTestData> findAssociatedSurveyAndTestDatas(Integer id, Pageable pageable) {
         LOGGER.debug("Fetching all associated surveyAndTestDatas");
 
@@ -232,15 +201,6 @@ public class SessionsServiceImpl implements SessionsService {
         queryBuilder.append("sessions.id = '" + id + "'");
 
         return surveyAndTestDataService.findAll(queryBuilder.toString(), pageable);
-    }
-
-    /**
-     * This setter method should only be used by unit tests
-     *
-     * @param service BackgroundService instance
-     */
-    protected void setBackgroundService(BackgroundService service) {
-        this.backgroundService = service;
     }
 
     /**

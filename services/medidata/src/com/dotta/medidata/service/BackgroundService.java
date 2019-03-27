@@ -22,6 +22,7 @@ import com.wavemaker.runtime.data.model.AggregationInfo;
 import com.wavemaker.runtime.file.model.Downloadable;
 
 import com.dotta.medidata.Background;
+import com.dotta.medidata.BackgroundId;
 
 /**
  * Service object for domain model class {@link Background}.
@@ -46,7 +47,7 @@ public interface BackgroundService {
      * @return Background associated with the given backgroundId.
 	 * @throws EntityNotFoundException If no Background is found.
      */
-    Background getById(Integer backgroundId);
+    Background getById(BackgroundId backgroundId);
 
     /**
      * Find and return the Background by given id if exists, returns null otherwise.
@@ -54,7 +55,7 @@ public interface BackgroundService {
      * @param backgroundId The id of the Background to get; value cannot be null.
      * @return Background associated with the given backgroundId.
      */
-    Background findById(Integer backgroundId);
+    Background findById(BackgroundId backgroundId);
 
 	/**
      * Find and return the list of Backgrounds by given id's.
@@ -70,7 +71,7 @@ public interface BackgroundService {
      * @param orderedReturn Should the return List be ordered and positional in relation to the incoming ids?
      * @return Backgrounds associated with the given backgroundIds.
      */
-    List<Background> findByMultipleIds(List<Integer> backgroundIds, boolean orderedReturn);
+    List<Background> findByMultipleIds(List<BackgroundId> backgroundIds, boolean orderedReturn);
 
     /**
      * Find and return the Background for given id  if exists.
@@ -99,7 +100,7 @@ public interface BackgroundService {
      * @return The deleted Background.
      * @throws EntityNotFoundException if no Background found with the given id.
      */
-    Background delete(Integer backgroundId);
+    Background delete(BackgroundId backgroundId);
 
     /**
      * Deletes an existing Background with the given object.

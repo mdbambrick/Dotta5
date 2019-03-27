@@ -44,7 +44,6 @@ public class Sessions implements Serializable {
     private int userId;
     private Timestamp datetime;
     private Users users;
-    private List<Background> backgrounds;
     private List<SurveyAndTestData> surveyAndTestDatas;
 
     @Id
@@ -93,17 +92,6 @@ public class Sessions implements Serializable {
     @JsonInclude(Include.NON_EMPTY)
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "sessions")
     @Cascade({CascadeType.SAVE_UPDATE})
-    public List<Background> getBackgrounds() {
-        return this.backgrounds;
-    }
-
-    public void setBackgrounds(List<Background> backgrounds) {
-        this.backgrounds = backgrounds;
-    }
-
-    @JsonInclude(Include.NON_EMPTY)
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "sessions")
-    @Cascade({CascadeType.SAVE_UPDATE})
     public List<SurveyAndTestData> getSurveyAndTestDatas() {
         return this.surveyAndTestDatas;
     }
@@ -114,9 +102,6 @@ public class Sessions implements Serializable {
 
     @PostPersist
     public void onPostPersist() {
-        if(backgrounds != null) {
-            backgrounds.forEach(_background -> _background.setSessions(this));
-        }
         if(surveyAndTestDatas != null) {
             surveyAndTestDatas.forEach(_surveyAndTestData -> _surveyAndTestData.setSessions(this));
         }

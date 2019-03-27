@@ -129,13 +129,9 @@ public class PatientsServiceImpl implements PatientsService {
     public Patients update(Patients patients) {
         LOGGER.debug("Updating Patients with information: {}", patients);
 
-        List<Background> backgrounds = patients.getBackgrounds();
         List<Diagnoses> diagnoseses = patients.getDiagnoseses();
         List<SurveyAndTestData> surveyAndTestDatas = patients.getSurveyAndTestDatas();
         List<UsersPatients> usersPatientses = patients.getUsersPatientses();
-        if(backgrounds != null && Hibernate.isInitialized(backgrounds)) {
-            backgrounds.forEach(_background -> _background.setPatients(patients));
-        }
         if(diagnoseses != null && Hibernate.isInitialized(diagnoseses)) {
             diagnoseses.forEach(_diagnoses -> _diagnoses.setPatients(patients));
         }
@@ -148,16 +144,6 @@ public class PatientsServiceImpl implements PatientsService {
 
         this.wmGenericDao.update(patients);
         this.wmGenericDao.refresh(patients);
-
-        // Deleting children which are not present in the list.
-        if(backgrounds != null && Hibernate.isInitialized(backgrounds) && !backgrounds.isEmpty()) {
-            List<Background> _remainingChildren = wmGenericDao.execute(
-                session -> DaoUtils.findAllRemainingChildren(session, Background.class,
-                        new DaoUtils.ChildrenFilter<>("patients", patients, backgrounds)));
-            LOGGER.debug("Found {} detached children, deleting", _remainingChildren.size());
-            _remainingChildren.forEach(_background -> backgroundService.delete(_background));
-            patients.setBackgrounds(backgrounds);
-        }
 
         // Deleting children which are not present in the list.
         if(diagnoseses != null && Hibernate.isInitialized(diagnoseses) && !diagnoseses.isEmpty()) {

@@ -49,8 +49,8 @@ public class Allergies implements Serializable {
     private String iconUrl;
     private BigDecimal severityDefault;
     private BigDecimal populationRate;
-    private AllergyCategory allergyCategoryByAllergyCategory;
     private AllergySets allergySets;
+    private AllergyCategory allergyCategoryByAllergyCategory;
     private List<CompoundsAllergies> compoundsAllergieses;
     private List<SubstitutesAllergies> substitutesAllergieses;
     private List<SurveyAndTestData> surveyAndTestDatas;
@@ -184,21 +184,6 @@ public class Allergies implements Serializable {
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`allergy_category`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`fk_allergies_allergy_category1`"))
-    @Fetch(FetchMode.JOIN)
-    public AllergyCategory getAllergyCategoryByAllergyCategory() {
-        return this.allergyCategoryByAllergyCategory;
-    }
-
-    public void setAllergyCategoryByAllergyCategory(AllergyCategory allergyCategoryByAllergyCategory) {
-        if(allergyCategoryByAllergyCategory != null) {
-            this.allergyCategory = allergyCategoryByAllergyCategory.getId();
-        }
-
-        this.allergyCategoryByAllergyCategory = allergyCategoryByAllergyCategory;
-    }
-
-    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "`allergy_set`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`fk_allergies_allergy_sets1`"))
     @Fetch(FetchMode.JOIN)
     public AllergySets getAllergySets() {
@@ -211,6 +196,21 @@ public class Allergies implements Serializable {
         }
 
         this.allergySets = allergySets;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`allergy_category`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`fk_allergies_allergy_category1`"))
+    @Fetch(FetchMode.JOIN)
+    public AllergyCategory getAllergyCategoryByAllergyCategory() {
+        return this.allergyCategoryByAllergyCategory;
+    }
+
+    public void setAllergyCategoryByAllergyCategory(AllergyCategory allergyCategoryByAllergyCategory) {
+        if(allergyCategoryByAllergyCategory != null) {
+            this.allergyCategory = allergyCategoryByAllergyCategory.getId();
+        }
+
+        this.allergyCategoryByAllergyCategory = allergyCategoryByAllergyCategory;
     }
     @JsonInclude(Include.NON_EMPTY)
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "allergies")

@@ -41,11 +41,11 @@ public class SurveyAndTestData implements Serializable {
     private Timestamp datetime;
     private Integer ranking = 0;
     private Integer colour = 0;
+    private DataSource dataSourceByDataSource;
+    private Patients patients;
     private Symptoms symptoms;
     private Allergies allergies;
     private Sessions sessions;
-    private DataSource dataSourceByDataSource;
-    private Patients patients;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -149,6 +149,36 @@ public class SurveyAndTestData implements Serializable {
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`data_source`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`fk_survey_data_source1`"))
+    @Fetch(FetchMode.JOIN)
+    public DataSource getDataSourceByDataSource() {
+        return this.dataSourceByDataSource;
+    }
+
+    public void setDataSourceByDataSource(DataSource dataSourceByDataSource) {
+        if(dataSourceByDataSource != null) {
+            this.dataSource = dataSourceByDataSource.getId();
+        }
+
+        this.dataSourceByDataSource = dataSourceByDataSource;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`patient_id`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`fk_survey_and_test_data_patients1`"))
+    @Fetch(FetchMode.JOIN)
+    public Patients getPatients() {
+        return this.patients;
+    }
+
+    public void setPatients(Patients patients) {
+        if(patients != null) {
+            this.patientId = patients.getId();
+        }
+
+        this.patients = patients;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "`symptom_id`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`fk_survey_and_test_data_symptoms1`"))
     @Fetch(FetchMode.JOIN)
     public Symptoms getSymptoms() {
@@ -191,36 +221,6 @@ public class SurveyAndTestData implements Serializable {
         }
 
         this.sessions = sessions;
-    }
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`data_source`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`fk_survey_data_source1`"))
-    @Fetch(FetchMode.JOIN)
-    public DataSource getDataSourceByDataSource() {
-        return this.dataSourceByDataSource;
-    }
-
-    public void setDataSourceByDataSource(DataSource dataSourceByDataSource) {
-        if(dataSourceByDataSource != null) {
-            this.dataSource = dataSourceByDataSource.getId();
-        }
-
-        this.dataSourceByDataSource = dataSourceByDataSource;
-    }
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`patient_id`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`fk_survey_and_test_data_patients1`"))
-    @Fetch(FetchMode.JOIN)
-    public Patients getPatients() {
-        return this.patients;
-    }
-
-    public void setPatients(Patients patients) {
-        if(patients != null) {
-            this.patientId = patients.getId();
-        }
-
-        this.patients = patients;
     }
 
     @Override

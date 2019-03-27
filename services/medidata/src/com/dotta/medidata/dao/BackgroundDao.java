@@ -15,13 +15,14 @@ import org.springframework.stereotype.Repository;
 import com.wavemaker.runtime.data.dao.WMGenericDaoImpl;
 
 import com.dotta.medidata.Background;
+import com.dotta.medidata.BackgroundId;
 
 /**
  * Specifies methods used to obtain and modify Background related information
  * which is stored in the database.
  */
 @Repository("medidata.BackgroundDao")
-public class BackgroundDao extends WMGenericDaoImpl<Background, Integer> {
+public class BackgroundDao extends WMGenericDaoImpl<Background, BackgroundId> {
 
     @Autowired
     @Qualifier("medidataTemplate")

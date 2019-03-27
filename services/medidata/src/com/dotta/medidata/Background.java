@@ -13,9 +13,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -30,10 +29,11 @@ import org.hibernate.annotations.FetchMode;
 @Entity
 @Table(name = "`background`", uniqueConstraints = {
             @UniqueConstraint(name = "`id_UNIQUE`", columnNames = {"`id`"})})
+@IdClass(BackgroundId.class)
 public class Background implements Serializable {
 
+    private Integer patientId;
     private Integer id;
-    private int patientId;
     private int sessionId;
     private String termsAccepted;
     private String priorAllergyTreatment;
@@ -58,10 +58,18 @@ public class Background implements Serializable {
     private String cesarian;
     private BigDecimal weight;
     private Patients patients;
-    private Sessions sessions;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "`patient_id`", nullable = false, scale = 0, precision = 10)
+    public Integer getPatientId() {
+        return this.patientId;
+    }
+
+    public void setPatientId(Integer patientId) {
+        this.patientId = patientId;
+    }
+
+    @Id
     @Column(name = "`id`", nullable = false, scale = 0, precision = 10)
     public Integer getId() {
         return this.id;
@@ -69,15 +77,6 @@ public class Background implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    @Column(name = "`patient_id`", nullable = false, scale = 0, precision = 10)
-    public int getPatientId() {
-        return this.patientId;
-    }
-
-    public void setPatientId(int patientId) {
-        this.patientId = patientId;
     }
 
     @Column(name = "`session_id`", nullable = false, scale = 0, precision = 10)
@@ -288,7 +287,7 @@ public class Background implements Serializable {
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`patient_id`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`fk_history_patients1`"))
+    @JoinColumn(name = "`patient_id`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`fk_background_patients1`"))
     @Fetch(FetchMode.JOIN)
     public Patients getPatients() {
         return this.patients;
@@ -302,31 +301,18 @@ public class Background implements Serializable {
         this.patients = patients;
     }
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`session_id`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`fk_history_sessions1`"))
-    @Fetch(FetchMode.JOIN)
-    public Sessions getSessions() {
-        return this.sessions;
-    }
-
-    public void setSessions(Sessions sessions) {
-        if(sessions != null) {
-            this.sessionId = sessions.getId();
-        }
-
-        this.sessions = sessions;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Background)) return false;
         final Background background = (Background) o;
-        return Objects.equals(getId(), background.getId());
+        return Objects.equals(getPatientId(), background.getPatientId()) &&
+                Objects.equals(getId(), background.getId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId());
+        return Objects.hash(getPatientId(),
+                getId());
     }
 }

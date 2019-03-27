@@ -113,20 +113,20 @@ public class UsersController {
         return usersService.getByEmail(email);
     }
 
-    @RequestMapping(value = "/username/{username}", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the matching Users with given unique key values.")
-    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    public Users getByUsername(@PathVariable("username") String username) {
-        LOGGER.debug("Getting Users with uniques key Username");
-        return usersService.getByUsername(username);
-    }
-
     @RequestMapping(value = "/sharingCode/{sharingCode}", method = RequestMethod.GET)
     @ApiOperation(value = "Returns the matching Users with given unique key values.")
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     public Users getBySharingCode(@PathVariable("sharingCode") int sharingCode) {
         LOGGER.debug("Getting Users with uniques key SharingCode");
         return usersService.getBySharingCode(sharingCode);
+    }
+
+    @RequestMapping(value = "/username/{username}", method = RequestMethod.GET)
+    @ApiOperation(value = "Returns the matching Users with given unique key values.")
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public Users getByUsername(@PathVariable("username") String username) {
+        LOGGER.debug("Getting Users with uniques key Username");
+        return usersService.getByUsername(username);
     }
 
     @RequestMapping(value = "/id/{id}", method = RequestMethod.GET)

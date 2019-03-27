@@ -703,38 +703,6 @@
         "fetch" : true,
         "columnsFilter" : [ ]
       },
-      "fieldName" : "allergyCategoryByAllergyCategory",
-      "ignored" : false,
-      "mappings" : [ {
-        "sourceColumn" : "allergy_category",
-        "targetColumn" : "id"
-      } ],
-      "name" : "fk_allergies_allergy_category1",
-      "parentFetchOptions" : {
-        "fetch" : false,
-        "columnsFilter" : [ ]
-      },
-      "primary" : true,
-      "selfRelation" : false,
-      "sourceColumnsNotUniqueKey" : true,
-      "sourceTable" : "allergies",
-      "targetColumnsUniqueKey" : false,
-      "targetTable" : "allergy_category",
-      "valid" : true,
-      "virtual" : false
-    }, {
-      "cardinality" : "ManyToOne",
-      "cascadeEnabled" : true,
-      "cascadeOptions" : {
-        "cascadeRemove" : "NONE",
-        "cascadeReplace" : true
-      },
-      "columnsUniqueKey" : false,
-      "composite" : false,
-      "fetchOptions" : {
-        "fetch" : true,
-        "columnsFilter" : [ ]
-      },
       "fieldName" : "allergySets",
       "ignored" : false,
       "mappings" : [ {
@@ -752,6 +720,38 @@
       "sourceTable" : "allergies",
       "targetColumnsUniqueKey" : false,
       "targetTable" : "allergy_sets",
+      "valid" : true,
+      "virtual" : false
+    }, {
+      "cardinality" : "ManyToOne",
+      "cascadeEnabled" : true,
+      "cascadeOptions" : {
+        "cascadeRemove" : "NONE",
+        "cascadeReplace" : true
+      },
+      "columnsUniqueKey" : false,
+      "composite" : false,
+      "fetchOptions" : {
+        "fetch" : true,
+        "columnsFilter" : [ ]
+      },
+      "fieldName" : "allergyCategoryByAllergyCategory",
+      "ignored" : false,
+      "mappings" : [ {
+        "sourceColumn" : "allergy_category",
+        "targetColumn" : "id"
+      } ],
+      "name" : "fk_allergies_allergy_category1",
+      "parentFetchOptions" : {
+        "fetch" : false,
+        "columnsFilter" : [ ]
+      },
+      "primary" : true,
+      "selfRelation" : false,
+      "sourceColumnsNotUniqueKey" : true,
+      "sourceTable" : "allergies",
+      "targetColumnsUniqueKey" : false,
+      "targetTable" : "allergy_category",
       "valid" : true,
       "virtual" : false
     } ],
@@ -1232,7 +1232,7 @@
       "constraintList" : null,
       "fieldName" : "id",
       "foreignKey" : false,
-      "generatorType" : "identity",
+      "generatorType" : "assigned",
       "generatorValue" : null,
       "hidden" : false,
       "javaType" : "integer",
@@ -1246,7 +1246,7 @@
       "partOfUniqueKey" : true,
       "period" : false,
       "precision" : 10,
-      "primaryKey" : true,
+      "primaryKey" : false,
       "scale" : 0,
       "sequenceSchema" : null,
       "sqlType" : "number",
@@ -1271,7 +1271,7 @@
       "oldName" : "patient_id",
       "partOfAnyRelation" : true,
       "partOfForeignKey" : true,
-      "partOfPrimaryKey" : false,
+      "partOfPrimaryKey" : true,
       "partOfUniqueKey" : false,
       "period" : false,
       "precision" : 10,
@@ -1289,7 +1289,7 @@
       },
       "constraintList" : null,
       "fieldName" : "sessionId",
-      "foreignKey" : true,
+      "foreignKey" : false,
       "generatorType" : "assigned",
       "generatorValue" : null,
       "hidden" : false,
@@ -1298,8 +1298,8 @@
       "name" : "session_id",
       "nullable" : false,
       "oldName" : "session_id",
-      "partOfAnyRelation" : true,
-      "partOfForeignKey" : true,
+      "partOfAnyRelation" : false,
+      "partOfForeignKey" : false,
       "partOfPrimaryKey" : false,
       "partOfUniqueKey" : false,
       "period" : false,
@@ -1963,10 +1963,10 @@
     "name" : "background",
     "oldName" : "background",
     "primaryKey" : {
-      "columns" : [ "id" ],
-      "composite" : false,
+      "columns" : [ "id", "patient_id" ],
+      "composite" : true,
       "generator" : {
-        "generatorType" : "identity",
+        "generatorType" : "assigned",
         "generatorValue" : null,
         "schemaName" : null
       },
@@ -1975,7 +1975,7 @@
     },
     "relations" : [ {
       "cardinality" : "ManyToOne",
-      "cascadeEnabled" : true,
+      "cascadeEnabled" : false,
       "cascadeOptions" : {
         "cascadeRemove" : "NONE",
         "cascadeReplace" : true
@@ -1992,7 +1992,7 @@
         "sourceColumn" : "patient_id",
         "targetColumn" : "id"
       } ],
-      "name" : "fk_history_patients1",
+      "name" : "fk_background_patients1",
       "parentFetchOptions" : {
         "fetch" : false,
         "columnsFilter" : [ ]
@@ -2003,38 +2003,6 @@
       "sourceTable" : "background",
       "targetColumnsUniqueKey" : true,
       "targetTable" : "patients",
-      "valid" : true,
-      "virtual" : false
-    }, {
-      "cardinality" : "ManyToOne",
-      "cascadeEnabled" : true,
-      "cascadeOptions" : {
-        "cascadeRemove" : "NONE",
-        "cascadeReplace" : true
-      },
-      "columnsUniqueKey" : false,
-      "composite" : false,
-      "fetchOptions" : {
-        "fetch" : true,
-        "columnsFilter" : [ ]
-      },
-      "fieldName" : "sessions",
-      "ignored" : false,
-      "mappings" : [ {
-        "sourceColumn" : "session_id",
-        "targetColumn" : "id"
-      } ],
-      "name" : "fk_history_sessions1",
-      "parentFetchOptions" : {
-        "fetch" : false,
-        "columnsFilter" : [ ]
-      },
-      "primary" : true,
-      "selfRelation" : false,
-      "sourceColumnsNotUniqueKey" : true,
-      "sourceTable" : "background",
-      "targetColumnsUniqueKey" : true,
-      "targetTable" : "sessions",
       "valid" : true,
       "virtual" : false
     } ],
@@ -3734,38 +3702,6 @@
         "fetch" : true,
         "columnsFilter" : [ ]
       },
-      "fieldName" : "patients",
-      "ignored" : false,
-      "mappings" : [ {
-        "sourceColumn" : "patient_id",
-        "targetColumn" : "id"
-      } ],
-      "name" : "fk_diagnoses_patients1",
-      "parentFetchOptions" : {
-        "fetch" : false,
-        "columnsFilter" : [ ]
-      },
-      "primary" : true,
-      "selfRelation" : false,
-      "sourceColumnsNotUniqueKey" : true,
-      "sourceTable" : "diagnoses",
-      "targetColumnsUniqueKey" : true,
-      "targetTable" : "patients",
-      "valid" : true,
-      "virtual" : false
-    }, {
-      "cardinality" : "ManyToOne",
-      "cascadeEnabled" : true,
-      "cascadeOptions" : {
-        "cascadeRemove" : "NONE",
-        "cascadeReplace" : true
-      },
-      "columnsUniqueKey" : false,
-      "composite" : false,
-      "fetchOptions" : {
-        "fetch" : true,
-        "columnsFilter" : [ ]
-      },
       "fieldName" : "processStages",
       "ignored" : false,
       "mappings" : [ {
@@ -3783,6 +3719,38 @@
       "sourceTable" : "diagnoses",
       "targetColumnsUniqueKey" : false,
       "targetTable" : "process_stages",
+      "valid" : true,
+      "virtual" : false
+    }, {
+      "cardinality" : "ManyToOne",
+      "cascadeEnabled" : true,
+      "cascadeOptions" : {
+        "cascadeRemove" : "NONE",
+        "cascadeReplace" : true
+      },
+      "columnsUniqueKey" : false,
+      "composite" : false,
+      "fetchOptions" : {
+        "fetch" : true,
+        "columnsFilter" : [ ]
+      },
+      "fieldName" : "patients",
+      "ignored" : false,
+      "mappings" : [ {
+        "sourceColumn" : "patient_id",
+        "targetColumn" : "id"
+      } ],
+      "name" : "fk_diagnoses_patients1",
+      "parentFetchOptions" : {
+        "fetch" : false,
+        "columnsFilter" : [ ]
+      },
+      "primary" : true,
+      "selfRelation" : false,
+      "sourceColumnsNotUniqueKey" : true,
+      "sourceTable" : "diagnoses",
+      "targetColumnsUniqueKey" : true,
+      "targetTable" : "patients",
       "valid" : true,
       "virtual" : false
     } ],
@@ -8289,6 +8257,70 @@
         "fetch" : true,
         "columnsFilter" : [ ]
       },
+      "fieldName" : "dataSourceByDataSource",
+      "ignored" : false,
+      "mappings" : [ {
+        "sourceColumn" : "data_source",
+        "targetColumn" : "id"
+      } ],
+      "name" : "fk_survey_data_source1",
+      "parentFetchOptions" : {
+        "fetch" : false,
+        "columnsFilter" : [ ]
+      },
+      "primary" : true,
+      "selfRelation" : false,
+      "sourceColumnsNotUniqueKey" : true,
+      "sourceTable" : "survey_and_test_data",
+      "targetColumnsUniqueKey" : false,
+      "targetTable" : "data_source",
+      "valid" : true,
+      "virtual" : false
+    }, {
+      "cardinality" : "ManyToOne",
+      "cascadeEnabled" : true,
+      "cascadeOptions" : {
+        "cascadeRemove" : "NONE",
+        "cascadeReplace" : true
+      },
+      "columnsUniqueKey" : false,
+      "composite" : false,
+      "fetchOptions" : {
+        "fetch" : true,
+        "columnsFilter" : [ ]
+      },
+      "fieldName" : "patients",
+      "ignored" : false,
+      "mappings" : [ {
+        "sourceColumn" : "patient_id",
+        "targetColumn" : "id"
+      } ],
+      "name" : "fk_survey_and_test_data_patients1",
+      "parentFetchOptions" : {
+        "fetch" : false,
+        "columnsFilter" : [ ]
+      },
+      "primary" : true,
+      "selfRelation" : false,
+      "sourceColumnsNotUniqueKey" : true,
+      "sourceTable" : "survey_and_test_data",
+      "targetColumnsUniqueKey" : true,
+      "targetTable" : "patients",
+      "valid" : true,
+      "virtual" : false
+    }, {
+      "cardinality" : "ManyToOne",
+      "cascadeEnabled" : true,
+      "cascadeOptions" : {
+        "cascadeRemove" : "NONE",
+        "cascadeReplace" : true
+      },
+      "columnsUniqueKey" : false,
+      "composite" : false,
+      "fetchOptions" : {
+        "fetch" : true,
+        "columnsFilter" : [ ]
+      },
       "fieldName" : "symptoms",
       "ignored" : false,
       "mappings" : [ {
@@ -8370,70 +8402,6 @@
       "sourceTable" : "survey_and_test_data",
       "targetColumnsUniqueKey" : true,
       "targetTable" : "sessions",
-      "valid" : true,
-      "virtual" : false
-    }, {
-      "cardinality" : "ManyToOne",
-      "cascadeEnabled" : true,
-      "cascadeOptions" : {
-        "cascadeRemove" : "NONE",
-        "cascadeReplace" : true
-      },
-      "columnsUniqueKey" : false,
-      "composite" : false,
-      "fetchOptions" : {
-        "fetch" : true,
-        "columnsFilter" : [ ]
-      },
-      "fieldName" : "dataSourceByDataSource",
-      "ignored" : false,
-      "mappings" : [ {
-        "sourceColumn" : "data_source",
-        "targetColumn" : "id"
-      } ],
-      "name" : "fk_survey_data_source1",
-      "parentFetchOptions" : {
-        "fetch" : false,
-        "columnsFilter" : [ ]
-      },
-      "primary" : true,
-      "selfRelation" : false,
-      "sourceColumnsNotUniqueKey" : true,
-      "sourceTable" : "survey_and_test_data",
-      "targetColumnsUniqueKey" : false,
-      "targetTable" : "data_source",
-      "valid" : true,
-      "virtual" : false
-    }, {
-      "cardinality" : "ManyToOne",
-      "cascadeEnabled" : true,
-      "cascadeOptions" : {
-        "cascadeRemove" : "NONE",
-        "cascadeReplace" : true
-      },
-      "columnsUniqueKey" : false,
-      "composite" : false,
-      "fetchOptions" : {
-        "fetch" : true,
-        "columnsFilter" : [ ]
-      },
-      "fieldName" : "patients",
-      "ignored" : false,
-      "mappings" : [ {
-        "sourceColumn" : "patient_id",
-        "targetColumn" : "id"
-      } ],
-      "name" : "fk_survey_and_test_data_patients1",
-      "parentFetchOptions" : {
-        "fetch" : false,
-        "columnsFilter" : [ ]
-      },
-      "primary" : true,
-      "selfRelation" : false,
-      "sourceColumnsNotUniqueKey" : true,
-      "sourceTable" : "survey_and_test_data",
-      "targetColumnsUniqueKey" : true,
-      "targetTable" : "patients",
       "valid" : true,
       "virtual" : false
     } ],
@@ -9797,13 +9765,6 @@
       "unique" : true
     } ],
     "constraints" : [ {
-      "columns" : [ "username" ],
-      "composite" : false,
-      "name" : "username_UNIQUE",
-      "schemaName" : null,
-      "type" : "UNIQUE",
-      "virtual" : false
-    }, {
       "columns" : [ "email" ],
       "composite" : false,
       "name" : "email_UNIQUE",
@@ -9821,6 +9782,13 @@
       "columns" : [ "id" ],
       "composite" : false,
       "name" : "user_id_UNIQUE",
+      "schemaName" : null,
+      "type" : "UNIQUE",
+      "virtual" : false
+    }, {
+      "columns" : [ "username" ],
+      "composite" : false,
+      "name" : "username_UNIQUE",
       "schemaName" : null,
       "type" : "UNIQUE",
       "virtual" : false
@@ -10064,38 +10032,6 @@
         "fetch" : true,
         "columnsFilter" : [ ]
       },
-      "fieldName" : "patients",
-      "ignored" : false,
-      "mappings" : [ {
-        "sourceColumn" : "patient_id",
-        "targetColumn" : "id"
-      } ],
-      "name" : "fk_users_patients_patients1",
-      "parentFetchOptions" : {
-        "fetch" : false,
-        "columnsFilter" : [ ]
-      },
-      "primary" : true,
-      "selfRelation" : false,
-      "sourceColumnsNotUniqueKey" : true,
-      "sourceTable" : "users_patients",
-      "targetColumnsUniqueKey" : true,
-      "targetTable" : "patients",
-      "valid" : true,
-      "virtual" : false
-    }, {
-      "cardinality" : "ManyToOne",
-      "cascadeEnabled" : true,
-      "cascadeOptions" : {
-        "cascadeRemove" : "NONE",
-        "cascadeReplace" : true
-      },
-      "columnsUniqueKey" : false,
-      "composite" : false,
-      "fetchOptions" : {
-        "fetch" : true,
-        "columnsFilter" : [ ]
-      },
       "fieldName" : "users",
       "ignored" : false,
       "mappings" : [ {
@@ -10113,6 +10049,38 @@
       "sourceTable" : "users_patients",
       "targetColumnsUniqueKey" : true,
       "targetTable" : "users",
+      "valid" : true,
+      "virtual" : false
+    }, {
+      "cardinality" : "ManyToOne",
+      "cascadeEnabled" : true,
+      "cascadeOptions" : {
+        "cascadeRemove" : "NONE",
+        "cascadeReplace" : true
+      },
+      "columnsUniqueKey" : false,
+      "composite" : false,
+      "fetchOptions" : {
+        "fetch" : true,
+        "columnsFilter" : [ ]
+      },
+      "fieldName" : "patients",
+      "ignored" : false,
+      "mappings" : [ {
+        "sourceColumn" : "patient_id",
+        "targetColumn" : "id"
+      } ],
+      "name" : "fk_users_patients_patients1",
+      "parentFetchOptions" : {
+        "fetch" : false,
+        "columnsFilter" : [ ]
+      },
+      "primary" : true,
+      "selfRelation" : false,
+      "sourceColumnsNotUniqueKey" : true,
+      "sourceTable" : "users_patients",
+      "targetColumnsUniqueKey" : true,
+      "targetTable" : "patients",
       "valid" : true,
       "virtual" : false
     } ],

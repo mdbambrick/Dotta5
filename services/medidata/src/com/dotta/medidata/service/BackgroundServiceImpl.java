@@ -29,6 +29,7 @@ import com.wavemaker.runtime.data.model.AggregationInfo;
 import com.wavemaker.runtime.file.model.Downloadable;
 
 import com.dotta.medidata.Background;
+import com.dotta.medidata.BackgroundId;
 
 
 /**
@@ -45,9 +46,9 @@ public class BackgroundServiceImpl implements BackgroundService {
 
     @Autowired
     @Qualifier("medidata.BackgroundDao")
-    private WMGenericDao<Background, Integer> wmGenericDao;
+    private WMGenericDao<Background, BackgroundId> wmGenericDao;
 
-    public void setWMGenericDao(WMGenericDao<Background, Integer> wmGenericDao) {
+    public void setWMGenericDao(WMGenericDao<Background, BackgroundId> wmGenericDao) {
         this.wmGenericDao = wmGenericDao;
     }
 
@@ -63,14 +64,14 @@ public class BackgroundServiceImpl implements BackgroundService {
 
     @Transactional(readOnly = true, value = "medidataTransactionManager")
     @Override
-    public Background getById(Integer backgroundId) {
+    public Background getById(BackgroundId backgroundId) {
         LOGGER.debug("Finding Background by id: {}", backgroundId);
         return this.wmGenericDao.findById(backgroundId);
     }
 
     @Transactional(readOnly = true, value = "medidataTransactionManager")
     @Override
-    public Background findById(Integer backgroundId) {
+    public Background findById(BackgroundId backgroundId) {
         LOGGER.debug("Finding Background by id: {}", backgroundId);
         try {
             return this.wmGenericDao.findById(backgroundId);
@@ -82,7 +83,7 @@ public class BackgroundServiceImpl implements BackgroundService {
 
     @Transactional(readOnly = true, value = "medidataTransactionManager")
     @Override
-    public List<Background> findByMultipleIds(List<Integer> backgroundIds, boolean orderedReturn) {
+    public List<Background> findByMultipleIds(List<BackgroundId> backgroundIds, boolean orderedReturn) {
         LOGGER.debug("Finding Backgrounds by ids: {}", backgroundIds);
 
         return this.wmGenericDao.findByMultipleIds(backgroundIds, orderedReturn);
@@ -111,7 +112,7 @@ public class BackgroundServiceImpl implements BackgroundService {
 
     @Transactional(value = "medidataTransactionManager")
     @Override
-    public Background delete(Integer backgroundId) {
+    public Background delete(BackgroundId backgroundId) {
         LOGGER.debug("Deleting Background with id: {}", backgroundId);
         Background deleted = this.wmGenericDao.findById(backgroundId);
         if (deleted == null) {

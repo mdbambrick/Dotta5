@@ -36,8 +36,8 @@ public class UsersPatients implements Serializable {
     private int patientId;
     private Integer permissionLevel;
     private String relationship;
-    private Patients patients;
     private Users users;
+    private Patients patients;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -87,21 +87,6 @@ public class UsersPatients implements Serializable {
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`patient_id`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`fk_users_patients_patients1`"))
-    @Fetch(FetchMode.JOIN)
-    public Patients getPatients() {
-        return this.patients;
-    }
-
-    public void setPatients(Patients patients) {
-        if(patients != null) {
-            this.patientId = patients.getId();
-        }
-
-        this.patients = patients;
-    }
-
-    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "`user_id`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`fk_users_patients_users1`"))
     @Fetch(FetchMode.JOIN)
     public Users getUsers() {
@@ -114,6 +99,21 @@ public class UsersPatients implements Serializable {
         }
 
         this.users = users;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`patient_id`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`fk_users_patients_patients1`"))
+    @Fetch(FetchMode.JOIN)
+    public Patients getPatients() {
+        return this.patients;
+    }
+
+    public void setPatients(Patients patients) {
+        if(patients != null) {
+            this.patientId = patients.getId();
+        }
+
+        this.patients = patients;
     }
 
     @Override

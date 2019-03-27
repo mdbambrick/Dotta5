@@ -27,7 +27,7 @@
         "type" : "integer",
         "fullyQualifiedType" : "integer",
         "columnName" : "patient_id",
-        "isPrimaryKey" : false,
+        "isPrimaryKey" : true,
         "notNull" : true,
         "length" : 0,
         "precision" : 10,
@@ -198,65 +198,6 @@
           "scale" : 0
         } ]
       }, {
-        "fieldName" : "sessions",
-        "type" : "integer",
-        "fullyQualifiedType" : "integer",
-        "columnName" : "session_id",
-        "isPrimaryKey" : false,
-        "notNull" : true,
-        "length" : 0,
-        "precision" : 10,
-        "generator" : "assigned",
-        "isRelated" : true,
-        "relatedTableName" : "sessions",
-        "relatedEntityName" : "Sessions",
-        "relatedColumnName" : "sessionId",
-        "relatedFieldName" : "sessions.id",
-        "isList" : false,
-        "targetTable" : "sessions",
-        "scale" : 0,
-        "columns" : [ {
-          "fieldName" : "users",
-          "type" : "integer",
-          "fullyQualifiedType" : "integer",
-          "columnName" : "user_id",
-          "isPrimaryKey" : false,
-          "notNull" : true,
-          "length" : 0,
-          "precision" : 10,
-          "generator" : "assigned",
-          "isRelated" : true,
-          "relatedColumnName" : "userId",
-          "targetTable" : "users",
-          "scale" : 0
-        }, {
-          "fieldName" : "id",
-          "type" : "integer",
-          "fullyQualifiedType" : "integer",
-          "columnName" : "id",
-          "isPrimaryKey" : true,
-          "notNull" : true,
-          "length" : 0,
-          "precision" : 10,
-          "generator" : "identity",
-          "isRelated" : false,
-          "systemInserted" : true,
-          "systemUpdated" : true,
-          "scale" : 0
-        }, {
-          "fieldName" : "datetime",
-          "type" : "timestamp",
-          "fullyQualifiedType" : "timestamp",
-          "columnName" : "datetime",
-          "isPrimaryKey" : false,
-          "notNull" : true,
-          "length" : 0,
-          "precision" : 0,
-          "generator" : "assigned",
-          "isRelated" : false,
-          "scale" : 0
-        } ]
-      }, {
         "fieldName" : "id",
         "type" : "integer",
         "fullyQualifiedType" : "integer",
@@ -265,7 +206,19 @@
         "notNull" : true,
         "length" : 0,
         "precision" : 10,
-        "generator" : "identity",
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "sessionId",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "session_id",
+        "isPrimaryKey" : false,
+        "notNull" : true,
+        "length" : 0,
+        "precision" : 10,
+        "generator" : "assigned",
         "isRelated" : false,
         "scale" : 0
       }, {
@@ -536,24 +489,18 @@
       "entityName" : "Background",
       "fullyQualifiedName" : "com.dotta.medidata.Background",
       "tableType" : "TABLE",
-      "primaryFields" : [ "id" ]
+      "primaryFields" : [ "id", "patientId" ]
     },
     "isDefault" : true,
     "bindCount" : 1,
     "tableName" : "background",
     "tableType" : "TABLE",
-    "properties" : [ "patients", "sessions" ],
+    "properties" : [ "patients" ],
     "relatedTables" : [ {
       "columnName" : "patients",
       "relationName" : "patients",
       "type" : "Patients",
       "watchOn" : "MedidataPatientsData",
-      "package" : "com.dotta.medidata.Background"
-    }, {
-      "columnName" : "sessions",
-      "relationName" : "sessions",
-      "type" : "Sessions",
-      "watchOn" : "MedidataSessionsData",
       "package" : "com.dotta.medidata.Background"
     } ],
     "filterFields" : { },
@@ -596,7 +543,7 @@
         "type" : "integer",
         "fullyQualifiedType" : "integer",
         "columnName" : "patient_id",
-        "isPrimaryKey" : false,
+        "isPrimaryKey" : true,
         "notNull" : true,
         "length" : 0,
         "precision" : 10,
@@ -767,65 +714,6 @@
           "scale" : 0
         } ]
       }, {
-        "fieldName" : "sessions",
-        "type" : "integer",
-        "fullyQualifiedType" : "integer",
-        "columnName" : "session_id",
-        "isPrimaryKey" : false,
-        "notNull" : true,
-        "length" : 0,
-        "precision" : 10,
-        "generator" : "assigned",
-        "isRelated" : true,
-        "relatedTableName" : "sessions",
-        "relatedEntityName" : "Sessions",
-        "relatedColumnName" : "sessionId",
-        "relatedFieldName" : "sessions.id",
-        "isList" : false,
-        "targetTable" : "sessions",
-        "scale" : 0,
-        "columns" : [ {
-          "fieldName" : "users",
-          "type" : "integer",
-          "fullyQualifiedType" : "integer",
-          "columnName" : "user_id",
-          "isPrimaryKey" : false,
-          "notNull" : true,
-          "length" : 0,
-          "precision" : 10,
-          "generator" : "assigned",
-          "isRelated" : true,
-          "relatedColumnName" : "userId",
-          "targetTable" : "users",
-          "scale" : 0
-        }, {
-          "fieldName" : "id",
-          "type" : "integer",
-          "fullyQualifiedType" : "integer",
-          "columnName" : "id",
-          "isPrimaryKey" : true,
-          "notNull" : true,
-          "length" : 0,
-          "precision" : 10,
-          "generator" : "identity",
-          "isRelated" : false,
-          "systemInserted" : true,
-          "systemUpdated" : true,
-          "scale" : 0
-        }, {
-          "fieldName" : "datetime",
-          "type" : "timestamp",
-          "fullyQualifiedType" : "timestamp",
-          "columnName" : "datetime",
-          "isPrimaryKey" : false,
-          "notNull" : true,
-          "length" : 0,
-          "precision" : 0,
-          "generator" : "assigned",
-          "isRelated" : false,
-          "scale" : 0
-        } ]
-      }, {
         "fieldName" : "id",
         "type" : "integer",
         "fullyQualifiedType" : "integer",
@@ -834,7 +722,19 @@
         "notNull" : true,
         "length" : 0,
         "precision" : 10,
-        "generator" : "identity",
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "sessionId",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "session_id",
+        "isPrimaryKey" : false,
+        "notNull" : true,
+        "length" : 0,
+        "precision" : 10,
+        "generator" : "assigned",
         "isRelated" : false,
         "scale" : 0
       }, {
@@ -1105,24 +1005,18 @@
       "entityName" : "Background",
       "fullyQualifiedName" : "com.dotta.medidata.Background",
       "tableType" : "TABLE",
-      "primaryFields" : [ "id" ]
+      "primaryFields" : [ "id", "patientId" ]
     },
     "isDefault" : true,
     "bindCount" : 1,
     "tableName" : "background",
     "tableType" : "TABLE",
-    "properties" : [ "patients", "sessions" ],
+    "properties" : [ "patients" ],
     "relatedTables" : [ {
       "columnName" : "patients",
       "relationName" : "patients",
       "type" : "Patients",
       "watchOn" : "MedidataPatientsData",
-      "package" : "com.dotta.medidata.Background"
-    }, {
-      "columnName" : "sessions",
-      "relationName" : "sessions",
-      "type" : "Sessions",
-      "watchOn" : "MedidataSessionsData",
       "package" : "com.dotta.medidata.Background"
     } ],
     "filterExpressions" : {

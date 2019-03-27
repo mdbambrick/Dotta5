@@ -84,15 +84,6 @@ public interface UsersService {
     Users getByEmail(String email);
 
     /**
-     * Find and return the Users for given username  if exists.
-     *
-     * @param username value of username; value cannot be null.
-     * @return Users associated with the given inputs.
-     * @throws EntityNotFoundException if no matching Users found.
-     */
-    Users getByUsername(String username);
-
-    /**
      * Find and return the Users for given sharingCode  if exists.
      *
      * @param sharingCode value of sharingCode; value cannot be null.
@@ -100,6 +91,15 @@ public interface UsersService {
      * @throws EntityNotFoundException if no matching Users found.
      */
     Users getBySharingCode(int sharingCode);
+
+    /**
+     * Find and return the Users for given username  if exists.
+     *
+     * @param username value of username; value cannot be null.
+     * @return Users associated with the given inputs.
+     * @throws EntityNotFoundException if no matching Users found.
+     */
+    Users getByUsername(String username);
 
     /**
      * Find and return the Users for given id  if exists.

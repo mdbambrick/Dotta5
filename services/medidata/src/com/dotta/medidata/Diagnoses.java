@@ -51,8 +51,8 @@ public class Diagnoses implements Serializable {
     private Integer latestSpecialistId;
     private Integer status;
     private LocalDateTime date;
-    private Patients patients;
     private ProcessStages processStages;
+    private Patients patients;
     private List<ActionsDiagnoses> actionsDiagnoseses;
 
     @Id
@@ -166,21 +166,6 @@ public class Diagnoses implements Serializable {
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`patient_id`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`fk_diagnoses_patients1`"))
-    @Fetch(FetchMode.JOIN)
-    public Patients getPatients() {
-        return this.patients;
-    }
-
-    public void setPatients(Patients patients) {
-        if(patients != null) {
-            this.patientId = patients.getId();
-        }
-
-        this.patients = patients;
-    }
-
-    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "`status`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`fk_diagnoses_process_stages1`"))
     @Fetch(FetchMode.JOIN)
     public ProcessStages getProcessStages() {
@@ -193,6 +178,21 @@ public class Diagnoses implements Serializable {
         }
 
         this.processStages = processStages;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`patient_id`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`fk_diagnoses_patients1`"))
+    @Fetch(FetchMode.JOIN)
+    public Patients getPatients() {
+        return this.patients;
+    }
+
+    public void setPatients(Patients patients) {
+        if(patients != null) {
+            this.patientId = patients.getId();
+        }
+
+        this.patients = patients;
     }
     @JsonInclude(Include.NON_EMPTY)
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "diagnoses")

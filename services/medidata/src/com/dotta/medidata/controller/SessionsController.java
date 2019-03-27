@@ -33,7 +33,6 @@ import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 
-import com.dotta.medidata.Background;
 import com.dotta.medidata.Sessions;
 import com.dotta.medidata.SurveyAndTestData;
 import com.dotta.medidata.service.SessionsService;
@@ -175,15 +174,6 @@ public class SessionsController {
 	public Page<Map<String, Object>> getSessionsAggregatedValues(@RequestBody AggregationInfo aggregationInfo, Pageable pageable) {
         LOGGER.debug("Fetching aggregated results for {}", aggregationInfo);
         return sessionsService.getAggregatedValues(aggregationInfo, pageable);
-    }
-
-    @RequestMapping(value="/{id:.+}/backgrounds", method=RequestMethod.GET)
-    @ApiOperation(value = "Gets the backgrounds instance associated with the given id.")
-    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    public Page<Background> findAssociatedBackgrounds(@PathVariable("id") Integer id, Pageable pageable) {
-
-        LOGGER.debug("Fetching all associated backgrounds");
-        return sessionsService.findAssociatedBackgrounds(id, pageable);
     }
 
     @RequestMapping(value="/{id:.+}/surveyAndTestDatas", method=RequestMethod.GET)

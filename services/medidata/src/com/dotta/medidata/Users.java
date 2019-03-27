@@ -37,8 +37,8 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @Entity
 @Table(name = "`users`", uniqueConstraints = {
             @UniqueConstraint(name = "`email_UNIQUE`", columnNames = {"`email`"}),
-            @UniqueConstraint(name = "`username_UNIQUE`", columnNames = {"`username`"}),
             @UniqueConstraint(name = "`sharing_code_UNIQUE`", columnNames = {"`sharing_code`"}),
+            @UniqueConstraint(name = "`username_UNIQUE`", columnNames = {"`username`"}),
             @UniqueConstraint(name = "`user_id_UNIQUE`", columnNames = {"`id`"})})
 public class Users implements Serializable {
 

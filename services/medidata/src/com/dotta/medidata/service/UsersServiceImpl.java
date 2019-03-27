@@ -114,22 +114,22 @@ public class UsersServiceImpl implements UsersService {
 
     @Transactional(readOnly = true, value = "medidataTransactionManager")
     @Override
-    public Users getByUsername(String username) {
-        Map<String, Object> usernameMap = new HashMap<>();
-        usernameMap.put("username", username);
-
-        LOGGER.debug("Finding Users by unique keys: {}", usernameMap);
-        return this.wmGenericDao.findByUniqueKey(usernameMap);
-    }
-
-    @Transactional(readOnly = true, value = "medidataTransactionManager")
-    @Override
     public Users getBySharingCode(int sharingCode) {
         Map<String, Object> sharingCodeMap = new HashMap<>();
         sharingCodeMap.put("sharingCode", sharingCode);
 
         LOGGER.debug("Finding Users by unique keys: {}", sharingCodeMap);
         return this.wmGenericDao.findByUniqueKey(sharingCodeMap);
+    }
+
+    @Transactional(readOnly = true, value = "medidataTransactionManager")
+    @Override
+    public Users getByUsername(String username) {
+        Map<String, Object> usernameMap = new HashMap<>();
+        usernameMap.put("username", username);
+
+        LOGGER.debug("Finding Users by unique keys: {}", usernameMap);
+        return this.wmGenericDao.findByUniqueKey(usernameMap);
     }
 
     @Transactional(readOnly = true, value = "medidataTransactionManager")
